@@ -1,3 +1,4 @@
+using System;
 using MediatR;
 
 namespace EasyManager.Domain.Core.Events
