@@ -1,0 +1,3 @@
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/obj/Debug/netcoreapp2.0/EasyManager.Domain.Core.csproj.CoreCompileInputs.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/obj/Debug/netcoreapp2.0/EasyManager.Domain.Core.AssemblyInfoInputs.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/obj/Debug/netcoreapp2.0/EasyManager.Domain.Core.AssemblyInfo.cs
