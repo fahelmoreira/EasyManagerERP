@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using EasyManager.Domain.Models;
 using EasyManager.Domain.Types;
+using EasyManager.Domain.Validators;
 using Newtonsoft.Json;
 
 namespace EasyManager.Domain.Commands
@@ -18,12 +19,13 @@ namespace EasyManager.Domain.Commands
             Type = type;
             IndividualTaxpayerId = IndividualTaxpayerId;
             CorporateTaxpayerId = corporateTaxpayerId;
-            Address = JsonConvert.SerializeObject(address);
-            Contacts = JsonConvert.SerializeObject(contacts);;
+            Address = address;
+            Contacts = contacts;
         }
         public override bool IsValid()
         {
-            throw new System.NotImplementedException();
+            ValidationResult = new RegisterNewCustomerCommandValidation().Validate(this);
+            return ValidationResult.IsValid;
         }
     }
 }

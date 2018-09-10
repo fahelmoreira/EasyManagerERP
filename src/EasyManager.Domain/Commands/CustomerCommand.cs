@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using EasyManager.Domain.Core.Commands;
+using EasyManager.Domain.Models;
 using EasyManager.Domain.Types;
 
 namespace EasyManager.Domain.Commands
@@ -9,7 +11,7 @@ namespace EasyManager.Domain.Commands
         public ClientType Type { get; protected set; }
         public string IndividualTaxpayerId { get; protected set; }
         public string CorporateTaxpayerId { get; protected set; }
-        public string Address { get; protected set; }
-        public string Contacts { get; protected set; }
+        public Address Address { get; protected set; }
+        public List<Contact> Contacts { get; protected set; }
     }
 }
