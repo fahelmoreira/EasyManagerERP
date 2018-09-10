@@ -11,7 +11,9 @@ using MediatR;
 namespace EasyManager.Domain.CommandHandlers
 {
     public class CustomerCommandHandler : CommandHandler,
-        IRequestHandler<RegisterNewCustomerCommand>
+        IRequestHandler<RegisterNewCustomerCommand>,
+        IRequestHandler<UpdateCustomerCommand>,
+        IRequestHandler<RemoveCustomerCommand>
     {
         private readonly ICustomerRepository _customerRepository;
 
@@ -31,13 +33,12 @@ namespace EasyManager.Domain.CommandHandlers
         /// </summary>
         /// <param name="command">Command to be executed</param>
         /// <param name="cancellationToken"></param>
-        /// <returns></returns>
-        public async Task Handle(RegisterNewCustomerCommand command, CancellationToken cancellationToken)
+        async Task<Unit> IRequestHandler<RegisterNewCustomerCommand, Unit>.Handle(RegisterNewCustomerCommand command, CancellationToken cancellationToken)
         {
             if (!command.IsValid())
             {
                 NotifyValidationErrors(command);
-                return;
+                return Unit.Value;
             }
 
             var customer = new Customer { TradeName = command.TradeName };
@@ -52,7 +53,8 @@ namespace EasyManager.Domain.CommandHandlers
                                                                  command.CorporateTaxpayerId,
                                                                  command.Address,
                                                                  command.Contacts));
-        
+
+            return Unit.Value;
         }
 
         /// <summary>
@@ -60,19 +62,20 @@ namespace EasyManager.Domain.CommandHandlers
         /// </summary>
         /// <param name="command">Command to be executed</param>
         /// <param name="cancellationToken"></param>
-        /// <returns></returns>
-        public async Task Handle(RemoveCustomerCommand command, CancellationToken cancellationToken)
+        async Task<Unit> IRequestHandler<RemoveCustomerCommand, Unit>.Handle(RemoveCustomerCommand command, CancellationToken cancellationToken)
         {
             if(!command.IsValid())
             {
                 NotifyValidationErrors(command);
-                return;
+                return new Unit();
             }
 
             _customerRepository.Remove(command.Id);
 
             if(await CommitAsync())
                 await _bus.RaiseEvent(new CustomerRemovedEvent(command.Id));
+            
+            return new Unit();
         }
 
         /// <summary>
@@ -80,13 +83,12 @@ namespace EasyManager.Domain.CommandHandlers
         /// </summary>
         /// <param name="command">Command to be executed</param>
         /// <param name="cancellationToken"></param>
-        /// <returns></returns>
-        public async Task Handle(UpdateCustomerCommand command, CancellationToken cancellationToken)
+        async Task<Unit> IRequestHandler<UpdateCustomerCommand, Unit>.Handle(UpdateCustomerCommand command, CancellationToken cancellationToken)
         {
             if(!command.IsValid())
             {
                 NotifyValidationErrors(command);
-                return;
+                return new Unit();
             }
             var customer = new Customer{ Id = command.Id, TradeName = command.TradeName };
             _customerRepository.Update(customer);
@@ -99,6 +101,8 @@ namespace EasyManager.Domain.CommandHandlers
                                                               command.CorporateTaxpayerId,
                                                               command.Address,
                                                               command.Contacts));
+            
+            return new Unit();
         }
     }
 }

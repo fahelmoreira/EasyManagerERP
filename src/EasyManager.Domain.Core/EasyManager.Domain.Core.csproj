@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>EasyManager.Domain.Core</AssemblyName>
     <PackageId>EasyManager.Domain.Core</PackageId>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
@@ -11,9 +11,9 @@
   </PropertyGroup>
 
     <ItemGroup>
-    <PackageReference Include="mediatr" Version="4.1.0" />
+    <PackageReference Include="mediatr" Version="5.1.0" />
     <PackageReference Include="System.ComponentModel" Version="4.3.0" />
-    <PackageReference Include="FluentValidation" Version="7.5.2" />
+    <PackageReference Include="FluentValidation" Version="8.0.100" />
   </ItemGroup>
 
 </Project>

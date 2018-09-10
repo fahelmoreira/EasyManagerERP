@@ -1,0 +1,14 @@
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.deps.json
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.Domain.Core.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.Domain.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.Domain.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.Domain.Core.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.csproj.CoreCompileInputs.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.AssemblyInfoInputs.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.AssemblyInfo.cs
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.csprojAssemblyReference.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.csproj.CopyComplete
