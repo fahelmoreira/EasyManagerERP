@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using EasyManager.Domain.Core.Model;
+using EasyManager.Domain.Types;
 
 namespace EasyManager.Domain.Models
 {
@@ -27,12 +28,10 @@ namespace EasyManager.Domain.Models
         /// </summary>
         /// <value></value>
         public string Address { get; set; }
-        public IEnumerable<string> Contacts { get; set; }
-        
-        // Empty constructor for EF
-        protected Customer() 
-        {
-            Id = new Guid();
-        }
+        /// <summary>
+        /// Customer's Contact
+        /// </summary>
+        /// <value></value>
+        public string Contacts { get; set; }
     }
 }

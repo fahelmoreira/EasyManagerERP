@@ -9,6 +9,11 @@ namespace EasyManager.Domain.Core.Model
     {
         public Guid Id { get; protected set; }
 
+        protected Entity()
+        {
+            Id = new Guid();
+        }
+
         public override bool Equals(object obj)
         {
             var compareTo = obj as Entity;

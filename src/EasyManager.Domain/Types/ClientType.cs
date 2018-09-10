@@ -1,4 +1,4 @@
-namespace EasyManager.Domain.Models
+namespace EasyManager.Domain.Types
 {
     /// <summary>
     /// The type of the client

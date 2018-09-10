@@ -1,15 +1,14 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using EasyManager.Domain.Core.Model;
 
 namespace EasyManager.Domain.Models
 {
     /// <summary>
     /// Model for the address information
     /// </summary>
-    [Table("Addresses")]
-    public class Address
+    public class Address : Entity
     {
-        public Guid Id{ get; private set; }
         /// <summary>
         /// The address
         /// </summary>
@@ -38,10 +37,5 @@ namespace EasyManager.Domain.Models
         /// The constry
         /// </summary>
         public string Country { get; set; }
-
-        public Address()
-        {
-            Id = new Guid();
-        }
     }
 }
