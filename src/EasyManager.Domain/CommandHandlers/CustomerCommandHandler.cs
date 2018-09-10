@@ -45,7 +45,7 @@ namespace EasyManager.Domain.CommandHandlers
             _customerRepository.Add(customer);
 
             if (await CommitAsync())
-                await _bus.RiseEvent(new CustomerRegisteredEvent(customer.Id,
+                await _bus.RaiseEvent(new CustomerRegisteredEvent(customer.Id,
                                                                  command.TradeName, 
                                                                  command.Type, 
                                                                  command.IndividualTaxpayerId, 
@@ -72,7 +72,7 @@ namespace EasyManager.Domain.CommandHandlers
             _customerRepository.Remove(command.Id);
 
             if(await CommitAsync())
-                await _bus.RiseEvent(new CustomerRemovedEvent(command.Id));
+                await _bus.RaiseEvent(new CustomerRemovedEvent(command.Id));
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace EasyManager.Domain.CommandHandlers
             _customerRepository.Update(customer);
 
             if(await CommitAsync())
-                await _bus.RiseEvent(new CustomerUpdatedEvent(customer.Id,
+                await _bus.RaiseEvent(new CustomerUpdatedEvent(customer.Id,
                                                               command.TradeName, 
                                                               command.Type, 
                                                               command.IndividualTaxpayerId, 

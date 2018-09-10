@@ -37,7 +37,7 @@ namespace EasyManager.Domain.CommandHandlers
         {
             foreach (var erro in message.ValidationResult.Errors)
             {
-                await _bus.RiseEvent(new DomainNotification(message.MessageType, erro.ErrorMessage));
+                await _bus.RaiseEvent(new DomainNotification(message.MessageType, erro.ErrorMessage));
             }
         }
 
@@ -50,7 +50,7 @@ namespace EasyManager.Domain.CommandHandlers
         {
             foreach (var erro in message.ValidationResult.Errors)
             {
-                 _bus.RiseEvent(new DomainNotification(message.MessageType, erro.ErrorMessage));
+                 _bus.RaiseEvent(new DomainNotification(message.MessageType, erro.ErrorMessage));
             }
         }
         
@@ -65,7 +65,7 @@ namespace EasyManager.Domain.CommandHandlers
             if(await _uow.CommitAsync())
                 return true;
 
-            await _bus.RiseEvent(new DomainNotification("Commit", "We had a problem during saving your data."));
+            await _bus.RaiseEvent(new DomainNotification("Commit", "We had a problem during saving your data."));
             return false;
         }
 
@@ -80,7 +80,7 @@ namespace EasyManager.Domain.CommandHandlers
             if(_uow.Commit())
                 return true;
 
-            _bus.RiseEvent(new DomainNotification("Commit", "We had a problem during saving your data."));
+            _bus.RaiseEvent(new DomainNotification("Commit", "We had a problem during saving your data."));
             return false;
         }
     }

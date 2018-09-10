@@ -1,3 +1,9 @@
+using System.Threading.Tasks;
+using EasyManager.Domain.Core.Bus;
+using EasyManager.Domain.Core.Commands;
+using EasyManager.Domain.Core.Events;
+using MediatR;
+
 namespace EasyManager.Infra.CrossCutting.Bus
 {
     public sealed class InMemoryBus : IMediatorHandler

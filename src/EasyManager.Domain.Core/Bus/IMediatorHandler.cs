@@ -19,6 +19,6 @@ namespace EasyManager.Domain.Core.Bus
         /// Rase an event
         /// </summary>
         /// <param name="@event">Event to be rise</param>
-        Task RiseEvent<T>(T @event) where T : Event;
+        Task RaiseEvent<T>(T @event) where T : Event;
     }
 }

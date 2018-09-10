@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Security.Claims;
+
 namespace EasyManager.Domain.Interfaces
 {
     public interface IUser
