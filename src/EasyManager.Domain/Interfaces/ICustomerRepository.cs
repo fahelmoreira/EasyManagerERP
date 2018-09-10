@@ -2,7 +2,7 @@ using EasyManager.Domain.Models;
 
 namespace EasyManager.Domain.Interfaces
 {
-    public interface ICustomerRepository : IRepository<ICustomerRepository>
+    public interface ICustomerRepository : IRepository<Customer>
     {
         /// <summary>
         /// Gets the customer by it's email
