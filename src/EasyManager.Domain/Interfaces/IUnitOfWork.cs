@@ -6,8 +6,13 @@ namespace EasyManager.Domain.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         /// <summary>
+        /// Commits all the changes asynchronous
+        /// </summary>
+        Task<bool> CommitAsync();
+        /// <summary>
         /// Commits all the changes
         /// </summary>
-        Task<bool> Commit();
+        /// <returns></returns>
+        bool Commit();
     }
 }
