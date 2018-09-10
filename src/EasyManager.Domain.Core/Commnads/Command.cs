@@ -11,7 +11,7 @@ namespace EasyManager.Domain.Core.Commands
 
         protected Command()
         {
-            Timestamp = DateTime.Now;
+            Timestamp = DateTime.UtcNow;
         }
 
         public abstract bool IsValid();

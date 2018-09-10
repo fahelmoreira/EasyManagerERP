@@ -9,7 +9,7 @@ namespace EasyManager.Domain.Core.Events
 
         protected Event()
         {
-            Timestamp = DateTime.Now;
+            Timestamp = DateTime.UtcNow;
         }
     }
 }
