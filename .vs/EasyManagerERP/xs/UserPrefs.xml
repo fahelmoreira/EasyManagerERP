@@ -1,20 +1,11 @@
 ﻿<Properties StartupConfiguration="{15B0D54C-A744-4593-9AAC-0F58A84CDE15}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/EasyManager.WebAPI/Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/EasyManager.Infra.Data/UoW/UnitOfWork.cs">
     <Files>
       <File FileName="src/EasyManager.WebAPI/Startup.cs" Line="28" Column="24" />
-      <File FileName="src/EasyManager.Infra.CrossCutting.IoC/EasyManager.Infra.CrossCutting.IoC.csproj" Line="21" Column="101" />
+      <File FileName="src/EasyManager.Infra.CrossCutting.IoC/EasyManager.Infra.CrossCutting.IoC.csproj" Line="1" Column="1" />
+      <File FileName="src/EasyManager.Infra.CrossCutting.IoC/NativeInjectorBootStrapper.cs" Line="1" Column="1" />
+      <File FileName="src/EasyManager.Infra.Data/UoW/UnitOfWork.cs" Line="3" Column="37" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="EasyManagerERP" expanded="True">
-            <Node name="EasyManager.WebAPI" expanded="True">
-              <Node name="Startup.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

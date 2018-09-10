@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyManager.Domain.Core", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyManager.Infra.CrossCutting.IoC", "src\EasyManager.Infra.CrossCutting.IoC\EasyManager.Infra.CrossCutting.IoC.csproj", "{3A34ED94-6740-493F-A2FD-351E3CC0BBF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyManager.Infra.Data", "src\EasyManager.Infra.Data\EasyManager.Infra.Data.csproj", "{198C2D75-9524-4462-A7C7-26BB40C07358}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,5 +88,17 @@ Global
 		{3A34ED94-6740-493F-A2FD-351E3CC0BBF7}.Release|x64.Build.0 = Release|Any CPU
 		{3A34ED94-6740-493F-A2FD-351E3CC0BBF7}.Release|x86.ActiveCfg = Release|Any CPU
 		{3A34ED94-6740-493F-A2FD-351E3CC0BBF7}.Release|x86.Build.0 = Release|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Debug|x64.Build.0 = Debug|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Debug|x86.Build.0 = Debug|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Release|x64.ActiveCfg = Release|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Release|x64.Build.0 = Release|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Release|x86.ActiveCfg = Release|Any CPU
+		{198C2D75-9524-4462-A7C7-26BB40C07358}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

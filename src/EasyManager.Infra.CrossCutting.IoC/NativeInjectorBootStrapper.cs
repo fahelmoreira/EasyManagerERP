@@ -1,5 +1,4 @@
-﻿
-using EasyManager.Domain.CommandHandlers;
+﻿using EasyManager.Domain.CommandHandlers;
 using EasyManager.Domain.Commands;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Events;
