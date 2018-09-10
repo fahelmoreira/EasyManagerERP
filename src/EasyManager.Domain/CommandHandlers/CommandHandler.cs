@@ -14,7 +14,7 @@ namespace EasyManager.Domain.CommandHandlers
     {
         #region Private fields
         private readonly IUnitOfWork _uow;
-        private readonly IMediatorHandler _bus;
+        protected readonly IMediatorHandler _bus;
         private readonly DomainNotificationHandler _notifications;
         #endregion
 
@@ -29,7 +29,7 @@ namespace EasyManager.Domain.CommandHandlers
         }
 
         /// <summary>
-        /// Notifies the domain when a error occur
+        /// Notifies the domain when a error occur asynchronously
         /// </summary>
         /// <param name="message">Command to sent</param>
         /// <returns></returns>
@@ -40,6 +40,20 @@ namespace EasyManager.Domain.CommandHandlers
                 await _bus.RiseEvent(new DomainNotification(message.MessageType, erro.ErrorMessage));
             }
         }
+
+        /// <summary>
+        /// Notifies the domain when a error occur
+        /// </summary>
+        /// <param name="message">Command to sent</param>
+        /// <returns></returns>
+        protected void NotifyValidationErrors(Command message)
+        {
+            foreach (var erro in message.ValidationResult.Errors)
+            {
+                 _bus.RiseEvent(new DomainNotification(message.MessageType, erro.ErrorMessage));
+            }
+        }
+        
         /// <summary>
         /// Commits all changes asynchronously
         /// </summary>
