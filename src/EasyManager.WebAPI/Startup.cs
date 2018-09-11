@@ -33,6 +33,8 @@ namespace EasyManager.WebAPI
                 options.UseCentralRoutePrefix(new RouteAttribute("api/v{version}"));
             });
 
+            services.AddAutoMapperSetup();
+
             services.AddEasyManager();
             services.AddMvc();
         }

@@ -251,7 +251,7 @@
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "assemblyVersion": "4.0.4.0",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "4.0.0.0"
           }
         }
       },
@@ -330,7 +330,7 @@
           "MediatR": "5.1.0"
         },
         "runtime": {
-          "EasyManager.Infra.CrossCutting.IoC.dll": {}
+          "EasyManager.Infra.CrossCutting.Bus.dll": {}
         }
       }
     }

@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EasyManager.Domain\EasyManager.Domain.csproj" />
+    <ProjectReference Include="..\EasyManager.Application\EasyManager.Application.csproj" />
     <ProjectReference Include="..\EasyManager.Infra.CrossCutting.Bus\EasyManager.Infra.CrossCutting.Bus.csproj" />
     <ProjectReference Include="..\EasyManager.Infra.CrossCutting.IoC\EasyManager.Infra.CrossCutting.IoC.csproj" />
   </ItemGroup>

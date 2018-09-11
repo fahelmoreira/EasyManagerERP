@@ -6,13 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "EasyManager.Infra.CrossCutting.IoC/1.0.0": {
+      "EasyManager.Infra.CrossCutting.Bus/1.0.0": {
         "dependencies": {
           "EasyManager.Domain.Core": "1.0.0",
           "MediatR": "5.1.0"
         },
         "runtime": {
-          "EasyManager.Infra.CrossCutting.IoC.dll": {}
+          "EasyManager.Infra.CrossCutting.Bus.dll": {}
         }
       },
       "FluentValidation/8.0.100": {
@@ -146,7 +146,7 @@
     }
   },
   "libraries": {
-    "EasyManager.Infra.CrossCutting.IoC/1.0.0": {
+    "EasyManager.Infra.CrossCutting.Bus/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
