@@ -11,6 +11,7 @@ namespace EasyManager.Domain.Interfaces
         IQueryable<TEntity> GetAll();
         void Update(TEntity obj);
         void Remove(Guid id);
-        Task<int> SaveChanges();
+        int SaveChanges();
+        Task<int> SaveChangesAsync();
     }
 }

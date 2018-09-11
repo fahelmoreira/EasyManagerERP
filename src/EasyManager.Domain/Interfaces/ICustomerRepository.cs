@@ -4,11 +4,6 @@ namespace EasyManager.Domain.Interfaces
 {
     public interface ICustomerRepository : IRepository<Customer>
     {
-        /// <summary>
-        /// Gets the customer by it's email
-        /// </summary>
-        /// <param name="email">Customer's email</param>
-         Customer GetByEmail(string email);
          /// <summary>
          /// Gets the customer by it's trade name
          /// </summary>

@@ -1,23 +1,31 @@
 using System.Threading.Tasks;
 using EasyManager.Domain.Interfaces;
+using EasyManager.Infra.Data.Context;
 
 namespace EasyManager.Infra.Data.UoW
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public bool Commit()
+        private readonly EasyManagerContext _context;
+
+        public UnitOfWork(EasyManagerContext context)
         {
-            throw new System.NotImplementedException();
+            _context = context;
         }
 
-        public Task<bool> CommitAsync()
+        public bool Commit()
         {
-            throw new System.NotImplementedException();
+            return _context.SaveChanges() > 0;
+        }
+
+        public async Task<bool> CommitAsync()
+        {
+            return (await _context.SaveChangesAsync()) > 0;
         }
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            _context.Dispose();
         }
     }
 }
