@@ -2175,13 +2175,13 @@
       "projectName": "EasyManager.Domain.Core",
       "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/EasyManager.Domain.Core.csproj",
       "packagesPath": "/Users/rafaelmoreira/.nuget/packages/",
-      "outputPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/obj",
+      "outputPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/rafaelmoreira/.config/NuGet/NuGet.Config"
+        "/Users/rafaelmoreira/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -2203,23 +2203,23 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "FluentValidation": {
+            "target": "Package",
+            "version": "[8.0.100, )"
+          },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1",
+            "version": "[2.1.0, )",
             "autoReferenced": true
-          },
-          "mediatr": {
-            "target": "Package",
-            "version": "5.1.0"
           },
           "System.ComponentModel": {
             "target": "Package",
-            "version": "4.3.0"
+            "version": "[4.3.0, )"
           },
-          "FluentValidation": {
+          "mediatr": {
             "target": "Package",
-            "version": "8.0.100"
+            "version": "[5.1.0, )"
           }
         },
         "imports": [
