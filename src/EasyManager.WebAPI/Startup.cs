@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyManager.Infra.CrossCutting.IoC;
+using EasyManager.WebAPI.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -29,7 +32,7 @@ namespace EasyManager.WebAPI
                 options.OutputFormatters.Remove(new XmlDataContractSerializerOutputFormatter());
                 options.UseCentralRoutePrefix(new RouteAttribute("api/v{version}"));
             });
-            
+
             services.AddEasyManager();
             services.AddMvc();
         }
