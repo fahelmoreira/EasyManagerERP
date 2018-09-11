@@ -20,10 +20,7 @@ namespace EasyManager.Infra.Data.Repository.EventSourcing
         }
         public IList<StoredEvent> All(Guid aggregateId) => _context.StoredEvent.AsNoTracking().Where(x => x.Id == aggregateId).ToList();
 
-        public void Dispose()
-        {
-            _context.Dispose();
-        }
+        public void Dispose() => _context.Dispose();
 
     }
 }
