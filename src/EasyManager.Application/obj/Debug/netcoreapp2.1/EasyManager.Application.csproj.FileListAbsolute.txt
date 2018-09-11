@@ -1,0 +1,16 @@
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/bin/Debug/netcoreapp2.1/EasyManager.Application.deps.json
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/bin/Debug/netcoreapp2.1/EasyManager.Application.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/bin/Debug/netcoreapp2.1/EasyManager.Application.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/bin/Debug/netcoreapp2.1/EasyManager.Domain.Core.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/bin/Debug/netcoreapp2.1/EasyManager.Domain.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/bin/Debug/netcoreapp2.1/EasyManager.Infra.Data.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/bin/Debug/netcoreapp2.1/EasyManager.Domain.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/bin/Debug/netcoreapp2.1/EasyManager.Infra.Data.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/bin/Debug/netcoreapp2.1/EasyManager.Domain.Core.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/obj/Debug/netcoreapp2.1/EasyManager.Application.csprojAssemblyReference.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/obj/Debug/netcoreapp2.1/EasyManager.Application.csproj.CoreCompileInputs.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/obj/Debug/netcoreapp2.1/EasyManager.Application.AssemblyInfoInputs.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/obj/Debug/netcoreapp2.1/EasyManager.Application.AssemblyInfo.cs
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/obj/Debug/netcoreapp2.1/EasyManager.Application.csproj.CopyComplete
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/obj/Debug/netcoreapp2.1/EasyManager.Application.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/obj/Debug/netcoreapp2.1/EasyManager.Application.pdb

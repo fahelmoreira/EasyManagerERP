@@ -7,6 +7,10 @@ using EasyManager.Domain.EventHandlers;
 using EasyManager.Domain.Events;
 using EasyManager.Domain.Interfaces;
 using EasyManager.Infra.CrossCutting.Bus;
+using EasyManager.Infra.Data.Context;
+using EasyManager.Infra.Data.Repository;
+using EasyManager.Infra.Data.Repository.EventSourcing;
+using EasyManager.Infra.Data.UoW;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,6 +37,16 @@ namespace EasyManager.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<RegisterNewCustomerCommand>, CustomerCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateCustomerCommand>, CustomerCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveCustomerCommand>, CustomerCommandHandler>();
+
+            // Infra - Data
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<EasyManagerContext>();
+
+            // Infra - Data EventSourcing
+            services.AddScoped<IEventStoreRepository, EventStoreSQLRepository>();
+            services.AddScoped<IEventStore, SqlEventStore>();
+            services.AddScoped<EventStoreSQLContext>();
 
         }
     }

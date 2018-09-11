@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EasyManager.Infra.CrossCutting.IoC;
 using EasyManager.WebAPI.Configurations;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -35,7 +36,10 @@ namespace EasyManager.WebAPI
 
             services.AddAutoMapperSetup();
 
+            services.AddMediatR(typeof(Startup));
+
             services.AddEasyManager();
+            
             services.AddMvc();
         }
 

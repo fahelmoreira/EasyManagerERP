@@ -4543,9 +4543,11 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "EasyManager.Application": "1.0.0",
           "EasyManager.Domain": "1.0.0",
           "EasyManager.Domain.Core": "1.0.0",
           "EasyManager.Infra.CrossCutting.Bus": "1.0.0",
+          "EasyManager.Infra.Data": "1.0.0",
           "Microsoft.AspNetCore.Authorization": "2.1.2",
           "Microsoft.AspNetCore.Http": "2.1.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.1"
