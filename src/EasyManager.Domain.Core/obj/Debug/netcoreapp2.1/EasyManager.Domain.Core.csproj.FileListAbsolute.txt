@@ -6,4 +6,4 @@
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/obj/Debug/netcoreapp2.1/EasyManager.Domain.Core.AssemblyInfo.cs
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/obj/Debug/netcoreapp2.1/EasyManager.Domain.Core.dll
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/obj/Debug/netcoreapp2.1/EasyManager.Domain.Core.pdb
-/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/obj/Debug/netcoreapp2.1/EasyManager.Domain.Core.csprojAssemblyReference.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/obj/Debug/netcoreapp2.1/EasyManager.Domain.Core.csprojResolveAssemblyReference.cache

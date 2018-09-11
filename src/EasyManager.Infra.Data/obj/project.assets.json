@@ -4277,13 +4277,13 @@
       "projectName": "EasyManager.Infra.Data",
       "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.Data/EasyManager.Infra.Data.csproj",
       "packagesPath": "/Users/rafaelmoreira/.nuget/packages/",
-      "outputPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.Data/obj/",
+      "outputPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.Data/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/rafaelmoreira/.nuget/NuGet/NuGet.Config"
+        "/Users/rafaelmoreira/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -4309,39 +4309,39 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": {
-            "target": "Package",
-            "version": "[2.1.2, )"
-          },
-          "Microsoft.EntityFrameworkCore.Design": {
-            "target": "Package",
-            "version": "[2.1.2, )"
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
-            "target": "Package",
-            "version": "[2.1.2, )"
-          },
-          "Microsoft.Extensions.Configuration": {
-            "target": "Package",
-            "version": "[2.1.1, )"
-          },
-          "Microsoft.Extensions.Configuration.FileExtensions": {
-            "target": "Package",
-            "version": "[2.1.1, )"
-          },
-          "Microsoft.Extensions.Configuration.Json": {
-            "target": "Package",
-            "version": "[2.1.1, )"
-          },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.1.0, )",
+            "version": "2.1",
             "autoReferenced": true
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "2.1.2"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "target": "Package",
+            "version": "2.1.2"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "2.1.2"
+          },
+          "Microsoft.Extensions.Configuration": {
+            "target": "Package",
+            "version": "2.1.1"
+          },
+          "Microsoft.Extensions.Configuration.FileExtensions": {
+            "target": "Package",
+            "version": "2.1.1"
+          },
+          "Microsoft.Extensions.Configuration.Json": {
+            "target": "Package",
+            "version": "2.1.1"
           },
           "System.Reflection.TypeExtensions": {
             "target": "Package",
-            "version": "[4.5.1, )"
+            "version": "4.5.1"
           }
         },
         "imports": [

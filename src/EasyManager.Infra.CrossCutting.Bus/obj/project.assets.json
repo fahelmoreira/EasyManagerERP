@@ -2194,13 +2194,13 @@
       "projectName": "EasyManager.Infra.CrossCutting.Bus",
       "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.Bus/EasyManager.Infra.CrossCutting.Bus.csproj",
       "packagesPath": "/Users/rafaelmoreira/.nuget/packages/",
-      "outputPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.Bus/obj",
+      "outputPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.Bus/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/rafaelmoreira/.config/NuGet/NuGet.Config"
+        "/Users/rafaelmoreira/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -2229,12 +2229,12 @@
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1",
+            "version": "[2.1.0, )",
             "autoReferenced": true
           },
           "mediatr": {
             "target": "Package",
-            "version": "5.1.0"
+            "version": "[5.1.0, )"
           }
         },
         "imports": [

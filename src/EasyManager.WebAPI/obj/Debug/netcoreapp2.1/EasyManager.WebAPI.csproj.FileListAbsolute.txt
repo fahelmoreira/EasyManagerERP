@@ -19,3 +19,4 @@
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/Debug/netcoreapp2.1/EasyManager.WebApi.pdb
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/Debug/netcoreapp2.1/EasyManager.WebAPI.csprojAssemblyReference.cache
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/Debug/netcoreapp2.1/EasyManager.WebAPI.csproj.CopyComplete
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/Debug/netcoreapp2.1/EasyManager.WebAPI.csprojResolveAssemblyReference.cache

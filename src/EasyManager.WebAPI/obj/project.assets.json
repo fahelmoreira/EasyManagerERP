@@ -27,6 +27,21 @@
           "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "FluentValidation/8.0.100": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.Concurrent": "4.3.0",
+          "System.ComponentModel.Annotations": "4.4.1",
+          "System.ComponentModel.Primitives": "4.3.0",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/FluentValidation.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FluentValidation.dll": {}
+        }
+      },
       "MediatR/5.1.0": {
         "type": "package",
         "compile": {
@@ -423,7 +438,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.WsFederation.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Authorization/2.1.1": {
+      "Microsoft.AspNetCore.Authorization/2.1.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
@@ -3072,6 +3087,18 @@
           "lib/netstandard1.3/System.Collections.Specialized.dll": {}
         }
       },
+      "System.ComponentModel/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.0/System.ComponentModel.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.ComponentModel.dll": {}
+        }
+      },
       "System.ComponentModel.Annotations/4.5.0": {
         "type": "package",
         "compile": {
@@ -3079,6 +3106,20 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
+        }
+      },
+      "System.ComponentModel.Primitives/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.ComponentModel": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.0/System.ComponentModel.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/System.ComponentModel.Primitives.dll": {}
         }
       },
       "System.Console/4.3.0": {
@@ -4437,6 +4478,71 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "EasyManager.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "EasyManager.Domain.Core": "1.0.0",
+          "FluentValidation": "8.0.100",
+          "Newtonsoft.Json": "11.0.2",
+          "System.ComponentModel": "4.3.0",
+          "System.ComponentModel.Annotations": "4.5.0",
+          "System.Security.Claims": "4.3.0"
+        },
+        "compile": {
+          "bin/placeholder/EasyManager.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EasyManager.Domain.dll": {}
+        }
+      },
+      "EasyManager.Domain.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "FluentValidation": "8.0.100",
+          "System.ComponentModel": "4.3.0",
+          "mediatr": "5.1.0"
+        },
+        "compile": {
+          "bin/placeholder/EasyManager.Domain.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EasyManager.Domain.Core.dll": {}
+        }
+      },
+      "EasyManager.Infra.CrossCutting.Bus/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "EasyManager.Domain.Core": "1.0.0",
+          "mediatr": "5.1.0"
+        },
+        "compile": {
+          "bin/placeholder/EasyManager.Infra.CrossCutting.Bus.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EasyManager.Infra.CrossCutting.Bus.dll": {}
+        }
+      },
+      "EasyManager.Infra.CrossCutting.IoC/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "EasyManager.Domain": "1.0.0",
+          "EasyManager.Domain.Core": "1.0.0",
+          "EasyManager.Infra.CrossCutting.Bus": "1.0.0",
+          "Microsoft.AspNetCore.Authorization": "2.1.2",
+          "Microsoft.AspNetCore.Http": "2.1.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.1"
+        },
+        "compile": {
+          "bin/placeholder/EasyManager.Infra.CrossCutting.IoC.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EasyManager.Infra.CrossCutting.IoC.dll": {}
+        }
       }
     }
   },
@@ -4471,6 +4577,24 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll",
         "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.pdb"
+      ]
+    },
+    "FluentValidation/8.0.100": {
+      "sha512": "kGyYfxWWsLawTXnPrZ6l82Mqe7n3gHoFDqPalrCzpsqzDP6Jthx8gnMvSrcsaDeeEpR6i6SRsWdX4NxQtIKd+Q==",
+      "type": "package",
+      "path": "fluentvalidation/8.0.100",
+      "files": [
+        ".signature.p7s",
+        "fluentvalidation.8.0.100.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net45/FluentValidation.dll",
+        "lib/net45/FluentValidation.xml",
+        "lib/netstandard1.1/FluentValidation.dll",
+        "lib/netstandard1.1/FluentValidation.xml",
+        "lib/netstandard1.6/FluentValidation.dll",
+        "lib/netstandard1.6/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml"
       ]
     },
     "MediatR/5.1.0": {
@@ -4692,15 +4816,15 @@
         "microsoft.aspnetcore.authentication.wsfederation.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authorization/2.1.1": {
-      "sha512": "z/5haIkI/G2NcCMO288l6l7Jy3BDqzZjHLb2VxjCfj4NKRVv6KlsDD7nGIyAtAbDVKnbOsGBXF6xwhyo4aFGBw==",
+    "Microsoft.AspNetCore.Authorization/2.1.2": {
+      "sha512": "9ZZhd/y1upxWPoFm+BCSUPDvS7IJS3ZXnKwLEGEZKGlRWxE7h2bFlHxlj4yE/vjf1S4hxV3qZLL0pkxck/WfWw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authorization/2.1.1",
+      "path": "microsoft.aspnetcore.authorization/2.1.2",
       "files": [
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
-        "microsoft.aspnetcore.authorization.2.1.1.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.2.1.2.nupkg.sha512",
         "microsoft.aspnetcore.authorization.nuspec"
       ]
     },
@@ -7718,6 +7842,63 @@
         "system.collections.specialized.nuspec"
       ]
     },
+    "System.ComponentModel/4.3.0": {
+      "sha512": "3lTzgaLxt4iZkPVSNJBP04Haz7MssK+H6V/O+6D2uXsXUQZ7xiFbUYLQqvU8mNJS1Kg7RI5cuBqpzWWVBHcsJA==",
+      "type": "package",
+      "path": "system.componentmodel/4.3.0",
+      "files": [
+        "System.ComponentModel.4.3.0.nupkg.sha512",
+        "System.ComponentModel.nuspec",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.ComponentModel.dll",
+        "lib/netstandard1.3/System.ComponentModel.dll",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/System.ComponentModel.dll",
+        "ref/netcore50/System.ComponentModel.xml",
+        "ref/netcore50/de/System.ComponentModel.xml",
+        "ref/netcore50/es/System.ComponentModel.xml",
+        "ref/netcore50/fr/System.ComponentModel.xml",
+        "ref/netcore50/it/System.ComponentModel.xml",
+        "ref/netcore50/ja/System.ComponentModel.xml",
+        "ref/netcore50/ko/System.ComponentModel.xml",
+        "ref/netcore50/ru/System.ComponentModel.xml",
+        "ref/netcore50/zh-hans/System.ComponentModel.xml",
+        "ref/netcore50/zh-hant/System.ComponentModel.xml",
+        "ref/netstandard1.0/System.ComponentModel.dll",
+        "ref/netstandard1.0/System.ComponentModel.xml",
+        "ref/netstandard1.0/de/System.ComponentModel.xml",
+        "ref/netstandard1.0/es/System.ComponentModel.xml",
+        "ref/netstandard1.0/fr/System.ComponentModel.xml",
+        "ref/netstandard1.0/it/System.ComponentModel.xml",
+        "ref/netstandard1.0/ja/System.ComponentModel.xml",
+        "ref/netstandard1.0/ko/System.ComponentModel.xml",
+        "ref/netstandard1.0/ru/System.ComponentModel.xml",
+        "ref/netstandard1.0/zh-hans/System.ComponentModel.xml",
+        "ref/netstandard1.0/zh-hant/System.ComponentModel.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._"
+      ]
+    },
     "System.ComponentModel.Annotations/4.5.0": {
       "sha512": "IjDa643EO77A4CL9dhxfZ6zzGu+pM8Ar0NYPRMN3TvDiga4uGDzFHOj/ArpyNxxKyO5IFT2LZ0rK3kUog7g3jA==",
       "type": "package",
@@ -7804,6 +7985,43 @@
         "system.componentmodel.annotations.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "System.ComponentModel.Primitives/4.3.0": {
+      "sha512": "j8GUkCpM8V4d4vhLIIoBLGey2Z5bCkMVNjEZseyAlm4n5arcsJOeI3zkUP+zvZgzsbLTYh4lYeP/ZD/gdIAPrw==",
+      "type": "package",
+      "path": "system.componentmodel.primitives/4.3.0",
+      "files": [
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/System.ComponentModel.Primitives.dll",
+        "lib/netstandard1.0/System.ComponentModel.Primitives.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/System.ComponentModel.Primitives.dll",
+        "ref/netstandard1.0/System.ComponentModel.Primitives.dll",
+        "ref/netstandard1.0/System.ComponentModel.Primitives.xml",
+        "ref/netstandard1.0/de/System.ComponentModel.Primitives.xml",
+        "ref/netstandard1.0/es/System.ComponentModel.Primitives.xml",
+        "ref/netstandard1.0/fr/System.ComponentModel.Primitives.xml",
+        "ref/netstandard1.0/it/System.ComponentModel.Primitives.xml",
+        "ref/netstandard1.0/ja/System.ComponentModel.Primitives.xml",
+        "ref/netstandard1.0/ko/System.ComponentModel.Primitives.xml",
+        "ref/netstandard1.0/ru/System.ComponentModel.Primitives.xml",
+        "ref/netstandard1.0/zh-hans/System.ComponentModel.Primitives.xml",
+        "ref/netstandard1.0/zh-hant/System.ComponentModel.Primitives.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.componentmodel.primitives.4.3.0.nupkg.sha512",
+        "system.componentmodel.primitives.nuspec"
       ]
     },
     "System.Console/4.3.0": {
@@ -11727,11 +11945,34 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "EasyManager.Domain/1.0.0": {
+      "type": "project",
+      "path": "../EasyManager.Domain/EasyManager.Domain.csproj",
+      "msbuildProject": "../EasyManager.Domain/EasyManager.Domain.csproj"
+    },
+    "EasyManager.Domain.Core/1.0.0": {
+      "type": "project",
+      "path": "../EasyManager.Domain.Core/EasyManager.Domain.Core.csproj",
+      "msbuildProject": "../EasyManager.Domain.Core/EasyManager.Domain.Core.csproj"
+    },
+    "EasyManager.Infra.CrossCutting.Bus/1.0.0": {
+      "type": "project",
+      "path": "../EasyManager.Infra.CrossCutting.Bus/EasyManager.Infra.CrossCutting.Bus.csproj",
+      "msbuildProject": "../EasyManager.Infra.CrossCutting.Bus/EasyManager.Infra.CrossCutting.Bus.csproj"
+    },
+    "EasyManager.Infra.CrossCutting.IoC/1.0.0": {
+      "type": "project",
+      "path": "../EasyManager.Infra.CrossCutting.IoC/EasyManager.Infra.CrossCutting.IoC.csproj",
+      "msbuildProject": "../EasyManager.Infra.CrossCutting.IoC/EasyManager.Infra.CrossCutting.IoC.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 5.0.1",
+      "EasyManager.Domain >= 1.0.0",
+      "EasyManager.Infra.CrossCutting.Bus >= 1.0.0",
+      "EasyManager.Infra.CrossCutting.IoC >= 1.0.0",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 5.1.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.NETCore.App >= 2.1.0",
@@ -11746,16 +11987,16 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/EasyManager.WebAPI.csproj",
-      "projectName": "EasyManager.WebApi",
+      "projectName": "EasyManager.WebAPI",
       "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/EasyManager.WebAPI.csproj",
       "packagesPath": "/Users/rafaelmoreira/.nuget/packages/",
-      "outputPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/",
+      "outputPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/rafaelmoreira/.nuget/NuGet/NuGet.Config"
+        "/Users/rafaelmoreira/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -11765,7 +12006,17 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain/EasyManager.Domain.csproj": {
+              "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain/EasyManager.Domain.csproj"
+            },
+            "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.Bus/EasyManager.Infra.CrossCutting.Bus.csproj": {
+              "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.Bus/EasyManager.Infra.CrossCutting.Bus.csproj"
+            },
+            "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/EasyManager.Infra.CrossCutting.IoC.csproj": {
+              "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/EasyManager.Infra.CrossCutting.IoC.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -11777,28 +12028,28 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+          "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
-            "version": "[5.0.1, )"
-          },
-          "MediatR.Extensions.Microsoft.DependencyInjection": {
-            "target": "Package",
-            "version": "[5.1.0, )"
+            "version": "2.1",
+            "autoReferenced": true
           },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.1.1, )",
-            "autoReferenced": true
+            "version": "2.1.1"
           },
-          "Microsoft.NETCore.App": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
-            "version": "[2.1.0, )",
-            "autoReferenced": true
+            "version": "5.0.1"
+          },
+          "MediatR.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "5.1.0"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
-            "version": "[3.0.0, )"
+            "version": "3.0.0"
           }
         },
         "imports": [

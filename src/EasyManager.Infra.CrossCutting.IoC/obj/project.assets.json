@@ -2799,13 +2799,13 @@
       "projectName": "EasyManager.Infra.CrossCutting.IoC",
       "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/EasyManager.Infra.CrossCutting.IoC.csproj",
       "packagesPath": "/Users/rafaelmoreira/.nuget/packages/",
-      "outputPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj",
+      "outputPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/rafaelmoreira/.config/NuGet/NuGet.Config"
+        "/Users/rafaelmoreira/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -2816,11 +2816,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain/EasyManager.Domain.csproj": {
-              "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain/EasyManager.Domain.csproj"
-            },
             "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/EasyManager.Domain.Core.csproj": {
               "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/EasyManager.Domain.Core.csproj"
+            },
+            "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain/EasyManager.Domain.csproj": {
+              "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain/EasyManager.Domain.csproj"
             },
             "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.Bus/EasyManager.Infra.CrossCutting.Bus.csproj": {
               "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.Bus/EasyManager.Infra.CrossCutting.Bus.csproj"
@@ -2837,23 +2837,23 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "Microsoft.NETCore.App": {
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "2.1",
-            "autoReferenced": true
-          },
           "Microsoft.AspNetCore.Authorization": {
             "target": "Package",
-            "version": "2.1.2"
+            "version": "[2.1.2, )"
           },
           "Microsoft.AspNetCore.Http": {
             "target": "Package",
-            "version": "2.1.1"
+            "version": "[2.1.1, )"
           },
           "Microsoft.Extensions.DependencyInjection.Abstractions": {
             "target": "Package",
-            "version": "2.1.1"
+            "version": "[2.1.1, )"
+          },
+          "Microsoft.NETCore.App": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.1.0, )",
+            "autoReferenced": true
           }
         },
         "imports": [

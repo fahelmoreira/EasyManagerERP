@@ -10,5 +10,4 @@
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.AssemblyInfo.cs
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.dll
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.pdb
-/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.csprojAssemblyReference.cache
-/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.csproj.CopyComplete
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/obj/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.IoC.csprojResolveAssemblyReference.cache

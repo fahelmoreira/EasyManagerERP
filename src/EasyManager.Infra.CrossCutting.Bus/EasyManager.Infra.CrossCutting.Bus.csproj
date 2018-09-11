@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>EasyManager.Infra.CrossCutting.IoC</AssemblyName>
-    <PackageId>EasyManager.Infra.CrossCutting.IoC</PackageId>
+    <AssemblyName>EasyManager.Infra.CrossCutting.Bus</AssemblyName>
+    <PackageId>EasyManager.Infra.CrossCutting.Bus</PackageId>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
