@@ -18,39 +18,18 @@ namespace EasyManager.Infra.Data.Repository
             DbSet = Db.Set<TEntity>();
         }
 
-        public virtual void Add(TEntity obj)
-        {
-            DbSet.Add(obj);
-        }
+        public virtual void Add(TEntity obj) => DbSet.Add(obj);
 
-        public virtual TEntity GetById(Guid id)
-        {
-            return DbSet.Find(id);
-        }
+        public virtual TEntity GetById(Guid id) => DbSet.Find(id);
 
-        public virtual IQueryable<TEntity> GetAll()
-        {
-            return DbSet;
-        }
+        public virtual IQueryable<TEntity> GetAll() => DbSet;
 
-        public virtual void Update(TEntity obj)
-        {
-            DbSet.Update(obj);
-        }
+        public virtual void Update(TEntity obj) => DbSet.Update(obj);
 
-        public virtual void Remove(Guid id)
-        {
-            DbSet.Remove(DbSet.Find(id));
-        }
+        public virtual void Remove(Guid id) => DbSet.Remove(DbSet.Find(id));
 
-        public int SaveChanges()
-        {
-            return Db.SaveChanges();
-        }
-        public async Task<int> SaveChangesAsync()
-        {
-            return await Db.SaveChangesAsync();
-        }
+        public int SaveChanges() => Db.SaveChanges();
+        public async Task<int> SaveChangesAsync() => await Db.SaveChangesAsync();
         public void Dispose()
         {
             Db.Dispose();

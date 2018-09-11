@@ -13,16 +13,10 @@ namespace EasyManager.Infra.Data.Repository
         {
         }
 
-        public Customer GetByContactName(string fullname)
-        {
-            return DbSet.AsNoTracking().FirstOrDefault(
-                x => JsonConvert.DeserializeObject<Contact>(x.Contacts).FullName.ToLower().Contains(fullname.ToLower())
+        public Customer GetByContactName(string fullname) => DbSet.AsNoTracking().FirstOrDefault(
+                predicate: x => JsonConvert.DeserializeObject<Contact>(x.Contacts).FullName.ToLower().Contains(fullname.ToLower())
             );
-        }
 
-        public Customer GetByTradeName(string tradeName)
-        {
-            return DbSet.AsNoTracking().FirstOrDefault(x => x.TradeName.ToLower().Contains(tradeName.ToLower()));
-        }
+        public Customer GetByTradeName(string tradeName) => DbSet.AsNoTracking().FirstOrDefault(x => x.TradeName.ToLower().Contains(tradeName.ToLower()));
     }
 }
