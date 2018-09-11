@@ -8,6 +8,7 @@ using EasyManager.Domain.Events;
 using EasyManager.Domain.Interfaces;
 using EasyManager.Infra.CrossCutting.Bus;
 using EasyManager.Infra.Data.Context;
+using EasyManager.Infra.Data.EventSourcing;
 using EasyManager.Infra.Data.Repository;
 using EasyManager.Infra.Data.Repository.EventSourcing;
 using EasyManager.Infra.Data.UoW;

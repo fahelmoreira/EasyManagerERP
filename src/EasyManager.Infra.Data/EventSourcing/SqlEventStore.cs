@@ -22,7 +22,7 @@ namespace EasyManager.Infra.Data.EventSourcing
             var storedEvent = new StoredEvent(
                 theEvent,
                 serializedData,
-                _user.Name);
+                _user);
 
             _eventStoreRepository.Store(storedEvent);
         }

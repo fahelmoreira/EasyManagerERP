@@ -12,7 +12,7 @@ namespace EasyManager.Domain.Commands
     /// </summary>
     public class RegisterNewCustomerCommand : CustomerCommand
     {
-        public RegisterNewCustomerCommand(Guid id,
+        public RegisterNewCustomerCommand(
                                           string tradeName, 
                                           ClientType type,
                                           string individualTaxPayer,
@@ -20,14 +20,14 @@ namespace EasyManager.Domain.Commands
                                           Address address,
                                           List<Contact> contacts)
         {
-            Id = id;
+            Id = new Guid();
             TradeName = tradeName;
             Type = type;
             IndividualTaxpayerId = IndividualTaxpayerId;
             CorporateTaxpayerId = corporateTaxpayerId;
             Address = address;
             Contacts = contacts;
-            AggregateId = id;
+            AggregateId = Id;
         }
         public override bool IsValid()
         {

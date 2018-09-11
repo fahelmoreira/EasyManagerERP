@@ -19,4 +19,9 @@
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/Debug/netcoreapp2.1/EasyManager.WebApi.pdb
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/Debug/netcoreapp2.1/EasyManager.WebAPI.csprojAssemblyReference.cache
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/Debug/netcoreapp2.1/EasyManager.WebAPI.csproj.CopyComplete
-/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/Debug/netcoreapp2.1/EasyManager.WebAPI.csprojResolveAssemblyReference.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.Application.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.Bus.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.Infra.Data.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.Application.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.Bus.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.Infra.Data.pdb
