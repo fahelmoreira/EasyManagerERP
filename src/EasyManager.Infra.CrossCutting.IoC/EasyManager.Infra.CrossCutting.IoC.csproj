@@ -14,7 +14,7 @@
     <ProjectReference Include="..\EasyManager.Application\EasyManager.Application.csproj" />
     <ProjectReference Include="..\EasyManager.Domain\EasyManager.Domain.csproj" />
     <ProjectReference Include="..\EasyManager.Domain.Core\EasyManager.Domain.Core.csproj" />
-    <ProjectReference Include="..\EasyManager.Infra.CrossCutting.Identity\EasyManager.Infra.CrossCutting.Identity.csproj" />
+    <!-- <ProjectReference Include="..\EasyManager.Infra.CrossCutting.Identity\EasyManager.Infra.CrossCutting.Identity.csproj" /> -->
     <ProjectReference Include="..\EasyManager.Infra.CrossCutting.Bus\EasyManager.Infra.CrossCutting.Bus.csproj" />
     <ProjectReference Include="..\EasyManager.Infra.Data\EasyManager.Infra.Data.csproj" />
   </ItemGroup>

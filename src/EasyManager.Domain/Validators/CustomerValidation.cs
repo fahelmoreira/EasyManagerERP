@@ -21,33 +21,29 @@ namespace EasyManager.Domain.Validators
         }
 
         /// <summary>
-        /// Validate the customer taxpayer information if is a individual
-        /// </summary>
-        protected void ValidateIndividualTaxPayerId()
-        {
-            RuleFor(c => c.Type)
-                .Custom( (c, r) => {
-                    if (c != ClientType.Individual)
-                        return;
-                    
-                    RuleFor(z => z.IndividualTaxpayerId)
-                    .NotEmpty().WithMessage("Please ensure you have entered the Taxpayer ID");
-                });
-        }
-
-        /// <summary>
         /// Validate the customer taxpayer information if is a corporation
         /// </summary>
-        protected void ValidateCorporateTaxPayerId()
+        protected void ValidateTaxPayerId()
         {
-            RuleFor(c => c.Type)
-                .Custom( (type, r) => {
-                    if (type != ClientType.Corporation)
-                        return;
+            RuleFor(c => c)
+                .Custom( (customer, context) => {
                     
-                    RuleFor(c => c.CorporateTaxpayerId)
-                    .NotEmpty().WithMessage("Please ensure you have entered the Taxpayer ID");
-                });
+                    if (customer.Type != ClientType.Corporation &&  customer.Type != ClientType.Individual)
+                    {
+                        context.AddFailure("The selected customer type is not valid");
+                        return;
+                    }
+
+                    if (customer.Type == ClientType.Corporation)
+                    {
+                        if(String.IsNullOrEmpty(customer.CorporateTaxpayerId))
+                            context.AddFailure("Please ensure you have entered the corporate taxpayer ID");
+                    }
+                    else
+                    if(String.IsNullOrEmpty(customer.IndividualTaxpayerId))
+                            context.AddFailure("Please ensure you have entered the individual taxpayer ID");
+                }
+            );
         }
 
         /// <summary>

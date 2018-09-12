@@ -30,18 +30,16 @@ namespace EasyManager.Application.Services
             _eventStoreRepository = eventStoreRepository;
         }
 
-        public IEnumerable<CustomerViewModel> GetAll()
+        public IEnumerable<CustomerShortViewModel> GetAll()
         {
-            var customer = _customerRepository.GetAll().ToList();
-
-            //return new List<CustomerViewModel>();
-            
-            return _mapper.Map<List<CustomerViewModel>>(customer);
+            return _customerRepository.GetAll().ProjectTo<CustomerShortViewModel>();
         }
 
         public CustomerViewModel GetById(Guid id)
         {
-            throw new NotImplementedException();
+           var customer = _customerRepository.GetById(id);
+
+           return _mapper.Map<CustomerViewModel>(customer);
         }
 
         public void Register(CustomerViewModel customerViewModel)
@@ -52,12 +50,15 @@ namespace EasyManager.Application.Services
 
         public void Remove(Guid id)
         {
-            throw new NotImplementedException();
+            var RemoveCustomerCommand = new RemoveCustomerCommand(id);
+            _bus.SendCommand(RemoveCustomerCommand);
         }
 
         public void Update(CustomerViewModel customerViewModel)
         {
-            throw new NotImplementedException();
+            var UpdateCustomerCommand = _mapper.Map<UpdateCustomerCommand>(customerViewModel);
+
+            _bus.SendCommand(UpdateCustomerCommand);
         }
     }
 }

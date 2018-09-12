@@ -14,6 +14,8 @@ namespace EasyManager.Application.AutoMapper
             CreateMap<Customer, CustomerViewModel>()
             .ForMember(cvm => cvm.Address, opt => opt.MapFrom(c =>  JsonConvert.DeserializeObject<Address>(c.Address)))
             .ForMember(cvm => cvm.Contacts, opt => opt.MapFrom(c => JsonConvert.DeserializeObject<List<Contact>>(c.Contacts)));
+
+            CreateMap<Customer, CustomerShortViewModel>();
         }
     }
 }

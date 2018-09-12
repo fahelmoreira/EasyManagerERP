@@ -7,7 +7,7 @@ namespace EasyManager.Application.Interfaces
     public interface ICustomerAppService
     {
         void Register(CustomerViewModel customerViewModel);
-        IEnumerable<CustomerViewModel> GetAll();
+        IEnumerable<CustomerShortViewModel> GetAll();
         CustomerViewModel GetById(Guid id);
         void Update(CustomerViewModel customerViewModel);
         void Remove(Guid id);

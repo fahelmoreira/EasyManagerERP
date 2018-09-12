@@ -7,8 +7,7 @@ namespace EasyManager.Domain.Validators
         public RegisterNewCustomerCommandValidation()
         {
             ValidateTradeName();
-            //ValidateIndividualTaxPayerId();
-            //ValidateCorporateTaxPayerId();
+            ValidateTaxPayerId();
             ValidadeAddress();
         }
     }
