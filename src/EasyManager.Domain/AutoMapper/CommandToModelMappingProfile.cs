@@ -12,6 +12,10 @@ namespace EasyManager.Domain.AutoMapper
             CreateMap<CustomerCommand, Customer>()
             .ForMember(c => c.Address, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Address)))
             .ForMember(c => c.Contacts, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Contacts)));
+
+            CreateMap<ManufactureCommand, Manufacture>()
+            .ForMember(c => c.Address, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Address)))
+            .ForMember(c => c.Contacts, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Contacts)));
         }
     }
 }

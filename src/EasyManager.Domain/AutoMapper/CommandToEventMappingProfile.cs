@@ -14,6 +14,12 @@ namespace EasyManager.Domain.AutoMapper
 
             CreateMap<CustomerCommand, CustomerUpdatedEvent>()
             .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+
+            CreateMap<ManufactureCommand, RegisterNewManufactureCommand>()
+            .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+
+            CreateMap<ManufactureCommand, UpdateManufactureCommand>()
+            .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
         }
     }
 }
