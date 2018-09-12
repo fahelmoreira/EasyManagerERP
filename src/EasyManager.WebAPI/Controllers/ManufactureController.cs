@@ -12,7 +12,7 @@ namespace EasyManager.WebAPI.Controllers
     {
         private readonly IManufactureAppServices _manufacureAppServices;
 
-        protected ManufactureController(
+        public ManufactureController(
             IManufactureAppServices manufacureAppServices,
             INotificationHandler<DomainNotification> notifications, 
             IMediatorHandler mediator) : base(notifications, mediator)

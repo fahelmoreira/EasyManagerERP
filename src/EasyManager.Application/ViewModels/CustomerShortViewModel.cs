@@ -1,10 +1,7 @@
-using System;
-
 namespace EasyManager.Application.ViewModels
 {
-    public class CustomerShortViewModel
+    public class CustomerShortViewModel : BaseViewModel
     {
-        public Guid Id { get; set; }
         public string TradeName { get; set; }
     }
 }

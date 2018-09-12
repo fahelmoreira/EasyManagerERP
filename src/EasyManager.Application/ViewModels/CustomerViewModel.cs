@@ -7,10 +7,8 @@ using EasyManager.Domain.Types;
 
 namespace EasyManager.Application.ViewModels
 {
-    public class CustomerViewModel
+    public class CustomerViewModel : BaseViewModel
     {
-        [Key]
-        public Guid Id { get; set; }
         [Required(ErrorMessage = "The Trade Name is Required")]
         [MinLength(2)]
         [MaxLength(100)]
@@ -32,11 +30,5 @@ namespace EasyManager.Application.ViewModels
 
         [DisplayName("Contacts")]
         public List<Contact> Contacts { get; set; }
-
-        public CustomerViewModel()
-        {
-            Id = Guid.NewGuid();
-        }
-
     }
 }

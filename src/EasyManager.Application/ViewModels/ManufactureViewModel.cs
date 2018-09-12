@@ -5,7 +5,7 @@ using EasyManager.Domain.Models;
 
 namespace EasyManager.Application.ViewModels
 {
-    public class ManufactureViewModel
+    public class ManufactureViewModel : BaseViewModel
     {
         public Guid Id { get; set; }
         /// <summary>

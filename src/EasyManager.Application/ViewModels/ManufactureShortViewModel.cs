@@ -2,7 +2,7 @@ using System;
 
 namespace EasyManager.Application.ViewModels
 {
-    public class ManufactureShortViewModel
+    public class ManufactureShortViewModel : BaseViewModel
     {
         public Guid Id { get; set; }
         public string TradeName { get; set; }
