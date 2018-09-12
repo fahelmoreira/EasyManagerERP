@@ -2,7 +2,7 @@ using EasyManager.Domain.Models;
 
 namespace EasyManager.Domain.Interfaces
 {
-    public interface IManufactureRepository : IRepository<IManufactureRepository>
+    public interface IManufactureRepository : IRepository<Manufacture>
     {
         /// <summary>
         /// Gets the manufacture by it's contact name

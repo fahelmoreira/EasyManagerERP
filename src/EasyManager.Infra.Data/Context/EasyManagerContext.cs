@@ -9,6 +9,7 @@ namespace EasyManager.Infra.Data.Context
     public class EasyManagerContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }  
+        public DbSet<Manufacture> Manufactures { get; set; }  
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
