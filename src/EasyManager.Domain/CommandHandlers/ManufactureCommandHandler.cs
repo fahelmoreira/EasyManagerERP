@@ -13,8 +13,8 @@ namespace EasyManager.Domain.CommandHandlers
 {
     public class ManufactureCommandHandler : CommandHandler,
         IRequestHandler<RegisterNewManufactureCommand>,
-        IRequestHandler<UpdateCustomerCommand>,
-        IRequestHandler<RemoveCustomerCommand>
+        IRequestHandler<UpdateManufactureCommand>,
+        IRequestHandler<RemoveManufactureCommand>
     {
         private readonly IManufactureRepository _ManufactureRepository;
 
@@ -45,7 +45,7 @@ namespace EasyManager.Domain.CommandHandlers
             return Unit.Value;
         }
 
-        public async Task<Unit> Handle(UpdateCustomerCommand command, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateManufactureCommand command, CancellationToken cancellationToken)
         {
             if (!command.IsValid())
             {
@@ -64,7 +64,7 @@ namespace EasyManager.Domain.CommandHandlers
 
         }
 
-        public async Task<Unit> Handle(RemoveCustomerCommand command, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(RemoveManufactureCommand command, CancellationToken cancellationToken)
         {
             if (!command.IsValid())
             {

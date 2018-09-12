@@ -32,20 +32,28 @@ namespace EasyManager.Infra.CrossCutting.IoC
 
             // Application
             services.AddScoped<ICustomerAppService, CustomerAppService>();
+            services.AddScoped<IManufactureAppServices, ManufactureAppServices>();
 
             // Domain - Events
             services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
             services.AddScoped<INotificationHandler<CustomerRegisteredEvent>, CustomerEventHandler>();
             services.AddScoped<INotificationHandler<CustomerUpdatedEvent>, CustomerEventHandler>();
             services.AddScoped<INotificationHandler<CustomerRemovedEvent>, CustomerEventHandler>();
+            services.AddScoped<INotificationHandler<ManufactureRegisteredEvent>, ManufactureEventHandler>();
+            services.AddScoped<INotificationHandler<ManufactureRemovedEvent>, ManufactureEventHandler>();
+            services.AddScoped<INotificationHandler<ManufactureUpdatedEvent>, ManufactureEventHandler>();
 
             // Domain - Commands
             services.AddScoped<IRequestHandler<RegisterNewCustomerCommand>, CustomerCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateCustomerCommand>, CustomerCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveCustomerCommand>, CustomerCommandHandler>();
+            services.AddScoped<IRequestHandler<RegisterNewManufactureCommand>, ManufactureCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveManufactureCommand>, ManufactureCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateManufactureCommand>, ManufactureCommandHandler>();
 
             // Infra - Data
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IManufactureRepository, ManufactureRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<EasyManagerContext>();
 

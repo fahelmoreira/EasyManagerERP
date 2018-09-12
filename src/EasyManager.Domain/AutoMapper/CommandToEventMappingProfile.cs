@@ -9,15 +9,15 @@ namespace EasyManager.Domain.AutoMapper
     {
         public CommandToEventMappingProfile()
         {
+            //Customer mapping
             CreateMap<CustomerCommand, CustomerRegisteredEvent>()
             .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
-
             CreateMap<CustomerCommand, CustomerUpdatedEvent>()
             .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
 
+            //Manufactore mapping
             CreateMap<ManufactureCommand, RegisterNewManufactureCommand>()
             .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
-
             CreateMap<ManufactureCommand, UpdateManufactureCommand>()
             .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
         }
