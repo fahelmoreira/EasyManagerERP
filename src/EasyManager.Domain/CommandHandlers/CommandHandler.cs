@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Commands;
@@ -65,7 +66,15 @@ namespace EasyManager.Domain.CommandHandlers
             if(await _uow.CommitAsync())
                 return true;
 
-            await _bus.RaiseEvent(new DomainNotification("Commit", "We had a problem during saving your data."));
+            try
+            {  
+                await _bus.RaiseEvent(new DomainNotification("Commit", "We had a problem during saving your data."));
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
             return false;
         }
 

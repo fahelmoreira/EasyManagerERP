@@ -7,6 +7,7 @@ using EasyManager.Domain.Events;
 using EasyManager.Domain.Interfaces;
 using EasyManager.Domain.Models;
 using MediatR;
+using Newtonsoft.Json;
 
 namespace EasyManager.Domain.CommandHandlers
 {
@@ -41,11 +42,18 @@ namespace EasyManager.Domain.CommandHandlers
                 return Unit.Value;
             }
 
-            var customer = new Customer { TradeName = command.TradeName };
+            var customer = new Customer { 
+                TradeName = command.TradeName, 
+                CorporateTaxpayerId = command.CorporateTaxpayerId,
+                IndividualTaxpayerId = command.IndividualTaxpayerId,
+                Type = command.Type,
+                Address = JsonConvert.SerializeObject(command.Address), 
+                Contacts = JsonConvert.SerializeObject(command.Contacts),
+            };
 
             _customerRepository.Add(customer);
 
-            if (await CommitAsync())
+            if (Commit())
                 await _bus.RaiseEvent(new CustomerRegisteredEvent(customer.Id,
                                                                  command.TradeName, 
                                                                  command.Type, 

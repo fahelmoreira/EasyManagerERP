@@ -31,8 +31,17 @@ namespace EasyManager.Domain.Commands
         }
         public override bool IsValid()
         {
-            ValidationResult = new RegisterNewCustomerCommandValidation().Validate(this);
-            return ValidationResult.IsValid;
+            try
+            {
+                ValidationResult = new RegisterNewCustomerCommandValidation().Validate(this);
+                return ValidationResult.IsValid;
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw;
+            }
+            
         }
     }
 }

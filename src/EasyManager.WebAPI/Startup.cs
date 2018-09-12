@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+
 using EasyManager.Infra.CrossCutting.IoC;
 using EasyManager.WebAPI.Configurations;
 using MediatR;
@@ -18,9 +20,20 @@ namespace EasyManager.WebAPI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
+            if (env.IsDevelopment())
+            {
+                builder.AddUserSecrets<Startup>();
+            }
+
+            builder.AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -28,8 +41,6 @@ namespace EasyManager.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
-            services.AddEasyManager();
             services.AddAutoMapperSetup();
             
             services.AddWebApi(options =>
@@ -38,10 +49,13 @@ namespace EasyManager.WebAPI
                 options.UseCentralRoutePrefix(new RouteAttribute("api/v{version}"));
             });
 
-            
-            services.AddMediatR(typeof(Startup));
-
             services.AddMvc();
+
+            // Adding MediatR for Domain Events and Notifications
+            services.AddMediatorSetup();
+
+            // .NET Native DI Abstraction
+            services.AddEasyManager();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

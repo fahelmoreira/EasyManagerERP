@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using EasyManager.Domain.Interfaces;
 using EasyManager.Infra.Data.Context;
@@ -15,12 +16,28 @@ namespace EasyManager.Infra.Data.UoW
 
         public bool Commit()
         {
-            return _context.SaveChanges() > 0;
+            try
+            {
+                return _context.SaveChanges() > 0;
+            }
+            catch (System.Exception ex)
+            {
+                Console.Write(ex);
+                return false;
+            }
         }
 
         public async Task<bool> CommitAsync()
         {
-            return (await _context.SaveChangesAsync()) > 0;
+            try
+            {
+                return (await _context.SaveChangesAsync()) > 0; 
+            }
+            catch (System.Exception ex)
+            {
+                Console.Write(ex);
+                return false;
+            }
         }
 
         public void Dispose()

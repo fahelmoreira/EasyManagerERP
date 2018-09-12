@@ -25,3 +25,4 @@
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.Application.pdb
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.Infra.CrossCutting.Bus.pdb
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.Infra.Data.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/Debug/netcoreapp2.1/UserSecretsAssemblyInfo.cs

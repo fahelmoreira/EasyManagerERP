@@ -5,6 +5,7 @@
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>EasyManager.WebApi</AssemblyName>
     <PackageId>EasyManager.WebApi</PackageId>
+    <UserSecretsId>4fbu333t-7kO3-5237-3t7n-3bz6374g44a4</UserSecretsId>
     <OutputType>Exe</OutputType>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
   </PropertyGroup>
