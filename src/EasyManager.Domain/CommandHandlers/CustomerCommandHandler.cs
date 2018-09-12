@@ -8,7 +8,6 @@ using EasyManager.Domain.Events;
 using EasyManager.Domain.Interfaces;
 using EasyManager.Domain.Models;
 using MediatR;
-using Newtonsoft.Json;
 
 namespace EasyManager.Domain.CommandHandlers
 {
@@ -36,7 +35,7 @@ namespace EasyManager.Domain.CommandHandlers
         /// </summary>
         /// <param name="command">Command to be executed</param>
         /// <param name="cancellationToken"></param>
-        async Task<Unit> IRequestHandler<RegisterNewCustomerCommand, Unit>.Handle(RegisterNewCustomerCommand command, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(RegisterNewCustomerCommand command, CancellationToken cancellationToken)
         {
             if (!command.IsValid())
             {
@@ -59,7 +58,7 @@ namespace EasyManager.Domain.CommandHandlers
         /// </summary>
         /// <param name="command">Command to be executed</param>
         /// <param name="cancellationToken"></param>
-        async Task<Unit> IRequestHandler<RemoveCustomerCommand, Unit>.Handle(RemoveCustomerCommand command, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(RemoveCustomerCommand command, CancellationToken cancellationToken)
         {
             if(!command.IsValid())
             {
@@ -80,7 +79,7 @@ namespace EasyManager.Domain.CommandHandlers
         /// </summary>
         /// <param name="command">Command to be executed</param>
         /// <param name="cancellationToken"></param>
-        async Task<Unit> IRequestHandler<UpdateCustomerCommand, Unit>.Handle(UpdateCustomerCommand command, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateCustomerCommand command, CancellationToken cancellationToken)
         {
             if(!command.IsValid())
             {
