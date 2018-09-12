@@ -1,6 +1,8 @@
+using EasyManager.Domain.Validators;
+
 namespace EasyManager.Domain.Commands
 {
-    public class UpdateManufactureCommand : CustomerCommand
+    public class UpdateManufactureCommand : ManufactureCommand
     {
         public UpdateManufactureCommand()
         {
@@ -8,7 +10,9 @@ namespace EasyManager.Domain.Commands
 
         public override bool IsValid()
         {
-            throw new System.NotImplementedException();
+            ValidationResult = new UpdateManufactureCommandValidation().Validate(this);
+
+            return ValidationResult.IsValid;
         }
     }
 }

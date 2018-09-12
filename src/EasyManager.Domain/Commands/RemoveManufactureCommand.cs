@@ -1,4 +1,5 @@
 using System;
+using EasyManager.Domain.Validators;
 
 namespace EasyManager.Domain.Commands
 {
@@ -6,13 +7,15 @@ namespace EasyManager.Domain.Commands
     {
         public RemoveManufactureCommand(Guid id)
         {
-            id = id;
+            Id = id;
             AggregateId = id;
         }
 
         public override bool IsValid()
         {
-            throw new System.NotImplementedException();
+            ValidationResult = new RemoveManufactureCommandValidation().Validate(this);
+
+            return ValidationResult.IsValid;
         }
     }
 }
