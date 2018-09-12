@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using AutoMapper;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Commands;
 using EasyManager.Domain.Core.Notifications;
@@ -14,7 +15,8 @@ namespace EasyManager.Domain.CommandHandlers
     public class CommandHandler
     {
         #region Private fields
-        private readonly IUnitOfWork _uow;
+        protected readonly IMapper _mapper;
+        protected readonly IUnitOfWork _uow;
         protected readonly IMediatorHandler _bus;
         private readonly DomainNotificationHandler _notifications;
         #endregion
@@ -22,8 +24,9 @@ namespace EasyManager.Domain.CommandHandlers
         /// <summary>
         /// Default constructor
         /// </summary>
-        public CommandHandler(IUnitOfWork uow, IMediatorHandler bus, INotificationHandler<DomainNotification> notifications)
+        public CommandHandler(IMapper mapper,IUnitOfWork uow, IMediatorHandler bus, INotificationHandler<DomainNotification> notifications)
         {
+            _mapper = mapper;
             _uow = uow;
             _bus = bus;
             _notifications = (DomainNotificationHandler)notifications;

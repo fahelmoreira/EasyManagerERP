@@ -33,5 +33,10 @@ namespace EasyManager.Application.ViewModels
         [DisplayName("Contacts")]
         public List<Contact> Contacts { get; set; }
 
+        public CustomerViewModel()
+        {
+            Id = Guid.NewGuid();
+        }
+
     }
 }

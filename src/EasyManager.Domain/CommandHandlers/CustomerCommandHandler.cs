@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using EasyManager.Domain.Commands;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Notifications;
@@ -21,10 +22,11 @@ namespace EasyManager.Domain.CommandHandlers
         /// <summary>
         /// Default constructor
         /// </summary>
-        public CustomerCommandHandler(ICustomerRepository customerRepository,
+        public CustomerCommandHandler(IMapper mapper,
+                                      ICustomerRepository customerRepository,
                                       IUnitOfWork uow,
                                       IMediatorHandler bus,   
-                                      INotificationHandler<DomainNotification> notification) : base(uow, bus, notification)
+                                      INotificationHandler<DomainNotification> notification) : base(mapper, uow, bus, notification)
         {
             _customerRepository = customerRepository;
         }
@@ -42,25 +44,12 @@ namespace EasyManager.Domain.CommandHandlers
                 return Unit.Value;
             }
 
-            var customer = new Customer { 
-                TradeName = command.TradeName, 
-                CorporateTaxpayerId = command.CorporateTaxpayerId,
-                IndividualTaxpayerId = command.IndividualTaxpayerId,
-                Type = command.Type,
-                Address = JsonConvert.SerializeObject(command.Address), 
-                Contacts = JsonConvert.SerializeObject(command.Contacts),
-            };
+            var customer = _mapper.Map<Customer>(command);
 
             _customerRepository.Add(customer);
 
             if (Commit())
-                await _bus.RaiseEvent(new CustomerRegisteredEvent(customer.Id,
-                                                                 command.TradeName, 
-                                                                 command.Type, 
-                                                                 command.IndividualTaxpayerId, 
-                                                                 command.CorporateTaxpayerId,
-                                                                 command.Address,
-                                                                 command.Contacts));
+                await _bus.RaiseEvent(_mapper.Map<CustomerRegisteredEvent>(command));
 
             return Unit.Value;
         }
@@ -75,15 +64,15 @@ namespace EasyManager.Domain.CommandHandlers
             if(!command.IsValid())
             {
                 NotifyValidationErrors(command);
-                return new Unit();
+                return Unit.Value;
             }
 
             _customerRepository.Remove(command.Id);
 
-            if(await CommitAsync())
+            if(Commit())
                 await _bus.RaiseEvent(new CustomerRemovedEvent(command.Id));
             
-            return new Unit();
+            return Unit.Value;
         }
 
         /// <summary>
@@ -96,21 +85,15 @@ namespace EasyManager.Domain.CommandHandlers
             if(!command.IsValid())
             {
                 NotifyValidationErrors(command);
-                return new Unit();
+                return Unit.Value;
             }
-            var customer = new Customer{ Id = command.Id, TradeName = command.TradeName };
+            var customer = _mapper.Map<Customer>(command);
             _customerRepository.Update(customer);
 
-            if(await CommitAsync())
-                await _bus.RaiseEvent(new CustomerUpdatedEvent(customer.Id,
-                                                              command.TradeName, 
-                                                              command.Type, 
-                                                              command.IndividualTaxpayerId, 
-                                                              command.CorporateTaxpayerId,
-                                                              command.Address,
-                                                              command.Contacts));
-            
-            return new Unit();
+            if(Commit())
+                await _bus.RaiseEvent(_mapper.Map<CustomerUpdatedEvent>(command));
+
+            return Unit.Value;
         }
     }
 }

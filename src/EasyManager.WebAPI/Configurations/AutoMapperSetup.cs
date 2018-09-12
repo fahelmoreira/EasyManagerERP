@@ -1,6 +1,8 @@
 using System;
 using AutoMapper;
+using AutoMapper.Configuration;
 using EasyManager.Application.AutoMapper;
+using EasyManager.Domain.AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyManager.WebAPI.Configurations
@@ -13,7 +15,11 @@ namespace EasyManager.WebAPI.Configurations
 
           // Registering Mappings automatically only works if the 
           // Automapper Profile classes are in ASP.NET project
-          var cfg = AutoMapperConfig.RegisterMappings();
+          var cfg = new MapperConfigurationExpression();
+
+          /// Aplications mapping profiles
+          cfg.AddProfiles(typeof(ApplicationAutoMapperConfig).Assembly);
+          cfg.AddProfiles(typeof(DomainAutoMapperConfig).Assembly);
 
           services.AddAutoMapper();
 

@@ -9,29 +9,10 @@ namespace EasyManager.Application.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             CreateMap<CustomerViewModel, RegisterNewCustomerCommand>()
-                .ConstructUsing(
-                    c => new RegisterNewCustomerCommand(
-                        c.TradeName, 
-                        c.Type.Value,
-                        c.IndividualTaxpayerId, 
-                        c.CorporateTaxpayerId, 
-                        c.Address, 
-                        c.Contacts
-                    )
-                );
-
+            .ForMember(cmd => cmd.AggregateId, opt => opt.MapFrom(c => c.Id));
+            
             CreateMap<CustomerViewModel, UpdateCustomerCommand>()
-                .ConstructUsing(
-                    c => new UpdateCustomerCommand(
-                        c.Id,
-                        c.TradeName, 
-                        c.Type.Value,
-                        c.IndividualTaxpayerId, 
-                        c.CorporateTaxpayerId, 
-                        c.Address, 
-                        c.Contacts
-                    )
-                );
+            .ForMember(cmd => cmd.AggregateId, opt => opt.MapFrom(c => c.Id));;
         }
     }
 }

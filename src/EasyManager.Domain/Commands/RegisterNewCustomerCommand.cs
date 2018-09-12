@@ -12,23 +12,11 @@ namespace EasyManager.Domain.Commands
     /// </summary>
     public class RegisterNewCustomerCommand : CustomerCommand
     {
-        public RegisterNewCustomerCommand(
-                                          string tradeName, 
-                                          ClientType type,
-                                          string individualTaxPayer,
-                                          string corporateTaxpayerId,
-                                          Address address,
-                                          List<Contact> contacts)
+        public RegisterNewCustomerCommand()
         {
-            Id = new Guid();
-            TradeName = tradeName;
-            Type = type;
-            IndividualTaxpayerId = IndividualTaxpayerId;
-            CorporateTaxpayerId = corporateTaxpayerId;
-            Address = address;
-            Contacts = contacts;
-            AggregateId = Id;
+            
         }
+
         public override bool IsValid()
         {
             try

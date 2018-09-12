@@ -17,6 +17,7 @@
     <PackageReference Include="System.ComponentModel" Version="4.3.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
     <PackageReference Include="System.Security.Claims" Version="4.3.0" />
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
   </ItemGroup>
 
   <ItemGroup>

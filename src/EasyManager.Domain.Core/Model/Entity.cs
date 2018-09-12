@@ -11,7 +11,7 @@ namespace EasyManager.Domain.Core.Model
 
         protected Entity()
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
         }
 
         public override bool Equals(object obj)

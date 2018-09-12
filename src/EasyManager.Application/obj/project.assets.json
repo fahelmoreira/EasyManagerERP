@@ -1137,6 +1137,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "AutoMapper": "7.0.1",
           "EasyManager.Domain.Core": "1.0.0",
           "FluentValidation": "8.0.100",
           "Newtonsoft.Json": "11.0.2",
