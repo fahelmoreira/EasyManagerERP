@@ -1,16 +1,17 @@
 using AutoMapper;
+using AutoMapper.Configuration;
 
 namespace EasyManager.Application.AutoMapper
 {
     public class AutoMapperConfig
     {
-        public static MapperConfiguration RegisterMappings()
+        public static IMapperConfigurationExpression RegisterMappings()
         {
-            return new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile(new DomainToViewModelMappingProfile());
-                cfg.AddProfile(new ViewModelToDomainMappingProfile());
-            });
+            var cfg = new MapperConfigurationExpression();
+            cfg.AddProfile(new DomainToViewModelMappingProfile());
+            cfg.AddProfile(new ViewModelToDomainMappingProfile());
+            
+            return cfg;
         }
     }
 }

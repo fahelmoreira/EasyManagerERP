@@ -1,4 +1,6 @@
-﻿using EasyManager.Domain.CommandHandlers;
+﻿using EasyManager.Application.Interfaces;
+using EasyManager.Application.Services;
+using EasyManager.Domain.CommandHandlers;
 using EasyManager.Domain.Commands;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Events;
@@ -27,6 +29,9 @@ namespace EasyManager.Infra.CrossCutting.IoC
 
             // Domain Bus (Mediator)
             services.AddScoped<IMediatorHandler, InMemoryBus>();
+
+            // Application
+            services.AddScoped<ICustomerAppService, CustomerAppService>();
 
             // Domain - Events
             services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();

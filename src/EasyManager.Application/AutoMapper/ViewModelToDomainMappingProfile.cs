@@ -12,18 +12,21 @@ namespace EasyManager.Application.AutoMapper
                 .ConstructUsing(
                     c => new RegisterNewCustomerCommand(
                         c.TradeName, 
-                        c.Type, c.IndividualTaxpayerId, 
+                        c.Type.Value,
+                        c.IndividualTaxpayerId, 
                         c.CorporateTaxpayerId, 
                         c.Address, 
                         c.Contacts
                     )
                 );
-                
+
             CreateMap<CustomerViewModel, UpdateCustomerCommand>()
                 .ConstructUsing(
                     c => new UpdateCustomerCommand(
-                        c.Id, c.TradeName, 
-                        c.Type, c.IndividualTaxpayerId, 
+                        c.Id,
+                        c.TradeName, 
+                        c.Type.Value,
+                        c.IndividualTaxpayerId, 
                         c.CorporateTaxpayerId, 
                         c.Address, 
                         c.Contacts

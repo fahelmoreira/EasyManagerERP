@@ -11,11 +11,13 @@ namespace EasyManager.WebAPI.Configurations
       {
           if (services == null) throw new ArgumentNullException(nameof(services));
 
-          services.AddAutoMapper();
-
           // Registering Mappings automatically only works if the 
           // Automapper Profile classes are in ASP.NET project
-          AutoMapperConfig.RegisterMappings();
+          var cfg = AutoMapperConfig.RegisterMappings();
+
+          services.AddAutoMapper();
+
+          Mapper.Initialize(configuration => configuration = cfg );
       }
     }
 }

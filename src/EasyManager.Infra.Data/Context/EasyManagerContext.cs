@@ -25,8 +25,10 @@ namespace EasyManager.Infra.Data.Context
                 .AddJsonFile("appsettings.json")
                 .Build();
             
+            var connectionString = config.GetConnectionString("DefaultConnection");
+
             // define the database to use
-            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            optionsBuilder.UseSqlServer(connectionString);
         }
     }
 }

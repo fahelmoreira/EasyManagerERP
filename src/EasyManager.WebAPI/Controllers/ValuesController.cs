@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyManager.Application.Interfaces;
+using EasyManager.Application.ViewModels;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Notifications;
 using MediatR;
@@ -14,7 +15,7 @@ namespace EasyManager.WebAPI.Controllers
     {
         private readonly ICustomerAppService _customerAppService;
 
-        protected ValuesController(
+        public ValuesController(
             ICustomerAppService customerAppService,
             INotificationHandler<DomainNotification> notifications, 
             IMediatorHandler mediator) : base(notifications, mediator)
@@ -23,10 +24,24 @@ namespace EasyManager.WebAPI.Controllers
         }
 
         // GET api/values
-        [HttpGet, Route("customer/list")]
+        [HttpGet("customer/list")]
         public IActionResult Get()
         {
             return Response(_customerAppService.GetAll());
+        }
+
+        [HttpPost("customer/create")]
+        public IActionResult Post([FromBody] CustomerViewModel customerViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                NotifyModelStateErrors();
+                return Response(customerViewModel);
+            }
+
+            _customerAppService.Register(customerViewModel);
+
+            return Response(customerViewModel);
         }
     }
 }

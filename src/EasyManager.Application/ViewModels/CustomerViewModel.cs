@@ -11,11 +11,26 @@ namespace EasyManager.Application.ViewModels
     {
         [Key]
         public Guid Id { get; set; }
+        [Required(ErrorMessage = "The Trade Name is Required")]
+        [MinLength(2)]
+        [MaxLength(100)]
+        [DisplayName("Trade Name")]
         public string TradeName { get; set; }
-        public ClientType Type { get; set; }
+
+        [Required(ErrorMessage = "The Type is Required")]
+        [DisplayName("Customer type")]
+         public ClientType? Type { get; set; }
+
+        [DisplayName("Individual taxpayer id")]
         public string IndividualTaxpayerId { get; set; }
+
+        [DisplayName("Corporate taxpayer id")]
         public string CorporateTaxpayerId { get; set; }
+
+        [DisplayName("Address")]
         public Address Address { get; set; }
+
+        [DisplayName("Contacts")]
         public List<Contact> Contacts { get; set; }
 
     }

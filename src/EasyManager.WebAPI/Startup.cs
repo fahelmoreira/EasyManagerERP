@@ -28,18 +28,19 @@ namespace EasyManager.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            services.AddEasyManager();
+            services.AddAutoMapperSetup();
+            
             services.AddWebApi(options =>
             {
                 options.OutputFormatters.Remove(new XmlDataContractSerializerOutputFormatter());
                 options.UseCentralRoutePrefix(new RouteAttribute("api/v{version}"));
             });
 
-            services.AddAutoMapperSetup();
-
+            
             services.AddMediatR(typeof(Startup));
 
-            services.AddEasyManager();
-            
             services.AddMvc();
         }
 
@@ -50,6 +51,15 @@ namespace EasyManager.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(c =>
+            {
+                c.AllowAnyHeader();
+                c.AllowAnyMethod();
+                c.AllowAnyOrigin();
+            });
+            
+            app.UseStaticFiles();
 
             app.UseMvc();
         }
