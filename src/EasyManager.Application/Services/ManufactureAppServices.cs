@@ -36,7 +36,8 @@ namespace EasyManager.Application.Services
 
         public ManufactureViewModel GetById(Guid id)
         {
-            throw new NotImplementedException();
+             var manufacture = _manufactureRepository.GetById(id);
+             return _mapper.Map<ManufactureViewModel>(manufacture);
         }
 
         public void Register(ManufactureViewModel manufacture)
@@ -47,12 +48,14 @@ namespace EasyManager.Application.Services
 
         public void Remove(Guid id)
         {
-            throw new NotImplementedException();
+            var RemoveManufactureCommand = new RemoveManufactureCommand(id);
+            _bus.SendCommand(RemoveManufactureCommand);
         }
 
-        public void Update(ManufactureViewModel obj)
+        public void Update(ManufactureViewModel manufacture)
         {
-            throw new NotImplementedException();
+            var UpdateManufactureCommand = _mapper.Map<UpdateManufactureCommand>(manufacture);
+            _bus.SendCommand(UpdateManufactureCommand);
         }
     }
 }

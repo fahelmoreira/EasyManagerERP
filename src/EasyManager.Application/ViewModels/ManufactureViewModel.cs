@@ -7,7 +7,6 @@ namespace EasyManager.Application.ViewModels
 {
     public class ManufactureViewModel : BaseViewModel
     {
-        public Guid Id { get; set; }
         /// <summary>
         /// Manufacture trade name
         /// </summary>
