@@ -4,12 +4,8 @@ using EasyManager.Application.ViewModels;
 
 namespace EasyManager.Application.Interfaces
 {
-    public interface ICustomerAppService
+    public interface ICustomerAppService: IAppServices<CustomerViewModel, CustomerShortViewModel>
     {
-        void Register(CustomerViewModel customerViewModel);
-        IEnumerable<CustomerShortViewModel> GetAll();
-        CustomerViewModel GetById(Guid id);
-        void Update(CustomerViewModel customerViewModel);
-        void Remove(Guid id);
+        
     }
 }
