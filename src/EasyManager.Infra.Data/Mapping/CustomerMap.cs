@@ -13,8 +13,15 @@ namespace EasyManager.Infra.Data.Mapping
 
             builder.Property(c => c.TradeName)
                 .HasColumnType("varchar(100)")
-                .HasMaxLength(100)
-                .IsRequired();
+                .HasMaxLength(100);
+            
+            builder.Property(c => c.Name)
+                .HasColumnType("varchar(100)")
+                .HasMaxLength(100);
+
+            builder.Property(c => c.CorporateName)
+                .HasColumnType("varchar(100)")
+                .HasMaxLength(100);
         }
     }
 }

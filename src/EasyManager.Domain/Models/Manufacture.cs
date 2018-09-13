@@ -17,7 +17,6 @@ namespace EasyManager.Domain.Models
         /// Manufacture's name
         /// </summary>
         public string Name { get; set; }
-
         /// <summary>
         /// Corporate taxpayer's number
         /// </summary>

@@ -10,10 +10,16 @@ namespace EasyManager.Infra.Data.Context
     {
         public DbSet<Customer> Customers { get; set; }  
         public DbSet<Manufacture> Manufactures { get; set; }  
+        public DbSet<Product> Products { get; set; }  
+        public DbSet<SalesTable> SalesTables { get; set; }  
+        public DbSet<Category> Categories { get; set; }  
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CustomerMap());
+            modelBuilder.ApplyConfiguration(new ProductMap());
+            modelBuilder.ApplyConfiguration(new CategoryMap());
+            modelBuilder.ApplyConfiguration(new SalesTableMap());
                         
             base.OnModelCreating(modelBuilder);
         }
