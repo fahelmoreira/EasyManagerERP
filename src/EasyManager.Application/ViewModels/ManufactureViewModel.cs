@@ -25,5 +25,14 @@ namespace EasyManager.Application.ViewModels
         /// Manufacture contacts
         /// </summary>
         public List<Contact> Contacts { get; set; }
+        /// <summary>
+        /// Manufacture main email
+        /// </summary>
+        public string Email { get; set; }
+        /// <summary>
+        /// Manufacture main phone number
+        /// </summary>
+        public string PhoneNumber { get; set; }
+        public bool Active { get; set; }
     }
 }

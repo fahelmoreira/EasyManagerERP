@@ -30,5 +30,23 @@ namespace EasyManager.Application.ViewModels
 
         [DisplayName("Contacts")]
         public List<Contact> Contacts { get; set; }
+        [DisplayName("Birthdate")]
+        public DateTime BirthDate { get; set; }
+        [DisplayName("Gender")]
+        public GenderType Gender { get; set; }
+        [DisplayName("Profession")]
+        public string Profession { get; set; }
+        [DisplayName("Pather's name")]
+        public string FatherName { get; set; }
+        [DisplayName("Mother's name")]
+        public string MotherName { get; set; }
+        [DisplayName("Matrial status")]
+        public MaritalStatus MaritalStatus { get; set; }
+        [DisplayName("Receive email")]
+        public bool ReceiveEmail { get; set; }
+        [DisplayName("Credit Limit")]
+        public double CreditLimit { get; set; }
+        [DisplayName("Active")]
+        public bool Active { get; set; }
     }
 }

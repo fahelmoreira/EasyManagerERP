@@ -7,10 +7,13 @@ namespace EasyManager.Domain.Events
 {
     public abstract class ManufactureEvent : Event
     {
-        public Guid Id { get; set; }
-        public string TradeName { get; set; }
-        public string CorporateTaxpayerId { get; set; }
-        public Address Address { get; set; }
-        public List<Contact> Contacts { get; set; }
+        public Guid Id { get; protected set; }
+        public string TradeName { get; protected set; }
+        public string CorporateTaxpayerId { get; protected set; }
+        public Address Address { get; protected set; }
+        public List<Contact> Contacts { get; protected set; }
+        public string Email { get; protected set; }
+        public string PhoneNumber { get; protected set; }
+        public bool Active { get; protected set; }
     }
 }
