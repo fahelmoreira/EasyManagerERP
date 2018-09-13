@@ -8,6 +8,7 @@ namespace EasyManager.Infra.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
+            
         }
     }
 }
