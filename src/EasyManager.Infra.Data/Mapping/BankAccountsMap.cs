@@ -8,7 +8,8 @@ namespace EasyManager.Infra.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<BankAccount> builder)
         {
-            throw new System.NotImplementedException();
+            builder.Property(c => c.Id)
+                .HasColumnName("Id");
         }
     }
 }
