@@ -1,12 +1,14 @@
-using EasyManager.Domain.Core.Model;
+using System;
+using EasyManager.Domain.Core.Commands;
 
-namespace EasyManager.Domain.Models
+namespace EasyManager.Domain.Commands
 {
-    public class BankAccount : Entity
+    public abstract class BankAccountCommand : Command
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public bool IsBankAccount { get; set; }
-        public Bank Bank { get; set; }
+        public Guid Bank { get; set; }
         public int Agency { get; set; }
         public int Digit { get; set; }
         public int AccountNumber { get; set; }

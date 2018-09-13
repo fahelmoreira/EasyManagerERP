@@ -11,13 +11,17 @@ namespace EasyManager.Domain.AutoMapper
         {
             //Customer mapping
             CreateMap<CustomerCommand, Customer>()
-            .ForMember(c => c.Address, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Address)))
-            .ForMember(c => c.Contacts, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Contacts)));
+                .ForMember(c => c.Address, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Address)))
+                .ForMember(c => c.Contacts, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Contacts)));
 
             //Manufactore mapping
             CreateMap<ManufactureCommand, Manufacture>()
-            .ForMember(c => c.Address, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Address)))
-            .ForMember(c => c.Contacts, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Contacts)));
+                .ForMember(c => c.Address, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Address)))
+                .ForMember(c => c.Contacts, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Contacts)));
+
+            //Bank account mapping
+            CreateMap<BankAccountCommand, BankAccount>()
+                .ForMember(b => b.Bank, opt => opt.MapFrom(x => new BankAccount{ Id = x.Bank }));
         }
     }
 }

@@ -1,12 +1,14 @@
-using EasyManager.Domain.Core.Model;
+using System;
+using EasyManager.Domain.Core.Events;
 
-namespace EasyManager.Domain.Models
+namespace EasyManager.Domain.Events
 {
-    public class BankAccount : Entity
+    public abstract class BankAccountEvent : Event
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public bool IsBankAccount { get; set; }
-        public Bank Bank { get; set; }
+        public Guid Bank { get; set; }
         public int Agency { get; set; }
         public int Digit { get; set; }
         public int AccountNumber { get; set; }

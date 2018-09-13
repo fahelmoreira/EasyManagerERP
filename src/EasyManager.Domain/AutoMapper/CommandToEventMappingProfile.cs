@@ -11,15 +11,21 @@ namespace EasyManager.Domain.AutoMapper
         {
             //Customer mapping
             CreateMap<CustomerCommand, CustomerRegisteredEvent>()
-            .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
             CreateMap<CustomerCommand, CustomerUpdatedEvent>()
-            .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
 
             //Manufactore mapping
-            CreateMap<ManufactureCommand, RegisterNewManufactureCommand>()
-            .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
-            CreateMap<ManufactureCommand, UpdateManufactureCommand>()
-            .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<ManufactureCommand, ManufactureRegisteredEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<ManufactureCommand, ManufactureUpdatedEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+                
+            // Bank account mapping
+            CreateMap<BankAccountCommand, BankAccountRegisteredEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<BankAccountCommand, BankAccountUpdatedEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
         }
     }
 }
