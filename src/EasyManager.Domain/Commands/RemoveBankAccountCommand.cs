@@ -5,11 +5,7 @@ namespace EasyManager.Domain.Commands
 {
     public class RemoveBankAccountCommand : BankAccountCommand
     {
-        public RemoveBankAccountCommand(Guid id)
-        {
-            Id = id;
-            AggregateId = id;   
-        }
+        public RemoveBankAccountCommand(Guid id) => Id = AggregateId = id;
 
         public override bool IsValid()
         {

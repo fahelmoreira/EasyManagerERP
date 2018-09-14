@@ -6,11 +6,7 @@ namespace EasyManager.Domain.Events
     public class CustomerRemovedEvent : Event
     {
         public Guid Id { get; set; }
-        public CustomerRemovedEvent(Guid id)
-        {
-            Id = id;
-            AggregateId = id;
-        }
+        public CustomerRemovedEvent(Guid id) => Id = AggregateId = id;
 
     }
 }

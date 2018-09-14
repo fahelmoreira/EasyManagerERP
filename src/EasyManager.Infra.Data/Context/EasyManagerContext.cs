@@ -8,12 +8,12 @@ namespace EasyManager.Infra.Data.Context
 {
     public class EasyManagerContext : DbContext
     {
-        public DbSet<Customer> Customers { get; set; }  
-        public DbSet<Manufacture> Manufactures { get; set; }  
+        public DbSet<Customer> Customers { get; set; }  // -this-
+        public DbSet<Manufacture> Manufactures { get; set; }  // -this-
         public DbSet<Product> Products { get; set; }  
         public DbSet<SalesTable> SalesTables { get; set; }  
         public DbSet<Category> Categories { get; set; }  
-        public DbSet<Bank> Banks { get; set; }  
+        public DbSet<Bank> Banks { get; set; }  // -this-
         public DbSet<BankAccount> BankAccounts { get; set; }  
         public DbSet<CredcardOperator> CredcardOperators { get; set; }  
         public DbSet<Departament> Departaments { get; set; }  

@@ -1,9 +1,12 @@
+using System;
+using EasyManager.Domain.Core.Events;
+
 namespace EasyManager.Domain.Events
 {
-    public class ManufactureRemovedEvent : ManufactureEvent
+    public class ManufactureRemovedEvent : Event
     {
-        public ManufactureRemovedEvent()
-        {
-        }
+         public Guid Id { get; set; }
+
+        public ManufactureRemovedEvent(Guid id) => Id = AggregateId = id;
     }
 }

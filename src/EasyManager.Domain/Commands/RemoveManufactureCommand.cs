@@ -5,11 +5,7 @@ namespace EasyManager.Domain.Commands
 {
     public class RemoveManufactureCommand : ManufactureCommand
     {
-        public RemoveManufactureCommand(Guid id)
-        {
-            Id = id;
-            AggregateId = id;
-        }
+        public RemoveManufactureCommand(Guid id) => Id = AggregateId = id;
 
         public override bool IsValid()
         {

@@ -26,6 +26,12 @@ namespace EasyManager.Domain.AutoMapper
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
             CreateMap<BankAccountCommand, BankAccountUpdatedEvent>()
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+
+            // Sales table item mapping
+            CreateMap<BankAccountCommand, SalesTableItemRegisteredEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<BankAccountCommand, SalesTableItemUpdatedEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
         }
     }
 }
