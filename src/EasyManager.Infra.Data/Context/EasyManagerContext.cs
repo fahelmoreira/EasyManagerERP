@@ -12,9 +12,9 @@ namespace EasyManager.Infra.Data.Context
         public DbSet<Manufacture> Manufactures { get; set; }  // -this- //
         public DbSet<Product> Products { get; set; }  
         public DbSet<SalesTable> SalesTables { get; set; }  // -this- //
-        public DbSet<Category> Categories { get; set; }  
-        public DbSet<Bank> Banks { get; set; }  // -this- //
-        public DbSet<BankAccount> BankAccounts { get; set; }  
+        public DbSet<Category> Categories { get; set; }  // -this- //
+        public DbSet<Bank> Banks { get; set; }  
+        public DbSet<BankAccount> BankAccounts { get; set; }  // -this- //
         public DbSet<CredcardOperator> CredcardOperators { get; set; }  
         public DbSet<Departament> Departaments { get; set; }  
         public DbSet<Financial> Financias { get; set; }  

@@ -4,7 +4,7 @@ using FluentValidation;
 
 namespace EasyManager.Domain.Validators
 {
-    public abstract class BankAccountValidation<T, R> : AbstractValidator<T> where T : BankAccountCommand<R>
+    public abstract class DepartamentValidation <T, R> : AbstractValidator<T> where T : DepartamentCommand<R>
     {
         protected void ValidateName()
         {

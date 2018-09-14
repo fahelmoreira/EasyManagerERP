@@ -22,7 +22,11 @@ namespace EasyManager.Domain.CommandHandlers
                       UpdateCustomerCommand,
                       CustomerUpdatedEvent>
     {
-        public CustomerCommandHandler(IMapper mapper, ICustomerRepository repository, IUnitOfWork uow, IMediatorHandler bus, INotificationHandler<DomainNotification> notifications) : base(mapper, repository, uow, bus, notifications)
+        public CustomerCommandHandler(IMapper mapper, 
+                                      ICustomerRepository repository, 
+                                      IUnitOfWork uow, 
+                                      IMediatorHandler bus, 
+                                      INotificationHandler<DomainNotification> notifications) : base(mapper, repository, uow, bus, notifications)
         {
         }
     }

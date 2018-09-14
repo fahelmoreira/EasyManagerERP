@@ -4,7 +4,7 @@ using FluentValidation;
 
 namespace EasyManager.Domain.Validators
 {
-    public class CategoryValidation<T, R> : AbstractValidator<T> where T : CategoryCommand<R>
+    public abstract class CategoryValidation<T, R> : AbstractValidator<T> where T : CategoryCommand<R>
     {
         protected void ValidateDescription()
         {

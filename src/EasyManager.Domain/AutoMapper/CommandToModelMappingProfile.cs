@@ -25,7 +25,10 @@ namespace EasyManager.Domain.AutoMapper
                 .ForMember(b => b.Bank, opt => opt.MapFrom(x => new BankAccount{ Id = x.Bank }));
             
             //Sales table item mapping
-            CreateMap<SalesTableItemCommand<Unit>, SalesTable>();            
+            CreateMap<SalesTableItemCommand<Unit>, SalesTable>();
+
+            //Departament mapping
+            CreateMap<DepartamentCommand<Unit>, Departament>();          
         }
     }
 }

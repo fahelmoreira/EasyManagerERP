@@ -43,7 +43,11 @@ namespace EasyManager.Domain.CommandHandlers
         {
         }
 
-
+        /// <summary>
+        /// Regiter the entity <TEntity> in the data base
+        /// </summary>
+        /// <param name="command">Command to be executed</param>
+        /// <param name="cancellationToken"></param>
         public async Task<RegisterUnit> Handle(RegisterCommand command, CancellationToken cancellationToken)
         {
             if (!command.IsValid())
@@ -73,6 +77,11 @@ namespace EasyManager.Domain.CommandHandlers
             return RegisterUnit.Value;
         }
 
+        /// <summary>
+        /// Removes the entity <TEntity> from the data base
+        /// </summary>
+        /// <param name="command">Command to be executed</param>
+        /// <param name="cancellationToken"></param>
         public async Task<RemoveUnit> Handle(RemoveCommand command, CancellationToken cancellationToken)
         {
              if(!command.IsValid())
@@ -89,6 +98,11 @@ namespace EasyManager.Domain.CommandHandlers
             return RemoveUnit.Value;
         }
 
+        /// <summary>
+        /// Updates the entity <TEntity> in the data base
+        /// </summary>
+        /// <param name="command">Command to be executed</param>
+        /// <param name="cancellationToken"></param>
         public async Task<UpdateUnit> Handle(UpdateCommand command, CancellationToken cancellationToken)
         {
             if (!command.IsValid())
