@@ -1,8 +1,9 @@
+using EasyManager.Domain.Core.Units;
 using EasyManager.Domain.Validators;
 
 namespace EasyManager.Domain.Commands
 {
-    public class RegisterNewManufactureCommand : ManufactureCommand
+    public class RegisterNewManufactureCommand : ManufactureCommand<RegisterUnit>
     {
         public RegisterNewManufactureCommand()
         {

@@ -3,9 +3,8 @@ using EasyManager.Domain.Core.Commands;
 
 namespace EasyManager.Domain.Commands
 {
-    public abstract class BankAccountCommand : Command
+    public abstract class BankAccountCommand<T> : Command<T>
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public bool IsBankAccount { get; set; }
         public Guid Bank { get; set; }

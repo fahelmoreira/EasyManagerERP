@@ -5,9 +5,8 @@ using EasyManager.Domain.Models;
 
 namespace EasyManager.Domain.Commands
 {
-    public abstract class ManufactureCommand : Command
+    public abstract class ManufactureCommand<T>: Command<T>
     {
-        public Guid Id { get; protected set; }
         public string TradeName { get; protected set; }
         public string CorporateTaxpayerId { get; protected set; }
         public Address Address { get; protected set; }

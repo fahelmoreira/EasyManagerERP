@@ -13,6 +13,12 @@ namespace EasyManager.Domain.Core.Bus
         /// Sends the command to handler
         /// </summary>
         /// <param name="Commmad">Command to be executed</param>
+        Task SendCommand<T, R>(T Commmad) where T : Command<R>; 
+        
+        /// <summary>
+        /// Sends the command to handler
+        /// </summary>
+        /// <param name="Commmad">Command to be executed</param>
         Task SendCommand<T>(T Commmad) where T : Command; 
 
         /// <summary>

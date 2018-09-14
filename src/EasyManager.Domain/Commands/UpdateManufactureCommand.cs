@@ -1,8 +1,9 @@
+using EasyManager.Domain.Core.Units;
 using EasyManager.Domain.Validators;
 
 namespace EasyManager.Domain.Commands
 {
-    public class UpdateManufactureCommand : ManufactureCommand
+    public class UpdateManufactureCommand : ManufactureCommand<UpdateUnit>
     {
         public UpdateManufactureCommand()
         {

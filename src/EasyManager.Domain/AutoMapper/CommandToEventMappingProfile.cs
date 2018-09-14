@@ -10,28 +10,36 @@ namespace EasyManager.Domain.AutoMapper
         public CommandToEventMappingProfile()
         {
             //Customer mapping
-            CreateMap<CustomerCommand, CustomerRegisteredEvent>()
+            CreateMap<RegisterNewCustomerCommand, CustomerRegisteredEvent>()
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
-            CreateMap<CustomerCommand, CustomerUpdatedEvent>()
+            CreateMap<UpdateCustomerCommand, CustomerUpdatedEvent>()
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<RemoveCustomerCommand, CustomerRemovedEvent>()
+                .ConstructUsing(ev => new CustomerRemovedEvent(ev.Id));
 
             //Manufactore mapping
-            CreateMap<ManufactureCommand, ManufactureRegisteredEvent>()
+            CreateMap<RegisterNewManufactureCommand, ManufactureRegisteredEvent>()
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
-            CreateMap<ManufactureCommand, ManufactureUpdatedEvent>()
+            CreateMap<UpdateManufactureCommand, ManufactureUpdatedEvent>()
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<RemoveManufactureCommand, ManufactureRemovedEvent>()
+                .ConstructUsing(ev => new ManufactureRemovedEvent(ev.Id));
                 
             // Bank account mapping
-            CreateMap<BankAccountCommand, BankAccountRegisteredEvent>()
+            CreateMap<RegisterNewBankAccountCommand, BankAccountRegisteredEvent>()
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
-            CreateMap<BankAccountCommand, BankAccountUpdatedEvent>()
+            CreateMap<UpdateBankAccountCommand, BankAccountUpdatedEvent>()
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<RemoveBankAccountCommand, BankAccountRemovedEvent>()
+                .ConstructUsing(ev => new BankAccountRemovedEvent(ev.Id));
 
             // Sales table item mapping
-            CreateMap<BankAccountCommand, SalesTableItemRegisteredEvent>()
+            CreateMap<RegisterNewSalesTableItemCommand, SalesTableItemRegisteredEvent>()
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
-            CreateMap<BankAccountCommand, SalesTableItemUpdatedEvent>()
+            CreateMap<UpdateSalesTableItemCommand, SalesTableItemUpdatedEvent>()
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<RemoveSalesTableItemCommand, SalesTableItemRemovedEvent>()
+                .ConstructUsing(ev => new SalesTableItemRemovedEvent(ev.Id));
         }
     }
 }

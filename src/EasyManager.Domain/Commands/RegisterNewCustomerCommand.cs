@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EasyManager.Domain.Core.Units;
 using EasyManager.Domain.Models;
 using EasyManager.Domain.Types;
 using EasyManager.Domain.Validators;
@@ -10,7 +11,7 @@ namespace EasyManager.Domain.Commands
     /// <summary>
     /// Command to register new customer
     /// </summary>
-    public class RegisterNewCustomerCommand : CustomerCommand
+    public class RegisterNewCustomerCommand : CustomerCommand<RegisterUnit>
     {
         public RegisterNewCustomerCommand()
         {

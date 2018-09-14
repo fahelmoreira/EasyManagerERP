@@ -9,11 +9,8 @@ using MediatR;
 
 namespace EasyManager.Domain.CommandHandlers
 {
-    /// <summary>
-    /// Handle all the sistem commands
-    /// </summary>
-    public class CommandHandler
-    {
+    public class CommandHandler {
+        
         #region Private fields
         protected readonly IMapper _mapper;
         protected readonly IUnitOfWork _uow;
@@ -24,7 +21,10 @@ namespace EasyManager.Domain.CommandHandlers
         /// <summary>
         /// Default constructor
         /// </summary>
-        public CommandHandler(IMapper mapper,IUnitOfWork uow, IMediatorHandler bus, INotificationHandler<DomainNotification> notifications)
+        public CommandHandler(IMapper mapper,
+                              IUnitOfWork uow, 
+                              IMediatorHandler bus, 
+                              INotificationHandler<DomainNotification> notifications)
         {
             _mapper = mapper;
             _uow = uow;
@@ -51,6 +51,19 @@ namespace EasyManager.Domain.CommandHandlers
         /// <param name="message">Command to sent</param>
         /// <returns></returns>
         protected void NotifyValidationErrors(Command message)
+        {
+            foreach (var erro in message.ValidationResult.Errors)
+            {
+                 _bus.RaiseEvent(new DomainNotification(message.MessageType, erro.ErrorMessage));
+            }
+        }
+
+        /// <summary>
+        /// Notifies the domain when a error occur
+        /// </summary>
+        /// <param name="message">Command to sent</param>
+        /// <returns></returns>
+        protected void NotifyValidationErrors<T>(Command<T> message)
         {
             foreach (var erro in message.ValidationResult.Errors)
             {
@@ -94,6 +107,21 @@ namespace EasyManager.Domain.CommandHandlers
 
             _bus.RaiseEvent(new DomainNotification("Commit", "We had a problem during saving your data."));
             return false;
+        }
+    }
+    /// <summary>
+    /// Handle all the sistem commands
+    /// </summary>
+    public class CommandHandler<T> : CommandHandler
+    {
+        protected readonly T _repository;
+        public CommandHandler(IMapper mapper, 
+                              T repository, 
+                              IUnitOfWork uow, 
+                              IMediatorHandler bus, 
+                              INotificationHandler<DomainNotification> notifications) : base(mapper, uow, bus, notifications)
+        {
+            _repository = repository;
         }
     }
 }

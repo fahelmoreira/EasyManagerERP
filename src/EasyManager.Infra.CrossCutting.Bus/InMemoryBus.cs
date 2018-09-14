@@ -21,7 +21,10 @@ namespace EasyManager.Infra.CrossCutting.Bus
         {
             return _mediator.Send(command);
         }
-
+        public Task SendCommand<T, R>(T command) where T : Command<R>
+        {
+            return _mediator.Send(command);
+        }
         public Task RaiseEvent<T>(T @event) where T : Event
         {
             if (!@event.MessageType.Equals("DomainNotification"))
@@ -29,5 +32,7 @@ namespace EasyManager.Infra.CrossCutting.Bus
 
             return _mediator.Publish(@event);
         }
+
+        
     }
 }

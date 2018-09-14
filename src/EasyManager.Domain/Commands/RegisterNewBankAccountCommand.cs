@@ -1,8 +1,9 @@
+using EasyManager.Domain.Core.Units;
 using EasyManager.Domain.Validators;
 
 namespace EasyManager.Domain.Commands
 {
-    public class RegisterNewBankAccountCommand : BankAccountCommand
+    public class RegisterNewBankAccountCommand : BankAccountCommand<RegisterUnit>
     {
         public RegisterNewBankAccountCommand()
         {

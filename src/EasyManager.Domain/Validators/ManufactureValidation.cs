@@ -4,7 +4,7 @@ using FluentValidation;
 
 namespace EasyManager.Domain.Validators
 {
-    public abstract class ManufactureValidation<T> : AbstractValidator<T> where T : ManufactureCommand
+    public abstract class ManufactureValidation<T, R> : AbstractValidator<T> where T : ManufactureCommand<R>
     {
         protected void ValidateTradeName()
         {

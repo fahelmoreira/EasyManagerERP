@@ -4,7 +4,7 @@ using FluentValidation;
 
 namespace EasyManager.Domain.Validators
 {
-    public class SalesTableItemValidation<T> : AbstractValidator<T> where T : SalesTableItemCommand
+    public class SalesTableItemValidation<T, R> : AbstractValidator<T> where T : SalesTableItemCommand<R>
     {
         protected void ValidateName()
         {

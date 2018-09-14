@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 
 namespace EasyManager.Domain.Validators
 {
-    public abstract class CustomerValidation<T> : AbstractValidator<T> where T : CustomerCommand
+    public abstract class CustomerValidation<T, R> : AbstractValidator<T> where T : CustomerCommand<R>
     {
         /// <summary>
         /// Validate the customer trade name information

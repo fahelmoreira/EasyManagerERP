@@ -5,6 +5,7 @@ using EasyManager.Domain.Commands;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Events;
 using EasyManager.Domain.Core.Notifications;
+using EasyManager.Domain.Core.Units;
 using EasyManager.Domain.EventHandlers;
 using EasyManager.Domain.Events;
 using EasyManager.Domain.Interfaces;
@@ -44,12 +45,12 @@ namespace EasyManager.Infra.CrossCutting.IoC
             services.AddScoped<INotificationHandler<ManufactureUpdatedEvent>, ManufactureEventHandler>();
 
             // Domain - Commands
-            services.AddScoped<IRequestHandler<RegisterNewCustomerCommand>, CustomerCommandHandler>();
-            services.AddScoped<IRequestHandler<UpdateCustomerCommand>, CustomerCommandHandler>();
-            services.AddScoped<IRequestHandler<RemoveCustomerCommand>, CustomerCommandHandler>();
-            services.AddScoped<IRequestHandler<RegisterNewManufactureCommand>, ManufactureCommandHandler>();
-            services.AddScoped<IRequestHandler<RemoveManufactureCommand>, ManufactureCommandHandler>();
-            services.AddScoped<IRequestHandler<UpdateManufactureCommand>, ManufactureCommandHandler>();
+            services.AddScoped<IRequestHandler<RegisterNewCustomerCommand, RegisterUnit>, CustomerCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveCustomerCommand, RemoveUnit>, CustomerCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateCustomerCommand, UpdateUnit>, CustomerCommandHandler>();
+            services.AddScoped<IRequestHandler<RegisterNewManufactureCommand, RegisterUnit>, ManufactureCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveManufactureCommand, RemoveUnit>, ManufactureCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateManufactureCommand, UpdateUnit>, ManufactureCommandHandler>();
 
             // Infra - Data
             services.AddScoped<ICustomerRepository, CustomerRepository>();

@@ -1,8 +1,9 @@
+using EasyManager.Domain.Core.Units;
 using EasyManager.Domain.Validators;
 
 namespace EasyManager.Domain.Commands
 {
-    public class UpdateSalesTableItemCommand : SalesTableItemCommand
+    public class UpdateSalesTableItemCommand : SalesTableItemCommand<UpdateUnit>
     {
         public UpdateSalesTableItemCommand()
         {

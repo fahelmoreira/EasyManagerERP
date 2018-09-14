@@ -9,10 +9,14 @@ namespace EasyManager.Domain.Commands
     /// <summary>
     /// Defaults customer command parameters
     /// </summary>
-    public abstract class CustomerCommand : Command
+    public abstract class CustomerCommand<T> : Command<T>
     {
-        public Guid Id { get; protected set; }
         public string TradeName { get; protected set; }
+        public string CorporateName { get; set; }
+        public string Name { get; set; }
+        public string Code { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
         public ClientType Type { get; protected set; }
         public string IndividualTaxpayerId { get; protected set; }
         public string CorporateTaxpayerId { get; protected set; }

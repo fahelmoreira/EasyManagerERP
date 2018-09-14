@@ -6,6 +6,7 @@ using EasyManager.Application.Interfaces;
 using EasyManager.Application.ViewModels;
 using EasyManager.Domain.Commands;
 using EasyManager.Domain.Core.Bus;
+using EasyManager.Domain.Core.Units;
 using EasyManager.Domain.Interfaces;
 using EasyManager.Infra.Data.Repository.EventSourcing;
 
@@ -43,19 +44,19 @@ namespace EasyManager.Application.Services
         public void Register(ManufactureViewModel manufacture)
         {
             var RegisterNewManufactureCommand = _mapper.Map<RegisterNewManufactureCommand>(manufacture);
-            _bus.SendCommand(RegisterNewManufactureCommand);
+            _bus.SendCommand<RegisterNewManufactureCommand, RegisterUnit>(RegisterNewManufactureCommand);
         }
 
         public void Remove(Guid id)
         {
             var RemoveManufactureCommand = new RemoveManufactureCommand(id);
-            _bus.SendCommand(RemoveManufactureCommand);
+            _bus.SendCommand<RemoveManufactureCommand, RemoveUnit>(RemoveManufactureCommand);
         }
 
         public void Update(ManufactureViewModel manufacture)
         {
             var UpdateManufactureCommand = _mapper.Map<UpdateManufactureCommand>(manufacture);
-            _bus.SendCommand(UpdateManufactureCommand);
+            _bus.SendCommand<UpdateManufactureCommand, UpdateUnit>(UpdateManufactureCommand);
         }
     }
 }

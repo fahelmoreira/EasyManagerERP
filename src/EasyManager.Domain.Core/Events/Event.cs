@@ -3,7 +3,7 @@ using MediatR;
 
 namespace EasyManager.Domain.Core.Events
 {
-    public abstract class Event : Message, INotification
+    public abstract class Event : Message<Unit>, INotification
     {
         public DateTime Timestamp { get; private set; }
 

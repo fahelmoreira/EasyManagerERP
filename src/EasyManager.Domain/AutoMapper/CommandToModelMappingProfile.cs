@@ -1,6 +1,7 @@
 using AutoMapper;
 using EasyManager.Domain.Commands;
 using EasyManager.Domain.Models;
+using MediatR;
 using Newtonsoft.Json;
 
 namespace EasyManager.Domain.AutoMapper
@@ -10,21 +11,21 @@ namespace EasyManager.Domain.AutoMapper
         public CommandToModelMappingProfile()
         {
             //Customer mapping
-            CreateMap<CustomerCommand, Customer>()
+            CreateMap<CustomerCommand<Unit>, Customer>()
                 .ForMember(c => c.Address, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Address)))
                 .ForMember(c => c.Contacts, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Contacts)));
 
             //Manufactore mapping
-            CreateMap<ManufactureCommand, Manufacture>()
+            CreateMap<ManufactureCommand<Unit>, Manufacture>()
                 .ForMember(c => c.Address, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Address)))
                 .ForMember(c => c.Contacts, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Contacts)));
 
             //Bank account mapping
-            CreateMap<BankAccountCommand, BankAccount>()
+            CreateMap<BankAccountCommand<Unit>, BankAccount>()
                 .ForMember(b => b.Bank, opt => opt.MapFrom(x => new BankAccount{ Id = x.Bank }));
             
             //Sales table item mapping
-            CreateMap<SalesTableItemCommand, SalesTable>();            
+            CreateMap<SalesTableItemCommand<Unit>, SalesTable>();            
         }
     }
 }
