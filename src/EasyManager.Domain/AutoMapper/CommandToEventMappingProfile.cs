@@ -56,6 +56,14 @@ namespace EasyManager.Domain.AutoMapper
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
             CreateMap<RemoveFinancialCommand, FinancialRemovedEvent>()
                 .ConstructUsing(ev => new FinancialRemovedEvent(ev.Id));
+            
+            // Payment mapping
+            CreateMap<RegisterNewPaymentMethodCommand, PaymentMethodRegisteredEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<UpdatePaymentMethodCommand, PaymentMethodUpdatedEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<RemovePaymentMethodCommand, PaymentMethodRemovedEvent>()
+                .ConstructUsing(ev => new PaymentMethodRemovedEvent(ev.Id));
         }
     }
 }

@@ -15,6 +15,18 @@ using MediatR;
 
 namespace EasyManager.Domain.CommandHandlers
 {
+    /// <summary>
+    /// Command handler that handle the basic actions such as, 
+    /// Create new, update and remove register from the storage
+    /// </summary>
+    /// <typeparam name="TEntity">Entity that is using the handler</typeparam>
+    /// <typeparam name="Repository">Repository with the entity actions</typeparam>
+    /// <typeparam name="RegisterCommand">Register command</typeparam>
+    /// <typeparam name="RegisterEvent">Register event</typeparam>
+    /// <typeparam name="RemoveCommand">Remove Command</typeparam>
+    /// <typeparam name="RemoveEvent">Remove event</typeparam>
+    /// <typeparam name="UpdateCommand">Update command</typeparam>
+    /// <typeparam name="UpdateEvent">Update event</typeparam>
     public abstract class BaseCommandsHandler<TEntity, 
                               Repository,
                               RegisterCommand, 
