@@ -19,7 +19,7 @@ namespace EasyManager.Infra.Data.Context
         public DbSet<Departament> Departaments { get; set; }  // -this- //
         public DbSet<Financial> Financias { get; set; }  // -this- //
         public DbSet<Order> Orders { get; set; }  
-        public DbSet<PaymentMethod> PaymentMethods { get; set; }  
+        public DbSet<PaymentMethod> PaymentMethods { get; set; }  // -this- //
         public DbSet<Purchase> Purchases { get; set; }  
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

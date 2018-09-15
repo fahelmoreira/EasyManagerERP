@@ -132,7 +132,7 @@ namespace EasyManager.Domain.Models
 
         #region Bundle
         
-        public IEnumerable<ProductBundle> Bundles { get; set; }
+        public IEnumerable<ProductBundle<Product>> Bundles { get; set; }
 
         #endregion
 
@@ -145,7 +145,7 @@ namespace EasyManager.Domain.Models
         {
             SoldSeparately = true;
             Active = true;
-            Bundles = new List<ProductBundle>();
+            Bundles = new List<ProductBundle<Product>>();
         }
     }
 }

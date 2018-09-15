@@ -4,7 +4,7 @@ using EasyManager.Domain.Types;
 
 namespace EasyManager.Domain.Events
 {
-    public class PaymentMethodEvent : Event
+    public abstract class PaymentMethodEvent : Event
     {
         public Guid Id { get; set; }
         public string Description { get; set; }

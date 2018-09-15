@@ -38,6 +38,11 @@ namespace EasyManager.Domain.AutoMapper
             CreateMap<PaymentMethodCommand<Unit>, PaymentMethod>()
                 .ForMember(c => c.BankAccount, opt => opt.MapFrom(cmd => new BankAccount{Id = cmd.BankAccount }))
                 .ForMember(c => c.CredcardOperator, opt => opt.MapFrom(cmd => new CredcardOperator{Id = cmd.CredcardOperator }));
+
+            //Product mapping
+            CreateMap<ProductCommand<Unit>, Product>()
+                .ForMember(c => c.Category, opt => opt.MapFrom(cmd => new Category{Id = cmd.Category }))
+                .ForMember(c => c.Manufacture, opt => opt.MapFrom(cmd => new Manufacture{ Id = cmd.Manufacture }));
         }
     }
 }
