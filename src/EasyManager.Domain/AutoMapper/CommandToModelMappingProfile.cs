@@ -29,6 +29,10 @@ namespace EasyManager.Domain.AutoMapper
 
             //Departament mapping
             CreateMap<DepartamentCommand<Unit>, Departament>();          
+
+            //Financial mapping
+            CreateMap<FinancialCommand<Unit>, Financial>()
+                .ForMember(c => c.InstallmentInformation, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.InstallmentInformation)));
         }
     }
 }

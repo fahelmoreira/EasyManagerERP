@@ -48,6 +48,14 @@ namespace EasyManager.Domain.AutoMapper
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
             CreateMap<RemoveDepartamentCommand, DepartamentRemovedEvent>()
                 .ConstructUsing(ev => new DepartamentRemovedEvent(ev.Id));
+
+            // Financial mapping
+            CreateMap<RegisterNewFinancialCommand, FinancialRegisteredEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<UpdateFinancialCommand, FinancialUpdatedEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<RemoveFinancialCommand, FinancialRemovedEvent>()
+                .ConstructUsing(ev => new FinancialRemovedEvent(ev.Id));
         }
     }
 }

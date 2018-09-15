@@ -9,7 +9,7 @@ namespace EasyManager.Domain.Validators
         protected void ValidateName()
         {
             RuleFor(b => b.Name)
-                .NotEmpty().WithMessage("Please ensure you have entered the bank name")
+                .NotEmpty().WithMessage("Please ensure you have entered the department name")
                 .Length(2, 150).WithMessage("The Name must have between 2 and 150 characters");
         }
 
