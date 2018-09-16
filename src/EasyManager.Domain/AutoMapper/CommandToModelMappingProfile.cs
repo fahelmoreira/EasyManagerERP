@@ -44,11 +44,17 @@ namespace EasyManager.Domain.AutoMapper
                 .ForMember(c => c.Category, opt => opt.MapFrom(cmd => new Category{Id = cmd.Category }))
                 .ForMember(c => c.Manufacture, opt => opt.MapFrom(cmd => new Manufacture{ Id = cmd.Manufacture }));
 
-            //Product mapping
+            //Order mapping
             CreateMap<OrderCommand<Unit>, Order>()
                 .ForMember(c => c.Departament, opt => opt.MapFrom(cmd => new Departament{Id = cmd.Departament}))
                 .ForMember(c => c.Customer, opt => opt.MapFrom(cmd => new Customer{ Id = cmd.Customer }))
+                .ForMember(c => c.PaymentMethod, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.PaymentMethod)))
                 .ForMember(c => c.ProductOrder, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.ProductOrder)));
+            
+            //Purchase mapping
+            CreateMap<PurchaseCommand<Unit>, Purchase>()
+                .ForMember(c => c.Manufacture, opt => opt.MapFrom(cmd => new Manufacture{Id = cmd.Manufacture}))
+                .ForMember(c => c.PaymentMethod, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.PaymentMethod)));
         }
     }
 }

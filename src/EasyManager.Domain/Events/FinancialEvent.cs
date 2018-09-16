@@ -6,7 +6,7 @@ using EasyManager.Domain.Types;
 
 namespace EasyManager.Domain.Events
 {
-    public class FinancialEvent : Event
+    public abstract class FinancialEvent : Event
     {
         public Guid Id { get; set; }
         public BudgetType? BudgetType { get; set; }

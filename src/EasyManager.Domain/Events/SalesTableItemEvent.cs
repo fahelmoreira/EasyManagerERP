@@ -3,7 +3,7 @@ using EasyManager.Domain.Core.Events;
 
 namespace EasyManager.Domain.Events
 {
-    public class SalesTableItemEvent : Event
+    public abstract class SalesTableItemEvent : Event
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

@@ -18,7 +18,7 @@ namespace EasyManager.Infra.Data.Context
         public DbSet<CredcardOperator> CredcardOperators { get; set; }  
         public DbSet<Departament> Departaments { get; set; }  // -this- //
         public DbSet<Financial> Financias { get; set; }  // -this- //
-        public DbSet<Order> Orders { get; set; }  
+        public DbSet<Order> Orders { get; set; }  // -this- //
         public DbSet<PaymentMethod> PaymentMethods { get; set; }  // -this- //
         public DbSet<Purchase> Purchases { get; set; }  
 

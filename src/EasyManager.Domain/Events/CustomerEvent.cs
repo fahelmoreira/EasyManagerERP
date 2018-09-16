@@ -6,7 +6,7 @@ using EasyManager.Domain.Types;
 
 namespace EasyManager.Domain.Events
 {
-    public class CustomerEvent : Event
+    public abstract class CustomerEvent : Event
     {
         public Guid Id { get; protected set; }
         public string TradeName { get; protected set; }

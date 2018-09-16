@@ -19,6 +19,6 @@ namespace EasyManager.Domain.Commands
         public double DiscountValue { get; set; }
         public double DiscountPercentage { get; set; }
         public double DeliveryFee { get; set; }
-        public string PaymentMethod { get; set; }
+        public PurchasePaymentInformation PaymentMethod { get; set; }
     }
 }
