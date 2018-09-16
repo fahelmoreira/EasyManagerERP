@@ -80,6 +80,14 @@ namespace EasyManager.Domain.AutoMapper
                 .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
             CreateMap<RemoveProductCommand, ProductRemovedEvent>()
                 .ConstructUsing(ev => new ProductRemovedEvent(ev.Id));
+
+            // Order mapping
+            CreateMap<RegisterNewOrderCommand, OrderRegisteredEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<UpdateOrderCommand, OrderUpdatedEvent>()
+                .ForMember(ev => ev.AggregateId, opt => opt.MapFrom(c => c.Id));
+            CreateMap<RemoveOrderCommand, OrderRemovedEvent>()
+                .ConstructUsing(ev => new OrderRemovedEvent(ev.Id));
         }
     }
 }

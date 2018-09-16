@@ -10,7 +10,7 @@ namespace EasyManager.Infra.Data.Context
     {
         public DbSet<Customer> Customers { get; set; }  // -this- //
         public DbSet<Manufacture> Manufactures { get; set; }  // -this- //
-        public DbSet<Product> Products { get; set; }  
+        public DbSet<Product> Products { get; set; }  // -this- //
         public DbSet<SalesTable> SalesTables { get; set; }  // -this- //
         public DbSet<Category> Categories { get; set; }  // -this- //
         public DbSet<Bank> Banks { get; set; }  
