@@ -26,7 +26,7 @@ namespace EasyManager.Domain.Commands
         #endregion
 
         #region Values ​​and cost
-        public string SalesTable { get; set; }
+        public List<SalesTable> SalesTable { get; set; }
         public double OtherExpenses { get; set; }
         public double Cost { get; set; }
 
@@ -47,7 +47,7 @@ namespace EasyManager.Domain.Commands
         #endregion
 
         #region Attributes
-        public string Attributes { get; set; }
+        public List<Attribute> Attributes { get; set; }
         #endregion
 
         #region Bundle

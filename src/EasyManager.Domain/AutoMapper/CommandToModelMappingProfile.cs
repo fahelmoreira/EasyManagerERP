@@ -32,6 +32,7 @@ namespace EasyManager.Domain.AutoMapper
 
             //Financial mapping
             CreateMap<FinancialCommand<Unit>, Financial>()
+                .ForMember(c => c.PaymentMethod, opt => opt.MapFrom(cmd => new PaymentMethod{Id  = cmd.PaymentMethod}))
                 .ForMember(c => c.InstallmentInformation, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.InstallmentInformation)));
 
             //Payment mapping
@@ -42,6 +43,8 @@ namespace EasyManager.Domain.AutoMapper
             //Product mapping
             CreateMap<ProductCommand<Unit>, Product>()
                 .ForMember(c => c.Category, opt => opt.MapFrom(cmd => new Category{Id = cmd.Category }))
+                .ForMember(c => c.Attributes, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Attributes)))
+                .ForMember(c => c.SalesTable, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.SalesTable)))
                 .ForMember(c => c.Manufacture, opt => opt.MapFrom(cmd => new Manufacture{ Id = cmd.Manufacture }));
 
             //Order mapping

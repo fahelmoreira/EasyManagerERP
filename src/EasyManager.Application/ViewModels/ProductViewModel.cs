@@ -1,17 +1,25 @@
 using System;
 using System.Collections.Generic;
-using EasyManager.Domain.Core.Events;
+using System.ComponentModel.DataAnnotations;
 using EasyManager.Domain.Models;
 using EasyManager.Domain.Types;
 
-namespace EasyManager.Domain.Events
+namespace EasyManager.Application.ViewModels
 {
-    public abstract class ProductEvent : Event
+    public class ProductViewModel : BaseViewModel
     {
-        public Guid Id { get; set; }
+        public ProductViewModel()
+        {
+            Active = true;
+        }
+
         #region Informations
+        [Required(ErrorMessage = "The description is required")]
         public string Description { get; set; }
+
+        [Required(ErrorMessage = "The category is required")]
         public Guid Category { get; set; }
+        [Required(ErrorMessage = "The internal code is required")]        
         public string InternalCode { get; set; }
         public string Barcode { get; set; }
         public ProductType ProductType { get; set; }
@@ -52,12 +60,12 @@ namespace EasyManager.Domain.Events
         #endregion
 
         #region Bundle
-        public List<ProductBundle<ProductEvent>> Bundles { get; set; }
+        public List<ProductBundle<ProductViewModel>> Bundles { get; set; }
         #endregion
 
         #region Manufacture
+        [Required(ErrorMessage = "The manufacture is required")]
         public Guid Manufacture { get; set; }
         #endregion
-        
     }
 }

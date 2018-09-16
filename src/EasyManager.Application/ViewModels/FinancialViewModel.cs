@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using EasyManager.Domain.Core.Commands;
 using EasyManager.Domain.Models;
 using EasyManager.Domain.Types;
 
-namespace EasyManager.Domain.Commands
+namespace EasyManager.Application.ViewModels
 {
-    public abstract class FinancialCommand<T> : Command<T>
+    public class FinancialViewModel : BaseViewModel
     {
         public BudgetType? BudgetType { get; set; }
         public Guid PaymentMethod { get; set; }
