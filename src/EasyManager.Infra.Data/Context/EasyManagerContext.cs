@@ -8,18 +8,18 @@ namespace EasyManager.Infra.Data.Context
 {
     public class EasyManagerContext : DbContext
     {
-        public DbSet<Customer> Customers { get; set; }  // -this- //
-        public DbSet<Manufacture> Manufactures { get; set; }  // -this- //
-        public DbSet<Product> Products { get; set; }  // -this- //
-        public DbSet<SalesTable> SalesTables { get; set; }  // -this- //
-        public DbSet<Category> Categories { get; set; }  // -this- //
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Manufacture> Manufactures { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<SalesTable> SalesTables { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Bank> Banks { get; set; }  
-        public DbSet<BankAccount> BankAccounts { get; set; }  // -this- //
+        public DbSet<BankAccount> BankAccounts { get; set; }
         public DbSet<CredcardOperator> CredcardOperators { get; set; }  
-        public DbSet<Departament> Departaments { get; set; }  // -this- //
-        public DbSet<Financial> Financias { get; set; }  // -this- //
-        public DbSet<Order> Orders { get; set; }  // -this- //
-        public DbSet<PaymentMethod> PaymentMethods { get; set; }  // -this- //
+        public DbSet<Departament> Departaments { get; set; }
+        public DbSet<Financial> Financias { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<Purchase> Purchases { get; set; }  
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
