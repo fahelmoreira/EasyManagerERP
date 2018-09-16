@@ -11,4 +11,10 @@ namespace EasyManager.Application.Interfaces
         void Update(T obj);
         void Remove(Guid id);
     }
+
+    public interface IAppServices<T> : IAppServices<T, T>
+    {
+        
+    }
+        
 }
