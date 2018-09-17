@@ -1,6 +1,6 @@
 namespace EasyManager.Application.ViewModels
 {
-    public class FinancialShort : BaseViewModel
+    public class FinancialShortViewModel : BaseViewModel
     {
         
     }

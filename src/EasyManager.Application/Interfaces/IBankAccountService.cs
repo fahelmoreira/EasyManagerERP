@@ -2,7 +2,7 @@ using EasyManager.Application.ViewModels;
 
 namespace EasyManager.Application.Interfaces
 {
-    public interface IBankAccountService : IAppServices<BankAccountViewModel, BankAccountShort>
+    public interface IBankAccountService : IAppServices<BankAccountViewModel, BankAccountShortViewModel>
     {
         
     }

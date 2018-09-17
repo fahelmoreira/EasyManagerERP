@@ -13,54 +13,22 @@ using EasyManager.Infra.Data.Repository.EventSourcing;
 
 namespace EasyManager.Application.Services
 {
-    public class CustomerAppService : ICustomerAppService
+    public class CustomerAppService :
+        BaseAppService<Domain.Models.Customer,
+                       CustomerViewModel,
+                       CustomerShortViewModel,
+                       ICustomerRepository,
+                       RegisterNewCustomerCommand,
+                       RemoveCustomerCommand,
+                       UpdateCustomerCommand> ,
+        ICustomerAppService
+        
     {
-        private readonly IMapper _mapper;
-        private readonly ICustomerRepository _customerRepository;
-        private readonly IEventStoreRepository _eventStoreRepository;
-        private readonly IMediatorHandler _bus;
-
         public CustomerAppService(IMapper mapper,
-                                  ICustomerRepository customerRepository,
-                                  IMediatorHandler bus,
-                                  IEventStoreRepository eventStoreRepository)
+                                  ICustomerRepository repository, 
+                                  IMediatorHandler bus, 
+                                  IEventStoreRepository eventStoreRepository) : base(mapper, repository, bus, eventStoreRepository)
         {
-            _mapper = mapper;
-            _customerRepository = customerRepository;
-            _bus = bus;
-            _eventStoreRepository = eventStoreRepository;
-        }
-
-        public IEnumerable<CustomerShortViewModel> GetAll()
-        {
-            return _customerRepository.GetAll().ProjectTo<CustomerShortViewModel>();
-        }
-
-        public CustomerViewModel GetById(Guid id)
-        {
-           var customer = _customerRepository.GetById(id);
-
-           return _mapper.Map<CustomerViewModel>(customer);
-        }
-
-        public void Register(CustomerViewModel customerViewModel)
-        {
-            var RegisterNewCustomerCommand = _mapper.Map<RegisterNewCustomerCommand>(customerViewModel);
-            _bus.SendCommand<RegisterNewCustomerCommand, RegisterUnit>(RegisterNewCustomerCommand);
-            
-        }
-
-        public void Remove(Guid id)
-        {
-            var RemoveCustomerCommand = new RemoveCustomerCommand(id);
-            _bus.SendCommand<RemoveCustomerCommand, RemoveUnit>(RemoveCustomerCommand);
-        }
-
-        public void Update(CustomerViewModel customerViewModel)
-        {
-            var UpdateCustomerCommand = _mapper.Map<UpdateCustomerCommand>(customerViewModel);
-
-            _bus.SendCommand<UpdateCustomerCommand, UpdateUnit>(UpdateCustomerCommand);
         }
     }
 }
