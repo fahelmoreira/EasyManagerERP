@@ -70,15 +70,15 @@ namespace EasyManager.Domain.CommandHandlers
             
             try
             {
-                var bankAccount = _mapper.Map<TEntity>(command);
-                _repository.Add(bankAccount);
+                var entity = _mapper.Map<TEntity>(command);
+                _repository.Add(entity);
                 
             }
             catch (System.Exception ex)
             {
                 Console.Write(ex.Message);
 
-                await _bus.RaiseEvent(new DomainNotification("Parse", "We had a problem during saving your data."));
+                await _bus.RaiseEvent(new DomainNotification("EF", "We had a problem during saving your data."));
                 throw;
             }
 
@@ -102,7 +102,16 @@ namespace EasyManager.Domain.CommandHandlers
                 return RemoveUnit.Value;
             }
 
-            _repository.Remove(command.Id);
+            try
+            {
+                _repository.Remove(command.Id);
+            }
+            catch (System.Exception ex)
+            {
+                await _bus.RaiseEvent(new DomainNotification("EF", "We had a problem during saving your data."));
+                Console.WriteLine(ex);
+                return RemoveUnit.Value;
+            }
 
             if(Commit())
                 await _bus.RaiseEvent(_mapper.Map<RemoveEvent>(command));
@@ -123,9 +132,18 @@ namespace EasyManager.Domain.CommandHandlers
                 return UpdateUnit.Value;
             }
 
-            var bankAccount = _mapper.Map<TEntity>(command);
+            try
+            {
+                var entity = _mapper.Map<TEntity>(command);
+                _repository.Update(entity);
+            }
+            catch (System.Exception ex)
+            {
+                await _bus.RaiseEvent(new DomainNotification("EF", "We had a problem during saving your data."));
+                Console.WriteLine(ex);
+                return UpdateUnit.Value;
+            }
 
-            _repository.Update(bankAccount);
 
             if (Commit())
                 await _bus.RaiseEvent(_mapper.Map<UpdateEvent>(command));

@@ -6,9 +6,9 @@ using Newtonsoft.Json;
 
 namespace EasyManager.Domain.AutoMapper
 {
-    public class CommandToModelMappingProfile : Profile
+    public class CommandToDomainMappingProfile : Profile
     {
-        public CommandToModelMappingProfile()
+        public CommandToDomainMappingProfile()
         {
             //Customer mapping
             CreateMap<CustomerCommand<Unit>, Customer>()
@@ -28,7 +28,10 @@ namespace EasyManager.Domain.AutoMapper
             CreateMap<SalesTableItemCommand<Unit>, SalesTable>();
 
             //Departament mapping
-            CreateMap<DepartamentCommand<Unit>, Departament>();          
+            CreateMap<DepartamentCommand<Unit>, Departament>();        
+
+            // Category mapping
+            CreateMap<CategoryCommand<Unit>, Category>();
 
             //Financial mapping
             CreateMap<FinancialCommand<Unit>, Financial>()
@@ -42,7 +45,7 @@ namespace EasyManager.Domain.AutoMapper
 
             //Product mapping
             CreateMap<ProductCommand<Unit>, Product>()
-                .ForMember(c => c.Category, opt => opt.MapFrom(cmd => new Category{Id = cmd.Category }))
+                .ForMember(c => c.Category, opt => opt.MapFrom(cmd => new Category{Id = cmd.Category } ))
                 .ForMember(c => c.Attributes, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.Attributes)))
                 .ForMember(c => c.SalesTable, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.SalesTable)))
                 .ForMember(c => c.Manufacture, opt => opt.MapFrom(cmd => new Manufacture{ Id = cmd.Manufacture }));

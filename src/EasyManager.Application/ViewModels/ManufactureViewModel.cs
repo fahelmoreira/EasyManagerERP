@@ -15,7 +15,6 @@ namespace EasyManager.Application.ViewModels
         /// <summary>
         /// Corporate taxpayer's number
         /// </summary>
-        [Required(ErrorMessage = "The corporate taxpayer id is required")]
         public string CorporateTaxpayerId { get; set; }
         /// <summary>
         /// Manufacture address
@@ -34,5 +33,11 @@ namespace EasyManager.Application.ViewModels
         /// </summary>
         public string PhoneNumber { get; set; }
         public bool Active { get; set; }
+
+        public string Name { get; protected set; }
+        public string CorporateName { get; protected set; }
+        public string IndividualTaxpayerId { get; protected set; }
+        public string Code { get; protected set; }
+
     }
 }

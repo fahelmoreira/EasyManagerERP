@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using EasyManager.Application.Interfaces;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Notifications;
 using MediatR;
@@ -66,6 +67,17 @@ namespace EasyManager.WebAPI.Controllers
             {
                 NotifyError(result.ToString(), error.Description);
             }
+        }
+    }
+    public class ApiController<T> : ApiController
+    {
+        protected internal readonly T _appService;
+
+        protected ApiController(T appService,
+                                INotificationHandler<DomainNotification> notifications, 
+                                IMediatorHandler mediator) : base(notifications, mediator)
+        {
+            _appService = appService;
         }
     }
 }

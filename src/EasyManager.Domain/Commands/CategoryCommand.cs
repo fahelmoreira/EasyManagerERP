@@ -7,6 +7,6 @@ namespace EasyManager.Domain.Commands
     {
         public string Description { get; set; }
         public string Location { get; set; }   
-        public Guid ParentCategory { get; set; }  
+        public Guid? ParentCategory { get; set; }  
     }
 }

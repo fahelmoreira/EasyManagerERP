@@ -9,28 +9,24 @@ using Microsoft.AspNetCore.Mvc;
 namespace EasyManager.WebAPI.Controllers
 {
     [Route("[Controller]")]
-    public class ManufactureController : ApiController
+    public class ManufactureController : ApiController<IManufactureAppServices>
     {
-        private readonly IManufactureAppServices _manufacureAppServices;
-
-        public ManufactureController(
-            IManufactureAppServices manufacureAppServices,
-            INotificationHandler<DomainNotification> notifications, 
-            IMediatorHandler mediator) : base(notifications, mediator)
+        public ManufactureController(IManufactureAppServices appService, 
+                                        INotificationHandler<DomainNotification> notifications, 
+                                        IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
-            _manufacureAppServices = manufacureAppServices;
         }
 
         [HttpGet("list")]
         public IActionResult Get()
         {
-            return Response(_manufacureAppServices.GetAll());
+            return Response(_appService.GetAll());
         }
 
         [HttpGet("{id:Guid}")]
         public IActionResult Get(Guid id)
         {
-            return Response(_manufacureAppServices.GetById(id));
+            return Response(_appService.GetById(id));
         }
         
         [HttpPost("create")]
@@ -42,7 +38,7 @@ namespace EasyManager.WebAPI.Controllers
                 return Response(manufacture);
             }
 
-            _manufacureAppServices.Register(manufacture);
+            _appService.Register(manufacture);
 
             return Response("Manufacture successfully created");
         }
@@ -56,7 +52,7 @@ namespace EasyManager.WebAPI.Controllers
                 return Response(manufacture);
             }
 
-            _manufacureAppServices.Update(manufacture);
+            _appService.Update(manufacture);
 
             return Response("Manufacture successfully updated");
 
@@ -71,7 +67,7 @@ namespace EasyManager.WebAPI.Controllers
                 return Response(id);
             }
 
-            _manufacureAppServices.Remove(id);
+            _appService.Remove(id);
 
             return Response("Manufacture successfully removed");
         }

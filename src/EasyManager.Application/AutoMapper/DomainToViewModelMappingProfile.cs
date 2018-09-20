@@ -32,7 +32,8 @@ namespace EasyManager.Application.AutoMapper
             CreateMap<Bank, BankViewMode>();
 
             // Category mapping
-            CreateMap<Category, CategoryViewModel>();
+            CreateMap<Category, CategoryViewModel>()
+                .ForMember(ca => ca.ParentCategory, opt => opt.MapFrom(c => c.ParentCategory.Id ));
 
             // Credcard operator mappig
             CreateMap<CredcardOperator, CredcardOperatorViewModel>();

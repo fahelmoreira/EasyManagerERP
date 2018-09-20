@@ -12,16 +12,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace EasyManager.WebAPI.Controllers
 {
     [Route("[Controller]")]
-    public class CustomerController : ApiController
+    public class CustomerController : ApiController<ICustomerAppService>
     {
-        private readonly ICustomerAppService _customerAppService;
-
-        public CustomerController(
-            ICustomerAppService customerAppService,
-            INotificationHandler<DomainNotification> notifications, 
-            IMediatorHandler mediator) : base(notifications, mediator)
+        public CustomerController(ICustomerAppService appService,
+                                     INotificationHandler<DomainNotification> notifications, 
+                                     IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
-            _customerAppService = customerAppService;
         }
 
         /// <summary>
@@ -30,7 +26,7 @@ namespace EasyManager.WebAPI.Controllers
         [HttpGet("list")]
         public IActionResult Get()
         {
-            return Response(_customerAppService.GetAll());
+            return Response(_appService.GetAll());
         }
 
         /// <summary>
@@ -40,7 +36,7 @@ namespace EasyManager.WebAPI.Controllers
         [HttpGet("{id:Guid}")]
         public IActionResult Get(Guid id)
         {
-            return Response(_customerAppService.GetById(id));
+            return Response(_appService.GetById(id));
         }
 
         /// <summary>
@@ -56,7 +52,7 @@ namespace EasyManager.WebAPI.Controllers
                 return Response(customerViewModel);
             }
 
-            _customerAppService.Register(customerViewModel);
+            _appService.Register(customerViewModel);
 
             return Response("Customer successfully created");
         }
@@ -74,7 +70,7 @@ namespace EasyManager.WebAPI.Controllers
                 return Response(customerViewModel);
             }
 
-            _customerAppService.Update(customerViewModel);
+            _appService.Update(customerViewModel);
 
             return Response("Customer successfully updated");
         }
@@ -86,7 +82,7 @@ namespace EasyManager.WebAPI.Controllers
         [HttpDelete]
         public IActionResult Delete([FromBody] Guid id)
         {
-            _customerAppService.Remove(id);
+            _appService.Remove(id);
 
             return Response("Customer successfully removed from the database");
         }

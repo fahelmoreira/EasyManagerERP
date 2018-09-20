@@ -55,7 +55,7 @@ namespace EasyManager.Application.Services
 
         public IEnumerable<ViewModeShort> GetAll()
         {
-            return _repository.GetAll().ProjectTo<ViewModeShort>();
+            return _mapper.Map<List<ViewModeShort>>(_repository.GetAll());
         }
 
         public ViewMode GetById(Guid id)
