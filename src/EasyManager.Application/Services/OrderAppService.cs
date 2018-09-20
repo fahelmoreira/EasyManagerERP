@@ -16,7 +16,7 @@ namespace EasyManager.Application.Services
                        RegisterNewOrderCommand,
                        RemoveOrderCommand,
                        UpdateOrderCommand>,
-        IOrderService
+        IOrderAppService
     {
         public OrderAppService(IMapper mapper, 
                                IOrderRepository repository, 

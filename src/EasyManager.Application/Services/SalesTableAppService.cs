@@ -15,7 +15,7 @@ namespace EasyManager.Application.Services
                        RegisterNewSalesTableItemCommand,
                        RemoveSalesTableItemCommand,
                        UpdateSalesTableItemCommand>,
-        ISalesTableService
+        ISalesTableAppService
     {
         public SalesTableAppService(IMapper mapper, 
                                     ISalesTableRepository repository, 

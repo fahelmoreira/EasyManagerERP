@@ -16,7 +16,7 @@ namespace EasyManager.Application.Services
                        RegisterNewBankAccountCommand,
                        RemoveBankAccountCommand,
                        UpdateBankAccountCommand>,
-        IBankAccountService
+        IBankAccountAppService
     {
         public BankAccountAppService(IMapper mapper, 
                                      IBankAccountRepository repository, 

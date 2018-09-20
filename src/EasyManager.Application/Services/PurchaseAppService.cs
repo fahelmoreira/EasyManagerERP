@@ -16,7 +16,7 @@ namespace EasyManager.Application.Services
                        RegisterNewPurchaseCommand,
                        RemovePurchaseCommand,
                        UpdatePurchaseCommand>,
-        IPurchaseService
+        IPurchaseAppService
     {
         public PurchaseAppService(IMapper mapper, 
                                   IPurchaseRepository repository, 

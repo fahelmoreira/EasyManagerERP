@@ -15,7 +15,7 @@ namespace EasyManager.Application.Services
                        RegisterNewCategoryCommand,
                        RemoveCategoryCommand,
                        UpdateCategoryCommand>,
-        ICategoryService
+        ICategoryAppService
     {
         public CategoryAppService(IMapper mapper, 
                                   ICaregoryRepository repository, 

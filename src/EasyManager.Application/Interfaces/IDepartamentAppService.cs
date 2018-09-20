@@ -2,7 +2,7 @@ using EasyManager.Application.ViewModels;
 
 namespace EasyManager.Application.Interfaces
 {
-    public interface ISalesTableService : IAppServices<SalesTableViewModel>
+    public interface IDepartamentAppService : IAppServices<DepartamentViewModel>
     {
         
     }

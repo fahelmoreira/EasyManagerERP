@@ -16,7 +16,7 @@ namespace EasyManager.Application.Services
                        RegisterNewFinancialCommand,
                        RemoveFinancialCommand,
                        UpdateFinancialCommand>,
-        IFinancialService
+        IFinancialAppService
     {
         public FinancialAppService(IMapper mapper, 
                                    IFinancialRepository repository, 

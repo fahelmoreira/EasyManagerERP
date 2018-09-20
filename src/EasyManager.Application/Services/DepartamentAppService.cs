@@ -15,7 +15,7 @@ namespace EasyManager.Application.Services
                        RegisterNewDepartamentCommand,
                        RemoveDepartamentCommand,
                        UpdateDepartamentCommand>,
-        IDepartamentService
+        IDepartamentAppService
     {
         public DepartamentAppService(IMapper mapper, 
                                      IDepartamentRepository repository, 

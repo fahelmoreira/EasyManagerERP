@@ -16,7 +16,7 @@ namespace EasyManager.Application.Services
                        RegisterNewPaymentMethodCommand,
                        RemovePaymentMethodCommand,
                        UpdatePaymentMethodCommand>,
-        IPaymentMethodService
+        IPaymentMethodAppService
     {
         public PaymentMethodAppService(IMapper mapper, 
                                        IPaymentMethodRepository repository, 

@@ -16,7 +16,7 @@ namespace EasyManager.Application.Services
                        RegisterNewProductCommand,
                        RemoveProductCommand,
                        UpdateProductCommand>,
-        IProductService
+        IProductAppService
     {
         public ProductAppService(IMapper mapper, 
                                  IProductRepository repository, 
