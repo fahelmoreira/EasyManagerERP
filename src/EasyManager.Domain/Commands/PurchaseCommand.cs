@@ -8,14 +8,14 @@ namespace EasyManager.Domain.Commands
 {
     public abstract class PurchaseCommand<T> : Command<T>
     {
-        public int ReceiptNumber { get; set; }
-        public int Serie { get; set; }
-        public OrderStatus Status { get; set; }
-        public Guid Manufacture { get; set; }
-        public DateTime DocumentData { get; set; }
-        public DateTime DateEntry { get; set; }
-        public List<ProductOrder> Products { get; set; }
-        public PurchasePaymentInformation PaymentMethod { get; set; }
-        public string Observations { get; set; }
+        public int ReceiptNumber { get; protected set; }
+        public int Serie { get; protected set; }
+        public OrderStatus Status { get; protected set; }
+        public Guid Manufacture { get; protected set; }
+        public DateTime DocumentData { get; protected set; }
+        public DateTime DateEntry { get; protected set; }
+        public List<ProductOrder> Products { get; protected set; }
+        public PurchasePaymentInformation PaymentMethod { get; protected set; }
+        public string Observations { get; protected set; }
     }
 }

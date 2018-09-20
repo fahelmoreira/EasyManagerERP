@@ -8,17 +8,17 @@ namespace EasyManager.Domain.Commands
 {
     public abstract class OrderCommand<T> : Command<T>
     {
-        public int OrderNumber { get; set; }
-        public OrderStatus Status { get; set; }
-        public Guid Departament { get; set; }
-        public Guid Customer { get; set; }
-        public DateTime? DeliveryDate { get; set; }
-        public DateTime? DeliveryTime { get; set; }
-        public List<ProductOrder> ProductOrder { get; set; }
-        public string Observations { get; set; }
-        public double DiscountValue { get; set; }
-        public double DiscountPercentage { get; set; }
-        public double DeliveryFee { get; set; }
-        public PurchasePaymentInformation PaymentMethod { get; set; }
+        public int OrderNumber { get; protected set; }
+        public OrderStatus Status { get; protected set; }
+        public Guid Departament { get; protected set; }
+        public Guid Customer { get; protected set; }
+        public DateTime? DeliveryDate { get; protected set; }
+        public DateTime? DeliveryTime { get; protected set; }
+        public List<ProductOrder> ProductOrder { get; protected set; }
+        public string Observations { get; protected set; }
+        public double DiscountValue { get; protected set; }
+        public double DiscountPercentage { get; protected set; }
+        public double DeliveryFee { get; protected set; }
+        public PurchasePaymentInformation PaymentMethod { get; protected set; }
     }
 }

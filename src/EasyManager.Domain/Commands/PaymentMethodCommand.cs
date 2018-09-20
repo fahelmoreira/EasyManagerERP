@@ -7,22 +7,22 @@ namespace EasyManager.Domain.Commands
 {
     public abstract class PaymentMethodCommand<T> : Command<T>
     {
-        public string Description { get; set; }
-        public PaymentType PaymentType { get; set; }
-        public bool Active { get; set; }
-        public Guid BankAccount { get; set; }
-        public bool SendToFinatial { get; set; }
-        public ConfirmationType ConfirmationType { get; set; }
-        public double StoreInterest { get; set; }
-        public double FinanceInterest { get; set; }
-        public double Fine { get; set; }
-        public double DelayFine { get; set; }
-        public double DelayFinePercentage { get; set; }
-        public double BankFee { get; set; }
-        public Guid CredcardOperator { get; set; }
-        public double OperationFee { get; set; }
-        public int InstallmentsMax { get; set; }
-        public int InstallmentsInterval { get; set; }
-        public bool? StartOnFirst { get; set; }
+        public string Description { get; protected set; }
+        public PaymentType PaymentType { get; protected set; }
+        public bool Active { get; protected set; }
+        public Guid BankAccount { get; protected set; }
+        public bool SendToFinatial { get; protected set; }
+        public ConfirmationType ConfirmationType { get; protected set; }
+        public double StoreInterest { get; protected set; }
+        public double FinanceInterest { get; protected set; }
+        public double Fine { get; protected set; }
+        public double DelayFine { get; protected set; }
+        public double DelayFinePercentage { get; protected set; }
+        public double BankFee { get; protected set; }
+        public Guid CredcardOperator { get; protected set; }
+        public double OperationFee { get; protected set; }
+        public int InstallmentsMax { get; protected set; }
+        public int InstallmentsInterval { get; protected set; }
+        public bool? StartOnFirst { get; protected set; }
     }
 }

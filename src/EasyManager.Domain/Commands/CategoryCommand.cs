@@ -5,8 +5,8 @@ namespace EasyManager.Domain.Commands
 {
     public abstract class CategoryCommand<T> : Command<T>
     {
-        public string Description { get; set; }
-        public string Location { get; set; }   
-        public Guid? ParentCategory { get; set; }  
+        public string Description { get; protected set; }
+        public string Location { get; protected set; }   
+        public Guid? ParentCategory { get; protected set; }  
     }
 }

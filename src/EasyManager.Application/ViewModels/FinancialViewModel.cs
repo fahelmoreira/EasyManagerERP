@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using EasyManager.Domain.Models;
 using EasyManager.Domain.Types;
 
@@ -7,9 +8,10 @@ namespace EasyManager.Application.ViewModels
 {
     public class FinancialViewModel : BaseViewModel
     {
+        [Required(ErrorMessage = "The description is required")]
+        public string description { get; set; }
         public BudgetType? BudgetType { get; set; }
         public Guid PaymentMethod { get; set; }
-        public string description { get; set; }
         public DateTime DueDate { get; set; }
         public double Values { get; set; }
         public List<Installment> InstallmentInformation { get; set; }
