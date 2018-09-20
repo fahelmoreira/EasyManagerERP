@@ -71,6 +71,7 @@ namespace EasyManager.Domain.CommandHandlers
             try
             {
                 var entity = _mapper.Map<TEntity>(command);
+                ConstraintValidation(entity, out entity);
                 _repository.Add(entity);
                 
             }
@@ -134,7 +135,8 @@ namespace EasyManager.Domain.CommandHandlers
 
             try
             {
-                var entity = _mapper.Map<TEntity>(command);
+                var entity = (_mapper.Map<TEntity>(command));
+                ConstraintValidation(entity, out entity);
                 _repository.Update(entity);
             }
             catch (System.Exception ex)
@@ -149,6 +151,11 @@ namespace EasyManager.Domain.CommandHandlers
                 await _bus.RaiseEvent(_mapper.Map<UpdateEvent>(command));
 
             return UpdateUnit.Value;
+        }
+
+        protected internal virtual void ConstraintValidation(TEntity entity, out TEntity entity1)
+        {
+            entity1 = entity;
         }
     }
 }

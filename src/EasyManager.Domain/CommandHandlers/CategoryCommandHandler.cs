@@ -30,5 +30,25 @@ namespace EasyManager.Domain.CommandHandlers
         {
         }
 
+        protected internal override void ConstraintValidation(Category category, out Category category2)
+        {
+            Category parent = null;
+
+            if(category.ParentCategory != null)
+            {
+                parent = _repository.GetById(category.ParentCategory.Id);
+
+                if(parent == null)
+                {
+                    _bus.RaiseEvent(new DomainNotification("Parent invalid", "The parent category is not valid"));
+                    category2 = null;
+                    return;
+                }
+            }
+
+            category.ParentCategory = parent;
+            category2 = category;
+        }
+
     }
 }

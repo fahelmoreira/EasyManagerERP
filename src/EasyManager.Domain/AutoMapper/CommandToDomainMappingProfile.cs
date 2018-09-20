@@ -31,7 +31,9 @@ namespace EasyManager.Domain.AutoMapper
             CreateMap<DepartamentCommand<Unit>, Departament>();        
 
             // Category mapping
-            CreateMap<CategoryCommand<Unit>, Category>();
+            CreateMap<CategoryCommand<Unit>, Category>()
+                // .ForMember(ca => ca.ParentCategory, opt => opt.MapFrom(c => c.ParentCategory != null ? new Category{ Id = c.ParentCategory.Value, Description = "ERROR"} : null));  
+                .ConstructUsing(ca => new Category(ca.ParentCategory));
 
             //Financial mapping
             CreateMap<FinancialCommand<Unit>, Financial>()
