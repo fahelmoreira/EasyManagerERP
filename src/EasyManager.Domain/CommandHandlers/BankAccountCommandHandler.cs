@@ -23,12 +23,36 @@ namespace EasyManager.Domain.CommandHandlers
                       BankAccountUpdatedEvent>
 
     {
+        private readonly IBankRepository _bankRepository;
+
         public BankAccountCommandHandler(IMapper mapper, 
                                          IBankAccountRepository repository, 
+                                         IBankRepository bankRepository,
                                          IUnitOfWork uow, 
                                          IMediatorHandler bus, 
                                          INotificationHandler<DomainNotification> notifications) : base(mapper, repository, uow, bus, notifications)
         {
+            _bankRepository = bankRepository;
+        }
+
+        protected internal override void ConstraintValidation(BankAccount bankAccount, out BankAccount bankAccount2)
+        {
+            Bank bank = null;
+            
+            if(bankAccount.Bank != null)
+            {
+                bank = _bankRepository.GetById(bankAccount.Bank.Id);
+
+                if(bank == null)
+                {
+                    _bus.RaiseEvent(new DomainNotification("Bank invalid", "The bank is not valid"));
+                    bankAccount2 = null;
+                    return;
+                }
+            }
+
+            bankAccount.Bank = bank;
+            bankAccount2 = bankAccount;
         }
     }
 }

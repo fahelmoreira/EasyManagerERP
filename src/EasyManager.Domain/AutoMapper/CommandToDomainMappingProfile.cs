@@ -22,7 +22,7 @@ namespace EasyManager.Domain.AutoMapper
 
             //Bank account mapping
             CreateMap<BankAccountCommand<Unit>, BankAccount>()
-                .ForMember(b => b.Bank, opt => opt.MapFrom(x => new BankAccount{ Id = x.Bank }));
+                .ConstructUsing(b => new BankAccount(b.Bank));
             
             //Sales table item mapping
             CreateMap<SalesTableItemCommand<Unit>, SalesTable>();
@@ -32,7 +32,6 @@ namespace EasyManager.Domain.AutoMapper
 
             // Category mapping
             CreateMap<CategoryCommand<Unit>, Category>()
-                // .ForMember(ca => ca.ParentCategory, opt => opt.MapFrom(c => c.ParentCategory != null ? new Category{ Id = c.ParentCategory.Value, Description = "ERROR"} : null));  
                 .ConstructUsing(ca => new Category(ca.ParentCategory));
 
             //Financial mapping

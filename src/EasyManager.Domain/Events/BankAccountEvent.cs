@@ -8,7 +8,7 @@ namespace EasyManager.Domain.Events
         public Guid Id { get; set; }
         public string Name { get; set; }
         public bool IsBankAccount { get; set; }
-        public Guid Bank { get; set; }
+        public Guid? Bank { get; set; }
         public int? Agency { get; set; }
         public int? Digit { get; set; }
         public int? AccountNumber { get; set; }

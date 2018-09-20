@@ -21,6 +21,7 @@ namespace EasyManager.Infra.CrossCutting.IoC
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
             services.AddScoped<IPurchaseRepository, PurchaseRepository>();
+            services.AddScoped<IBankRepository, BankRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<EasyManagerContext>();
         }

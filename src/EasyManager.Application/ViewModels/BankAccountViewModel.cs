@@ -8,7 +8,7 @@ namespace EasyManager.Application.ViewModels
         [Required(ErrorMessage = "The name is required")]
         public string Name { get; set; }
         public bool IsBankAccount { get; set; }
-        public Guid Bank { get; set; }
+        public Guid? Bank { get; set; }
         public int? Agency { get; set; }
         public int? Digit { get; set; }
         public int? AccountNumber { get; set; }

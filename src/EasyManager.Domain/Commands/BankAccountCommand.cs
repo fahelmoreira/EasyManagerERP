@@ -7,7 +7,7 @@ namespace EasyManager.Domain.Commands
     {
         public string Name { get; protected set; }
         public bool IsBankAccount { get; protected set; }
-        public Guid Bank { get; protected set; }
+        public Guid? Bank { get; protected set; }
         public int? Agency { get; protected set; }
         public int? Digit { get; protected set; }
         public int? AccountNumber { get; protected set; }

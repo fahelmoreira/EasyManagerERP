@@ -23,7 +23,7 @@ namespace EasyManager.WebAPI.Controllers
             return Response(_appService.GetAll());
         }
 
-        [HttpGet("{Guid:Id}")]
+        [HttpGet("{id:Guid}")]
         public IActionResult Get(Guid id)
         {
             return Response(_appService.GetById(id));
@@ -57,6 +57,7 @@ namespace EasyManager.WebAPI.Controllers
             return Response("Bank account successfully updated");
         }
 
+        [HttpDelete("remove")]
         public IActionResult Delete([FromBody] Guid id)
         {
              _appService.Remove(id);
