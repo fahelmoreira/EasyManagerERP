@@ -1,3 +1,4 @@
+using System;
 using EasyManager.Application.Interfaces;
 using EasyManager.Application.ViewModels;
 using EasyManager.Domain.Core.Bus;
@@ -34,6 +35,28 @@ namespace EasyManager.WebAPI.Controllers
             _appService.Register(category);
 
             return Response("Category successfully created");
+        }
+
+        [HttpPut("update")]
+        public IActionResult Put([FromBody] CategoryViewModel category)
+        {
+             if (!ModelState.IsValid)
+            {
+                NotifyModelStateErrors();
+                return Response(category);
+            }
+
+            _appService.Update(category);
+
+            return Response("Category successfully updated");
+        }
+
+        [HttpDelete("remove")]
+        public IActionResult Delete([FromBody] Guid id)
+        {
+            _appService.Remove(id);
+
+            return Response("Customer successfully removed from the database");
         }
     }
 }

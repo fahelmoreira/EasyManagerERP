@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -33,7 +34,7 @@ namespace EasyManager.Domain.CommandHandlers
         protected internal override void ConstraintValidation(Category category, out Category category2)
         {
             Category parent = null;
-
+            
             if(category.ParentCategory != null)
             {
                 parent = _repository.GetById(category.ParentCategory.Id);
