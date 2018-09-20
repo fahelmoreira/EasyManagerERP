@@ -35,7 +35,7 @@ namespace EasyManager.Application.ViewModels
         #endregion
 
         #region Values ​​and cost
-        public List<SalesTable> SalesTable { get; set; }
+        public List<SalesTableViewModel> SalesTable { get; set; }
         public double OtherExpenses { get; set; }
         public double Cost { get; set; }
 

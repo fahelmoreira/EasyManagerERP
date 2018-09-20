@@ -11,7 +11,7 @@ namespace EasyManager.Application.Services
     public class PaymentMethodAppService :
         BaseAppService<Domain.Models.PaymentMethod,
                        PaymentMethodViewModel,
-                       PaymentShotMethodViewModel,
+                       PaymentMethodShotViewModel,
                        IPaymentMethodRepository,
                        RegisterNewPaymentMethodCommand,
                        RemovePaymentMethodCommand,

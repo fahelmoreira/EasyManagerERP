@@ -1,6 +1,6 @@
 namespace EasyManager.Application.ViewModels
 {
-    public class PaymentShotMethodViewModel
+    public class PaymentMethodShotViewModel
     {
         public string Description { get; set; }
     }
