@@ -12,8 +12,8 @@ namespace EasyManager.WebAPI.Controllers
     public class ManufactureController : ApiController<IManufactureAppServices>
     {
         public ManufactureController(IManufactureAppServices appService, 
-                                        INotificationHandler<DomainNotification> notifications, 
-                                        IMediatorHandler mediator) : base(appService, notifications, mediator)
+                                     INotificationHandler<DomainNotification> notifications, 
+                                     IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
         }
 

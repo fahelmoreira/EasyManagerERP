@@ -12,8 +12,8 @@ namespace EasyManager.WebAPI.Controllers
     public class BankAccountController : ApiController<IBankAccountAppService>
     {
         public BankAccountController(IBankAccountAppService appService, 
-                                        INotificationHandler<DomainNotification> notifications, 
-                                        IMediatorHandler mediator) : base(appService, notifications, mediator)
+                                     INotificationHandler<DomainNotification> notifications, 
+                                     IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
         }
 

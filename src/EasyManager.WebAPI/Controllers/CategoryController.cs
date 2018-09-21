@@ -12,8 +12,8 @@ namespace EasyManager.WebAPI.Controllers
     public class CategoryController : ApiController<ICategoryAppService>
     {
         public CategoryController(ICategoryAppService appService, 
-                                     INotificationHandler<DomainNotification> notifications, 
-                                     IMediatorHandler mediator) : base(appService, notifications, mediator)
+                                  INotificationHandler<DomainNotification> notifications, 
+                                  IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
         }
 

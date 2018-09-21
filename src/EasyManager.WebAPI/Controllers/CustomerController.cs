@@ -15,8 +15,8 @@ namespace EasyManager.WebAPI.Controllers
     public class CustomerController : ApiController<ICustomerAppService>
     {
         public CustomerController(ICustomerAppService appService,
-                                     INotificationHandler<DomainNotification> notifications, 
-                                     IMediatorHandler mediator) : base(appService, notifications, mediator)
+                                  INotificationHandler<DomainNotification> notifications, 
+                                  IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
         }
 
