@@ -46,6 +46,7 @@ namespace EasyManager.Domain.CommandHandlers
             List<ProductOrder> products = JsonConvert.DeserializeObject<List<ProductOrder>>(order.ProductOrder);
             bool isValid = true;
             
+            //Validates the departament
             if(order.Departament != null)
             {
                 departament = _departamentRepository.GetById(order.Departament.Id);
@@ -56,6 +57,7 @@ namespace EasyManager.Domain.CommandHandlers
                 }
             }
 
+            // Validate the Customer
             if(order.Customer != null)
             {
                 customer = _customerRepository.GetById(order.Customer.Id);
@@ -67,6 +69,7 @@ namespace EasyManager.Domain.CommandHandlers
                        
             }
 
+            // validates all products
             foreach (var product in products)
             {
                 var p = _productRepository.GetById(product.Id);

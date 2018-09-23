@@ -40,6 +40,7 @@ namespace EasyManager.Domain.CommandHandlers
             CredcardOperator credcardOperator = null;
             bool isValid = true;
             
+            // Validates the bank account
             if(payment.BankAccount != null)
             {
                 bankAccount = _bankAccountRepository.GetById(payment.BankAccount.Id);
@@ -48,6 +49,7 @@ namespace EasyManager.Domain.CommandHandlers
                     _bus.RaiseEvent(new DomainNotification("Bankaccount invalid", "The bankaccount is not valid"));
             }
 
+            // Validates the credcard operator
             if(payment.CredcardOperator != null)
             {
                 credcardOperator = _credcardOperatorRepository.GetById(payment.CredcardOperator.Id);
@@ -61,6 +63,7 @@ namespace EasyManager.Domain.CommandHandlers
                 payment2 = null;
                 return;
             }
+            
             payment.BankAccount = bankAccount;
             payment.CredcardOperator = credcardOperator;
             payment2 = payment;

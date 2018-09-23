@@ -35,6 +35,7 @@ namespace EasyManager.Domain.CommandHandlers
         {
             Category parent = null;
             
+            // Validate the parant category
             if(category.ParentCategory != null)
             {
                 parent = _repository.GetById(category.ParentCategory.Id);

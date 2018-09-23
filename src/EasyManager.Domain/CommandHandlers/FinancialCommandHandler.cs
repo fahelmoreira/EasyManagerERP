@@ -34,7 +34,8 @@ namespace EasyManager.Domain.CommandHandlers
         protected internal override void ConstraintValidation(Financial financial, out Financial financial2)
         {
             PaymentMethod paymentMethod = null;
-
+            
+            //Validates the payment method
             if(financial.PaymentMethod != null)
             {
                 paymentMethod = _paymentMethodRepository.GetById(financial.PaymentMethod.Id);

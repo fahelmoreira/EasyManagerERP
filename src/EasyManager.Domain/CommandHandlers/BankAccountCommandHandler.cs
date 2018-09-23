@@ -39,6 +39,7 @@ namespace EasyManager.Domain.CommandHandlers
         {
             Bank bank = null;
             
+            // Validate the bank
             if(bankAccount.Bank != null)
             {
                 bank = _bankRepository.GetById(bankAccount.Bank.Id);
