@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -40,7 +41,7 @@ namespace EasyManager.Domain.CommandHandlers
             Bank bank = null;
             
             // Validate the bank
-            if(bankAccount.Bank != null)
+            if(!bankAccount.Bank.IsNull())
             {
                 bank = _bankRepository.GetById(bankAccount.Bank.Id);
 

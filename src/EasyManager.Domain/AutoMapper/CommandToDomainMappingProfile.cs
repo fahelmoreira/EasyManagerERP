@@ -50,7 +50,7 @@ namespace EasyManager.Domain.AutoMapper
             
             //Purchase mapping
             CreateMap<PurchaseCommand<Unit>, Purchase>()
-                .ConstructUsing(cmd => new Purchase(cmd.Manufacture, JsonConvert.SerializeObject(cmd.PaymentMethod)));
+                .ConstructUsing(cmd => new Purchase(cmd.Manufacture, JsonConvert.SerializeObject(cmd.PaymentMethod), cmd.Products));
         }
     }
 }

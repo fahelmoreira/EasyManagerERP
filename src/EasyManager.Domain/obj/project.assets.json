@@ -512,6 +512,16 @@
         "runtime": {
           "bin/placeholder/EasyManager.Domain.Core.dll": {}
         }
+      },
+      "EasyManager.SystemHelper.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/EasyManager.SystemHelper.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EasyManager.SystemHelper.Core.dll": {}
+        }
       }
     }
   },
@@ -2371,12 +2381,18 @@
       "type": "project",
       "path": "../EasyManager.Domain.Core/EasyManager.Domain.Core.csproj",
       "msbuildProject": "../EasyManager.Domain.Core/EasyManager.Domain.Core.csproj"
+    },
+    "EasyManager.SystemHelper.Core/1.0.0": {
+      "type": "project",
+      "path": "../EasyManager.SystemHelper.Core/EasyManager.SystemHelper.Core.csproj",
+      "msbuildProject": "../EasyManager.SystemHelper.Core/EasyManager.SystemHelper.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "AutoMapper >= 7.0.1",
       "EasyManager.Domain.Core >= 1.0.0",
+      "EasyManager.SystemHelper.Core >= 1.0.0",
       "FluentValidation >= 8.0.100",
       "Microsoft.NETCore.App >= 2.1.0",
       "Newtonsoft.Json >= 11.0.2",
@@ -2415,6 +2431,9 @@
           "projectReferences": {
             "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/EasyManager.Domain.Core.csproj": {
               "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Domain.Core/EasyManager.Domain.Core.csproj"
+            },
+            "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.SystemHelper.Core/EasyManager.SystemHelper.Core.csproj": {
+              "projectPath": "/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.SystemHelper.Core/EasyManager.SystemHelper.Core.csproj"
             }
           }
         }

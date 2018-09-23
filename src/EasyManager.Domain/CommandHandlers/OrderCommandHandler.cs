@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using AutoMapper;
 using EasyManager.Domain.Commands;
@@ -47,10 +48,10 @@ namespace EasyManager.Domain.CommandHandlers
             bool isValid = true;
             
             //Validates the departament
-            if(order.Departament != null)
+            if(!order.Departament.IsNull())
             {
                 departament = _departamentRepository.GetById(order.Departament.Id);
-                if(departament == null)
+                if(departament.IsNull())
                 {
                     _bus.RaiseEvent(new DomainNotification("Departament invalid", "The departament is not valid"));
                     isValid = false;
@@ -58,10 +59,10 @@ namespace EasyManager.Domain.CommandHandlers
             }
 
             // Validate the Customer
-            if(order.Customer != null)
+            if(!order.Customer.IsNull())
             {
                 customer = _customerRepository.GetById(order.Customer.Id);
-                if(departament == null)
+                if(departament.IsNull())
                 {
                     _bus.RaiseEvent(new DomainNotification("Customer invalid", "The customer is not valid"));
                     isValid = false;
@@ -74,9 +75,16 @@ namespace EasyManager.Domain.CommandHandlers
             {
                 var p = _productRepository.GetById(product.Id);
 
-                if(p == null)
+                if(p.IsNull())
                 {
                     _bus.RaiseEvent(new DomainNotification("Product invalid", $"The product with ID {product.Id} and description {product.Description} is not valid"));
+                    isValid = false;
+                    continue;
+                }
+
+                if(!p.Active)
+                {
+                    _bus.RaiseEvent(new DomainNotification("Product inactive", $"The product {product.Description} is inactive. Inactive products cannot be sale"));
                     isValid = false;
                     continue;
                 }

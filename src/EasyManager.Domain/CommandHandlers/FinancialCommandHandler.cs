@@ -1,3 +1,4 @@
+using System;
 using AutoMapper;
 using EasyManager.Domain.Commands;
 using EasyManager.Domain.Core.Bus;
@@ -36,7 +37,7 @@ namespace EasyManager.Domain.CommandHandlers
             PaymentMethod paymentMethod = null;
             
             //Validates the payment method
-            if(financial.PaymentMethod != null)
+            if(!financial.PaymentMethod.IsNull())
             {
                 paymentMethod = _paymentMethodRepository.GetById(financial.PaymentMethod.Id);
 
