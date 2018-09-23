@@ -41,8 +41,7 @@ namespace EasyManager.Domain.AutoMapper
 
             //Payment mapping
             CreateMap<PaymentMethodCommand<Unit>, PaymentMethod>()
-                .ForMember(c => c.BankAccount, opt => opt.MapFrom(cmd => new BankAccount{Id = cmd.BankAccount }))
-                .ForMember(c => c.CredcardOperator, opt => opt.MapFrom(cmd => new CredcardOperator{Id = cmd.CredcardOperator }));
+                .ConvertUsing(cmd => new PaymentMethod(cmd.CredcardOperator, cmd.BankAccount));
 
             //Product mapping
             CreateMap<ProductCommand<Unit>, Product>()

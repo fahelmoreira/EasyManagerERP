@@ -5,9 +5,9 @@ using EasyManager.Domain.Commands;
 
 namespace EasyManager.Application.AutoMapper
 {
-    public class ViewModelToDomainMappingProfile : Profile
+    public class ViewModelToCommandMappingProfile : Profile
     {
-        public ViewModelToDomainMappingProfile()
+        public ViewModelToCommandMappingProfile()
         {
             //Customer mapping
             CreateMap<CustomerViewModel, RegisterNewCustomerCommand>()

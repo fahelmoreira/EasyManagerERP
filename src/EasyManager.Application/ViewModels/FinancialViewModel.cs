@@ -9,7 +9,7 @@ namespace EasyManager.Application.ViewModels
     public class FinancialViewModel : BaseViewModel
     {
         [Required(ErrorMessage = "The description is required")]
-        public string description { get; set; }
+        public string Description { get; set; }
         public BudgetType? BudgetType { get; set; }
         public Guid PaymentMethod { get; set; }
         public DateTime DueDate { get; set; }

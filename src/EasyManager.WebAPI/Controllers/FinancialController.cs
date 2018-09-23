@@ -23,7 +23,7 @@ namespace EasyManager.WebAPI.Controllers
             return Response(_appService.GetAll());
         }
         
-        [HttpGet("id:Guid")]
+        [HttpGet("{id:Guid}")]
         public IActionResult Get(Guid id)
         {
             return Response(_appService.GetById(id));

@@ -1,3 +1,4 @@
+using System;
 using EasyManager.Domain.Core.Model;
 using EasyManager.Domain.Types;
 
@@ -70,6 +71,15 @@ namespace EasyManager.Domain.Models
 
         public PaymentMethod()
         {
+            ConfirmationType = ConfirmationType.Never;
+            PaymentType = PaymentType.PayAndReceive;
+            Active = true;
+        }
+
+        public PaymentMethod(Guid credcardOperator, Guid bankAccount)
+        {
+            CredcardOperator = new CredcardOperator { Id = credcardOperator };
+            BankAccount = new BankAccount {Id = bankAccount};
             ConfirmationType = ConfirmationType.Never;
             PaymentType = PaymentType.PayAndReceive;
             Active = true;
