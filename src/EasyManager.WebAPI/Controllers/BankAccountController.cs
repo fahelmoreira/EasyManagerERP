@@ -17,7 +17,7 @@ namespace EasyManager.WebAPI.Controllers
         {
         }
 
-        [HttpGet("list")]
+        [HttpGet]
         public IActionResult Get()
         {
             return Response(_appService.GetAll());
@@ -29,7 +29,7 @@ namespace EasyManager.WebAPI.Controllers
             return Response(_appService.GetById(id));
         }
 
-        [HttpPost("create")]
+        [HttpPost]
         public IActionResult Post([FromBody] BankAccountViewModel bankAccount)
         {
             if (!ModelState.IsValid)
@@ -43,7 +43,7 @@ namespace EasyManager.WebAPI.Controllers
             return Response("Bank account successfully created");
         }
 
-        [HttpPost("update")]
+        [HttpPut]
         public IActionResult Put([FromBody] BankAccountViewModel bankAccount)
         {
             if (!ModelState.IsValid)
@@ -57,7 +57,7 @@ namespace EasyManager.WebAPI.Controllers
             return Response("Bank account successfully updated");
         }
 
-        [HttpDelete("remove")]
+        [HttpDelete]
         public IActionResult Delete([FromBody] Guid id)
         {
              _appService.Remove(id);

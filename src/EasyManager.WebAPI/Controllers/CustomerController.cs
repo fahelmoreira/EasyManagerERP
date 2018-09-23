@@ -23,7 +23,7 @@ namespace EasyManager.WebAPI.Controllers
         /// <summary>
         /// Gets all the customer registered in a summarized version
         /// </summary>
-        [HttpGet("list")]
+        [HttpGet]
         public IActionResult Get()
         {
             return Response(_appService.GetAll());
@@ -43,7 +43,7 @@ namespace EasyManager.WebAPI.Controllers
         /// Creates a new customer
         /// </summary>
         /// <param name="customerViewModel">Infomation about yhe customer</param>
-        [HttpPost("create")]
+        [HttpPost]
         public IActionResult Post([FromBody] CustomerViewModel customerViewModel)
         {
             if (!ModelState.IsValid)
@@ -61,7 +61,7 @@ namespace EasyManager.WebAPI.Controllers
         /// Updates the customer information
         /// </summary>
         /// <param name="customerViewModel">Infomation about yhe customer</param>
-        [HttpPut("update")]
+        [HttpPut]
         public IActionResult Put([FromBody] CustomerViewModel customerViewModel)
         {
             if (!ModelState.IsValid)

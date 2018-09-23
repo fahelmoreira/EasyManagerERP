@@ -17,7 +17,7 @@ namespace EasyManager.WebAPI.Controllers
         {
         }
 
-        [HttpGet("list")]
+        [HttpGet]
         public IActionResult Get()
         {
             return Response(_appService.GetAll());
@@ -29,7 +29,7 @@ namespace EasyManager.WebAPI.Controllers
             return Response(_appService.GetById(id));
         }
         
-        [HttpPost("create")]
+        [HttpPost]
         public IActionResult Post([FromBody] ManufactureViewModel manufacture)
         {
             if(!ModelState.IsValid)
@@ -43,7 +43,7 @@ namespace EasyManager.WebAPI.Controllers
             return Response("Manufacture successfully created");
         }
 
-        [HttpPut("update")]
+        [HttpPut]
         public IActionResult Put([FromBody] ManufactureViewModel manufacture)
         {
             if(!ModelState.IsValid)

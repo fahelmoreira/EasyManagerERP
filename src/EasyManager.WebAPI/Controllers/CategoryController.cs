@@ -17,13 +17,19 @@ namespace EasyManager.WebAPI.Controllers
         {
         }
 
-        [HttpGet("list")]
+        [HttpGet]
         public IActionResult Get()
         {
             return Response(_appService.GetAll());
         }
         
-        [HttpPost("create")]
+        [HttpGet("{id:Guid}")]
+        public IActionResult Get(Guid id)
+        {
+            return Response(_appService.GetById(id));
+        }
+        
+        [HttpPost]
         public IActionResult Post([FromBody] CategoryViewModel category)
         {
              if (!ModelState.IsValid)
@@ -37,7 +43,7 @@ namespace EasyManager.WebAPI.Controllers
             return Response("Category successfully created");
         }
 
-        [HttpPut("update")]
+        [HttpPut]
         public IActionResult Put([FromBody] CategoryViewModel category)
         {
              if (!ModelState.IsValid)
@@ -51,7 +57,7 @@ namespace EasyManager.WebAPI.Controllers
             return Response("Category successfully updated");
         }
 
-        [HttpDelete("remove")]
+        [HttpDelete]
         public IActionResult Delete([FromBody] Guid id)
         {
             _appService.Remove(id);
