@@ -15,5 +15,15 @@ namespace EasyManager.Domain.Models
         public string Products { get; set; }
         public string PaymentMethod { get; set; }
         public string Observations { get; set; }
+        
+        public Purchase()
+        {
+        }
+        public Purchase(Guid manufacture, string paymentMethod)
+        {
+            Manufacture = new Manufacture{Id = manufacture};
+            PaymentMethod = paymentMethod;
+        }
+
     }
 }

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using EasyManager.Domain.Core.Model;
+using Newtonsoft.Json;
 
 namespace EasyManager.Domain.Models
 {
@@ -46,6 +48,12 @@ namespace EasyManager.Domain.Models
 
         public Manufacture()
         {
+            Active = true;
+        }
+        public Manufacture(Address address, List<Contact> contacts)
+        {
+            Address = JsonConvert.SerializeObject(address);
+            Contacts = JsonConvert.SerializeObject(contacts);
             Active = true;
         }
     }

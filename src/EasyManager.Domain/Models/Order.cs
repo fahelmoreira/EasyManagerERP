@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using EasyManager.Domain.Core.Model;
 using EasyManager.Domain.Types;
+using Newtonsoft.Json;
 
 namespace EasyManager.Domain.Models
 {
@@ -18,5 +20,16 @@ namespace EasyManager.Domain.Models
         public double DiscountPercentage { get; set; }
         public double DeliveryFee { get; set; }
         public string PaymentMethod { get; set; }
+
+        public Order()
+        {
+        }
+        public Order(Guid departament, Guid customer, string paymentMethod, List<ProductOrder> productOrder )
+        {
+            Departament = new Departament{Id = departament};
+            Customer = new Customer{Id = customer};
+            PaymentMethod = paymentMethod;
+            ProductOrder = JsonConvert.SerializeObject(productOrder);
+        }
     }
 }

@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using EasyManager.Domain.Core.Model;
 using EasyManager.Domain.Types;
+using Newtonsoft.Json;
 
 namespace EasyManager.Domain.Models
 {
@@ -146,6 +148,17 @@ namespace EasyManager.Domain.Models
             SoldSeparately = true;
             Active = true;
             Bundles = new List<ProductBundle<Product>>();
+        }
+        
+        public Product(Guid category, Guid manufacture, List<Attribute> attributes, List<SalesTable> salesTables)
+        {
+            SoldSeparately = true;
+            Active = true;
+            Bundles = new List<ProductBundle<Product>>();
+            Category = new Category {Id = category};
+            Manufacture = new Manufacture{Id = manufacture};
+            Attributes = JsonConvert.SerializeObject(attributes);
+            SalesTable = JsonConvert.SerializeObject(salesTables);
         }
     }
 }

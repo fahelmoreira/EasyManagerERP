@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using EasyManager.Domain.Core.Model;
 using EasyManager.Domain.Types;
+using Newtonsoft.Json;
 
 namespace EasyManager.Domain.Models
 {
@@ -18,9 +20,10 @@ namespace EasyManager.Domain.Models
         {
             Confirm = false;
         }
-        public Financial(Guid paymentMethod)
+        public Financial(Guid paymentMethod, List<Installment> installmentInformation)
         {
             PaymentMethod = new PaymentMethod {Id = paymentMethod};
+            InstallmentInformation = JsonConvert.SerializeObject(installmentInformation);
             Confirm = false;
         }
     }

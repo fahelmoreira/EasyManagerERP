@@ -34,34 +34,36 @@ namespace EasyManager.Domain.CommandHandlers
             _credcardOperatorRepository = credcardOperatorRepository;
         }
 
-        protected internal override void ConstraintValidation(PaymentMethod payment1, out PaymentMethod payment2)
+        protected internal override void ConstraintValidation(PaymentMethod payment, out PaymentMethod payment2)
         {
             BankAccount bankAccount = null;
             CredcardOperator credcardOperator = null;
             bool isValid = true;
             
-            if(payment1.BankAccount != null)
+            if(payment.BankAccount != null)
             {
-                bankAccount = _bankAccountRepository.GetById(payment1.BankAccount.Id);
-                credcardOperator = _credcardOperatorRepository.GetById(payment1.CredcardOperator.Id);
-
+                bankAccount = _bankAccountRepository.GetById(payment.BankAccount.Id);
+                
                 if(bankAccount == null)
                     _bus.RaiseEvent(new DomainNotification("Bankaccount invalid", "The bankaccount is not valid"));
+            }
+
+            if(payment.CredcardOperator != null)
+            {
+                credcardOperator = _credcardOperatorRepository.GetById(payment.CredcardOperator.Id);
 
                 if(credcardOperator == null)
                     _bus.RaiseEvent(new DomainNotification("Credcard invalid", "The credcard operator is not valid"));
-
-                if(!isValid)
-                {
-                    payment2 = null;
-                    return;
-                }
-
             }
 
-            payment1.BankAccount = bankAccount;
-            payment1.CredcardOperator = credcardOperator;
-            payment2 = payment1;
+            if(!isValid)
+            {
+                payment2 = null;
+                return;
+            }
+            payment.BankAccount = bankAccount;
+            payment.CredcardOperator = credcardOperator;
+            payment2 = payment;
         }
     }
 }

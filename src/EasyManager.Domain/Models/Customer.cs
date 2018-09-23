@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using EasyManager.Domain.Core.Model;
 using EasyManager.Domain.Types;
+using Newtonsoft.Json;
 
 namespace EasyManager.Domain.Models
 {
@@ -104,6 +105,14 @@ namespace EasyManager.Domain.Models
 
         public Customer()
         {
+            Active = true;
+            ReceiveEmail = true;
+        }
+
+         public Customer(Address address, List<Contact> contacts)
+        {
+            Address = JsonConvert.SerializeObject(address);
+            Contacts = JsonConvert.SerializeObject(contacts);
             Active = true;
             ReceiveEmail = true;
         }
