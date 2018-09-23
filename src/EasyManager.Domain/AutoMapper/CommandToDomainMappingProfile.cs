@@ -36,7 +36,7 @@ namespace EasyManager.Domain.AutoMapper
 
             //Financial mapping
             CreateMap<FinancialCommand<Unit>, Financial>()
-                .ForMember(c => c.PaymentMethod, opt => opt.MapFrom(cmd => new PaymentMethod{Id  = cmd.PaymentMethod}))
+                .ConstructUsing(cmd => new Financial(cmd.PaymentMethod))
                 .ForMember(c => c.InstallmentInformation, opt => opt.MapFrom(cmd => JsonConvert.SerializeObject(cmd.InstallmentInformation)));
 
             //Payment mapping

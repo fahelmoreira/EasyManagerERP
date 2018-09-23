@@ -18,5 +18,10 @@ namespace EasyManager.Domain.Models
         {
             Confirm = false;
         }
+        public Financial(Guid paymentMethod)
+        {
+            PaymentMethod = new PaymentMethod {Id = paymentMethod};
+            Confirm = false;
+        }
     }
 }

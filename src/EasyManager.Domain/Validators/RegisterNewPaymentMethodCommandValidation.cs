@@ -9,6 +9,7 @@ namespace EasyManager.Domain.Validators
         {
             ValidateId();
             ValidateDescription();
+            ValidateBankAccount();
         }
     }
 }

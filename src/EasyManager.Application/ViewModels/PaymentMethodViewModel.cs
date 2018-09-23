@@ -10,6 +10,7 @@ namespace EasyManager.Application.ViewModels
         public string Description { get; set; }
         public PaymentType PaymentType { get; set; }
         public bool Active { get; set; }
+        [Required(ErrorMessage = "The bank account is required")]
         public Guid BankAccount { get; set; }
         public bool SendToFinatial { get; set; }
         public ConfirmationType ConfirmationType { get; set; }

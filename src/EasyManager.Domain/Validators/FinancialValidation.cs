@@ -24,5 +24,11 @@ namespace EasyManager.Domain.Validators
             RuleFor(c => c.DueDate)
             .NotNull().WithMessage("Please ensure you have entered the due date");
         }
+
+        protected void ValidatePaymentMethod()
+        {
+            RuleFor(c => c.PaymentMethod)
+            .NotEqual(Guid.Empty).WithMessage("Please ensure you have entered the payment method");
+        }
     }
 }

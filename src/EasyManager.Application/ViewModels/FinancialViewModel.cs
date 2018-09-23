@@ -11,6 +11,7 @@ namespace EasyManager.Application.ViewModels
         [Required(ErrorMessage = "The description is required")]
         public string Description { get; set; }
         public BudgetType? BudgetType { get; set; }
+        [Required(ErrorMessage = "Payment method is required")]
         public Guid PaymentMethod { get; set; }
         public DateTime DueDate { get; set; }
         public double Values { get; set; }

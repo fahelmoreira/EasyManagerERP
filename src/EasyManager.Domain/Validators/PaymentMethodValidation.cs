@@ -18,5 +18,11 @@ namespace EasyManager.Domain.Validators
             RuleFor(c => c.Id)
                 .NotEqual(Guid.Empty);
         }
+
+        protected void ValidateBankAccount()
+        {
+            RuleFor(c => c.BankAccount)
+                .NotEqual(Guid.Empty);
+        }
     }
 }
