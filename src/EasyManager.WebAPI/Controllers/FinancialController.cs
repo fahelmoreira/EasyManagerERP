@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace EasyManager.WebAPI.Controllers
 {
     [Route("[Controller]")]
-    public class DepartamentController : ApiController<IDepartamentAppService>
+    public class FinancialController : ApiController<IFinancialAppService>
     {
-        public DepartamentController(IDepartamentAppService appService, 
-                                        INotificationHandler<DomainNotification> notifications, 
-                                        IMediatorHandler mediator) : base(appService, notifications, mediator)
+        public FinancialController(IFinancialAppService appService, 
+                                      INotificationHandler<DomainNotification> notifications, 
+                                      IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
         }
 
@@ -30,31 +30,31 @@ namespace EasyManager.WebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] DepartamentViewModel departament)
+        public IActionResult Post([FromBody] FinancialViewModel financial)
         {
             if (!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(departament);
+                return Response(financial);
             }
 
-            _appService.Register(departament);
+            _appService.Register(financial);
 
-            return Response("Departament successfully created");
+            return Response("Financial successfully created");
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] DepartamentViewModel departament)
+        public IActionResult Put([FromBody] FinancialViewModel financial)
         {
             if (!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(departament);
+                return Response(financial);
             }
 
-            _appService.Update(departament);
+            _appService.Update(financial);
 
-            return Response("Departament successfully updated");
+            return Response("Financial successfully updated");
         }
 
         [HttpDelete]
@@ -62,7 +62,7 @@ namespace EasyManager.WebAPI.Controllers
         {
             _appService.Remove(id);
 
-            return Response("Departament successfully removed");
+            return Response("Financial successfully removed");
         }
     }
 }
