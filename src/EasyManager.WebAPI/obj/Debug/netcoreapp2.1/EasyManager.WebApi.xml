@@ -4,34 +4,651 @@
         <name>EasyManager.WebApi</name>
     </assembly>
     <members>
+        <member name="T:EasyManager.WebAPI.Configurations.AutoMapperSetup">
+            <summary>
+            Class that set up automapper
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Configurations.AutoMapperSetup.AddAutoMapperSetup(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds autoMapper dependecies 
+            </summary>
+        </member>
+        <member name="T:EasyManager.WebAPI.Configurations.MediatorSetup">
+            <summary>
+            Sets up the mediator
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Configurations.MediatorSetup.AddMediatorSetup(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add the mediator dependecies
+            </summary>
+        </member>
+        <member name="T:EasyManager.WebAPI.Configurations.RouteConvention">
+            <summary>
+            Sets the rout convertion
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Configurations.RouteConvention.#ctor(Microsoft.AspNetCore.Mvc.Routing.IRouteTemplateProvider)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="routeTemplateProvider"></param>
+        </member>
+        <member name="M:EasyManager.WebAPI.Configurations.RouteConvention.Apply(Microsoft.AspNetCore.Mvc.ApplicationModels.ApplicationModel)">
+            <summary>
+            Applies the configuration
+            </summary>
+        </member>
+        <member name="T:EasyManager.WebAPI.Configurations.MvcOptionsExtensions">
+            <summary>
+            MVC options extension
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Configurations.MvcOptionsExtensions.UseCentralRoutePrefix(Microsoft.AspNetCore.Mvc.MvcOptions,Microsoft.AspNetCore.Mvc.Routing.IRouteTemplateProvider)">
+            <summary>
+            Uses central route prefix
+            </summary>
+            <param name="opts"></param>
+            <param name="routeAttribute"></param>
+        </member>
+        <member name="T:EasyManager.WebAPI.Configurations.WebApiServiceCollection">
+            <summary>
+            Setup API services collection
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Configurations.WebApiServiceCollection.AddWebApi(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add webapi dependecies
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EasyManager.WebAPI.Configurations.WebApiServiceCollection.AddWebApi(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Microsoft.AspNetCore.Mvc.MvcOptions})">
+            <summary>
+            Add webapi dependecies
+            </summary>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.ApiController">
+            <summary>
+            Main api controller
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.ApiController.#ctor(MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="notifications"></param>
+            <param name="mediator"></param>
+        </member>
+        <member name="P:EasyManager.WebAPI.Controllers.ApiController.Notifications">
+            <summary>
+            Notifications
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.ApiController.IsValidOperation">
+            <summary>
+            Validates the operation
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.ApiController.Response(System.Object)">
+            <summary>
+            Set the response
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.ApiController.NotifyModelStateErrors">
+            <summary>
+            Notifies model state erros
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.ApiController.NotifyError(System.String,System.String)">
+            <summary>
+            Notifies errors
+            </summary>
+            <param name="code"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.ApiController.AddIdentityErrors(Microsoft.AspNetCore.Identity.IdentityResult)">
+            <summary>
+            Add aidentity errors
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.ApiController`1">
+            <summary>
+            Main api controller
+            </summary>
+        </member>
+        <member name="F:EasyManager.WebAPI.Controllers.ApiController`1._appService">
+            <summary>
+            application service
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.ApiController`1.#ctor(`0,MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="appService"></param>
+            <param name="notifications"></param>
+            <param name="mediator"></param>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.V1.BankAccountController">
+            <summary>
+            Controlls the version 1 of the bank api
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.BankAccountController.#ctor(EasyManager.Application.Interfaces.IBankAccountAppService,MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+            Default Controller
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.BankAccountController.Get">
+            <summary>
+            Retrivers all bank accounts in a summarized version
+            </summary>
+            <response code="200">Bank retrived</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.BankAccountController.Get(System.Guid)">
+            <summary>
+            Retives detailed information about a specific bank account
+            </summary>
+            <param name="id">Id of the bank account</param>
+            <response code="200">Bank retrived</response>
+            <response code="404">Bank not found</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.BankAccountController.Post(EasyManager.Application.ViewModels.BankAccountViewModel)">
+            <summary>
+            Creates a new bank account
+            </summary>
+            <param name="bankAccount">Bank account information</param>
+            <response code="200">Bank account successfully created</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.BankAccountController.Put(EasyManager.Application.ViewModels.BankAccountViewModel)">
+            <summary>
+            Updates bank account
+            </summary>
+            <param name="bankAccount">Bank account information</param>
+            <response code="200">Bank account successfully updated</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.BankAccountController.Delete(System.Guid)">
+            <summary>
+            Removes bank account
+            </summary>
+            <param name="id">Id of the bank account to remove</param>
+            <response code="200">Bank account successfully removed</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.V1.CategoryController">
+            <summary>
+            Controlls the version 1 of the category api
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CategoryController.#ctor(EasyManager.Application.Interfaces.ICategoryAppService,MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CategoryController.Get">
+            <summary>
+            Retrivers all categories in a summarized version
+            </summary>
+            <response code="200">Category retrived</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CategoryController.Get(System.Guid)">
+            <summary>
+            Retives detailed information about a specific category
+            </summary>
+            <param name="id">Id of the category</param>
+            <response code="200">Category retrived</response>
+            <response code="404">Category not found</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CategoryController.Post(EasyManager.Application.ViewModels.CategoryViewModel)">
+            <summary>
+            Creates a new category
+            </summary>
+            <param name="category">Category information</param>
+            <response code="200">Category successfully created</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CategoryController.Put(EasyManager.Application.ViewModels.CategoryViewModel)">
+            <summary>
+            Updates a new category
+            </summary>
+            <param name="category">Category information</param>
+            <response code="200">Category successfully updated</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CategoryController.Delete(System.Guid)">
+            <summary>
+            Removes category
+            </summary>
+            <param name="id">Id of the category to remove</param>
+            <response code="200">category successfully removed</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.V1.CustomerController">
+            <summary>
+            Controlls the version 1 of the customer api
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CustomerController.#ctor(EasyManager.Application.Interfaces.ICustomerAppService,MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+             Default constructor
+            </summary>
+        </member>
         <member name="M:EasyManager.WebAPI.Controllers.V1.CustomerController.Get">
             <summary>
-            Gets all the customer registered in a summarized version
+            Retrives all the customer registered in a summarized version
             </summary>
+            <response code="200">Customer retrived</response>
         </member>
         <member name="M:EasyManager.WebAPI.Controllers.V1.CustomerController.Get(System.Guid)">
             <summary>
-            Gets the detailed customer information
+            Retives detailed information about a specific customer
             </summary>
-            <param name="id"></param>
+            <param name="id">Id of the customer</param>
+            <response code="200">Customer retrived</response>
+            <response code="404">Customer not found</response>
         </member>
         <member name="M:EasyManager.WebAPI.Controllers.V1.CustomerController.Post(EasyManager.Application.ViewModels.CustomerViewModel)">
             <summary>
             Creates a new customer
             </summary>
-            <param name="customerViewModel">Infomation about yhe customer</param>
+            <param name="customerViewModel">Infomation about the customer</param>
+            <response code="200">Customer successfully created</response>
+            <response code="400">Invalid request</response>
         </member>
         <member name="M:EasyManager.WebAPI.Controllers.V1.CustomerController.Put(EasyManager.Application.ViewModels.CustomerViewModel)">
             <summary>
             Updates the customer information
             </summary>
             <param name="customerViewModel">Infomation about yhe customer</param>
+            <response code="200">Customer successfully updated</response>
+            <response code="400">Invalid request</response>
         </member>
         <member name="M:EasyManager.WebAPI.Controllers.V1.CustomerController.Delete(System.Guid)">
             <summary>
             Removes the customer from the data base
             </summary>
             <param name="id">Id of the customer to be removed</param>
+            /// <response code="200">Customer successfully removed</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.V1.DepartamentController">
+            <summary>
+            Controlls the version 1 of the departament api
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.DepartamentController.#ctor(EasyManager.Application.Interfaces.IDepartamentAppService,MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.DepartamentController.Get">
+            <summary>
+            Retrives all the departaments in a summarized version
+            </summary>
+            <response code="200">Departament retrived</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.DepartamentController.Get(System.Guid)">
+            <summary>
+            Retives detailed information about a specific departament
+            </summary>
+            <param name="id">Id of the departament</param>
+            <response code="200">Departament retrived</response>
+            <response code="404">Departament not found</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.DepartamentController.Post(EasyManager.Application.ViewModels.DepartamentViewModel)">
+            <summary>
+            Creates a new departament
+            </summary>
+            <param name="departament">Infomation about the departament</param>
+            <response code="200">Departament successfully created</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.DepartamentController.Put(EasyManager.Application.ViewModels.DepartamentViewModel)">
+            <summary>
+            Updates the departament information
+            </summary>
+            <param name="departament">Infomation about yhe departament</param>
+            <response code="200">Departament successfully updated</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.DepartamentController.Delete(System.Guid)">
+            <summary>
+            Removes the departament from the data base
+            </summary>
+            <param name="id">Id of the departament to be removed</param>
+            /// <response code="200">Departament successfully removed</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.V1.FinancialController">
+            <summary>
+            Controlls the version 1 of the financia api
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.FinancialController.#ctor(EasyManager.Application.Interfaces.IFinancialAppService,MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.FinancialController.Get">
+            <summary>
+            Retrives all the financiais in a summarized version
+            </summary>
+            <response code="200">Customer retrived</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.FinancialController.Get(System.Guid)">
+            <summary>
+            Retives detailed information about a specific financia
+            </summary>
+            <param name="id">Id of the financia</param>
+            <response code="200">financia retrived</response>
+            <response code="404">financia not found</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.FinancialController.Post(EasyManager.Application.ViewModels.FinancialViewModel)">
+            <summary>
+            Creates a new financia
+            </summary>
+            <param name="financial">Infomation about the financia</param>
+            <response code="200">financia successfully created</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.FinancialController.Put(EasyManager.Application.ViewModels.FinancialViewModel)">
+            <summary>
+            Updates the financia information
+            </summary>
+            <param name="financial">Infomation about yhe financia</param>
+            <response code="200">financia successfully updated</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.FinancialController.Delete(System.Guid)">
+            <summary>
+            Removes the financia from the data base
+            </summary>
+            <param name="id">Id of the financia to be removed</param>
+            /// <response code="200">financia successfully removed</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.V1.ManufactureController">
+            <summary>
+            Controlls the version 1 of the manufacture api
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ManufactureController.#ctor(EasyManager.Application.Interfaces.IManufactureAppServices,MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ManufactureController.Get">
+            <summary>
+            Retrives all the manufactures in a summarized version
+            </summary>
+            <response code="200">Customer retrived</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ManufactureController.Get(System.Guid)">
+            <summary>
+            Retives detailed information about a specific manufacture
+            </summary>
+            <param name="id">Id of the manufacture</param>
+            <response code="200">manufacture retrived</response>
+            <response code="404">manufacture not found</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ManufactureController.Post(EasyManager.Application.ViewModels.ManufactureViewModel)">
+            <summary>
+            Creates a new manufacture
+            </summary>
+            <param name="manufacture">Infomation about the manufacture</param>
+            <response code="200">manufacture successfully created</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ManufactureController.Put(EasyManager.Application.ViewModels.ManufactureViewModel)">
+            <summary>
+            Updates the manufacture information
+            </summary>
+            <param name="manufacture">Infomation about yhe manufacture</param>
+            <response code="200">manufacture successfully updated</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ManufactureController.Delete(System.Guid)">
+            <summary>
+            Removes the manufacture from the data base
+            </summary>
+            <param name="id">Id of the manufacture to be removed</param>
+            /// <response code="200">manufacture successfully removed</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.V1.OrderController">
+            <summary>
+            Controlls the version 1 of the order api
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.OrderController.#ctor(EasyManager.Application.Interfaces.IOrderAppService,MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.OrderController.Get">
+            <summary>
+            Retrives all the orders in a summarized version
+            </summary>
+            <response code="200">Customer retrived</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.OrderController.Get(System.Guid)">
+            <summary>
+            Retives detailed information about a specific order
+            </summary>
+            <param name="id">Id of the order</param>
+            <response code="200">order retrived</response>
+            <response code="404">order not found</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.OrderController.Post(EasyManager.Application.ViewModels.OrderViewModel)">
+            <summary>
+            Creates a new order
+            </summary>
+            <param name="order">Infomation about the order</param>
+            <response code="200">order successfully created</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.OrderController.Put(EasyManager.Application.ViewModels.OrderViewModel)">
+            <summary>
+            Updates the order information
+            </summary>
+            <param name="order">Infomation about yhe order</param>
+            <response code="200">order successfully updated</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.OrderController.Delete(System.Guid)">
+            <summary>
+            Removes the order from the data base
+            </summary>
+            <param name="id">Id of the order to be removed</param>
+            /// <response code="200">order successfully removed</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.V1.PaymentMethodController">
+            <summary>
+            Controlls the version 1 of the payment method api
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PaymentMethodController.#ctor(EasyManager.Application.Interfaces.IPaymentMethodAppService,MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PaymentMethodController.Get">
+            <summary>
+            Retrives all the payment methods in a summarized version
+            </summary>
+            <response code="200">Customer retrived</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PaymentMethodController.Get(System.Guid)">
+            <summary>
+            Retives detailed information about a specific payment method
+            </summary>
+            <param name="id">Id of the payment method</param>
+            <response code="200">payment method retrived</response>
+            <response code="404">payment method not found</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PaymentMethodController.Post(EasyManager.Application.ViewModels.PaymentMethodViewModel)">
+            <summary>
+            Creates a new payment method
+            </summary>
+            <param name="paymentMethod">Infomation about the payment method</param>
+            <response code="200">payment method successfully created</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PaymentMethodController.Put(EasyManager.Application.ViewModels.PaymentMethodViewModel)">
+            <summary>
+            Updates the payment method information
+            </summary>
+            <param name="paymentMethod">Infomation about yhe payment method</param>
+            <response code="200">payment method successfully updated</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PaymentMethodController.Delete(System.Guid)">
+            <summary>
+            Removes the payment method from the data base
+            </summary>
+            <param name="id">Id of the payment method to be removed</param>
+            /// <response code="200">payment method successfully removed</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.V1.ProductController">
+            <summary>
+            Controlls the version 1 of the product api
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ProductController.#ctor(EasyManager.Application.Interfaces.IProductAppService,MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ProductController.Get">
+            <summary>
+            Retrives all the products in a summarized version
+            </summary>
+            <response code="200">Customer retrived</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ProductController.Get(System.Guid)">
+            <summary>
+            Retives detailed information about a specific product
+            </summary>
+            <param name="id">Id of the product</param>
+            <response code="200">product retrived</response>
+            <response code="404">product not found</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ProductController.Post(EasyManager.Application.ViewModels.ProductViewModel)">
+            <summary>
+            Creates a new product
+            </summary>
+            <param name="product">Infomation about the product</param>
+            <response code="200">product successfully created</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ProductController.Put(EasyManager.Application.ViewModels.ProductViewModel)">
+            <summary>
+            Updates the product information
+            </summary>
+            <param name="product">Infomation about yhe product</param>
+            <response code="200">product successfully updated</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.ProductController.Delete(System.Guid)">
+            <summary>
+            Removes the product from the data base
+            </summary>
+            <param name="id">Id of the product to be removed</param>
+            /// <response code="200">product successfully removed</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="T:EasyManager.WebAPI.Controllers.V1.PurchaseController">
+            <summary>
+            Controlls the version 1 of the purchase api
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PurchaseController.#ctor(EasyManager.Application.Interfaces.IPurchaseAppService,MediatR.INotificationHandler{EasyManager.Domain.Core.Notifications.DomainNotification},EasyManager.Domain.Core.Bus.IMediatorHandler)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PurchaseController.Get">
+            <summary>
+            Retrives all the purchases in a summarized version
+            </summary>
+            <response code="200">Customer retrived</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PurchaseController.Get(System.Guid)">
+            <summary>
+            Retives detailed information about a specific purchase
+            </summary>
+            <param name="id">Id of the purchase</param>
+            <response code="200">purchase retrived</response>
+            <response code="404">purchase not found</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PurchaseController.Post(EasyManager.Application.ViewModels.PurchaseViewModel)">
+            <summary>
+            Creates a new purchase
+            </summary>
+            <param name="purchase">Infomation about the purchase</param>
+            <response code="200">purchase successfully created</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PurchaseController.Put(EasyManager.Application.ViewModels.PurchaseViewModel)">
+            <summary>
+            Updates the purchase information
+            </summary>
+            <param name="purchase">Infomation about yhe purchase</param>
+            <response code="200">purchase successfully updated</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.PurchaseController.Delete(System.Guid)">
+            <summary>
+            Removes the purchase from the data base
+            </summary>
+            <param name="id">Id of the purchase to be removed</param>
+            /// <response code="200">purchase successfully removed</response>
+            <response code="400">Invalid request</response>
+        </member>
+        <member name="T:EasyManager.WebAPI.Program">
+            <summary>
+            Program class
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Program.Main(System.String[])">
+            <summary>
+            Main function
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Program.BuildWebHost(System.String[])">
+            <summary>
+             Builder
+            </summary>
+        </member>
+        <member name="T:EasyManager.WebAPI.Startup">
+            <summary>
+            Start up class
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Startup.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:EasyManager.WebAPI.Startup.Configuration">
+            <summary>
+            Dependency Injection
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
         </member>
     </members>
 </doc>

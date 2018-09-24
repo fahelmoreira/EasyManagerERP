@@ -12,6 +12,11 @@ The first thing to do after download it is to run a ```dotnet restore``` and ```
 The project uses Entity Framework and is current configured to use MS SQL Server data base if you wish to use a diferente data base you'll have to download the dependencies and manually configure it.
 In the project folder you will find the SQL script to run in the database or you can run the ```dotnet ef database update``` to automatically create the database and the required tables.
 
+The documentation can be found in the application accessing
+```
+https://localhost:5001/docs/
+```
+
 ## Technologies used in this project
 In order to create thi project was required the following technologies
 
