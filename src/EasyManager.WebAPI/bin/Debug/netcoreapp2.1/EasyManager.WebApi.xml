@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyManager.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CustomerController.Get">
+            <summary>
+            Gets all the customer registered in a summarized version
+            </summary>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CustomerController.Get(System.Guid)">
+            <summary>
+            Gets the detailed customer information
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CustomerController.Post(EasyManager.Application.ViewModels.CustomerViewModel)">
+            <summary>
+            Creates a new customer
+            </summary>
+            <param name="customerViewModel">Infomation about yhe customer</param>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CustomerController.Put(EasyManager.Application.ViewModels.CustomerViewModel)">
+            <summary>
+            Updates the customer information
+            </summary>
+            <param name="customerViewModel">Infomation about yhe customer</param>
+        </member>
+        <member name="M:EasyManager.WebAPI.Controllers.V1.CustomerController.Delete(System.Guid)">
+            <summary>
+            Removes the customer from the data base
+            </summary>
+            <param name="id">Id of the customer to be removed</param>
+        </member>
+    </members>
+</doc>

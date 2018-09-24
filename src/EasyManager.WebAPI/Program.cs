@@ -10,13 +10,22 @@ using Microsoft.Extensions.Logging;
 
 namespace EasyManager.WebAPI
 {
+    /// <summary>
+    /// Program class
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Main function
+        /// </summary>
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
         }
 
+        /// <summary>
+        ///  Builder
+        /// </summary>
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()

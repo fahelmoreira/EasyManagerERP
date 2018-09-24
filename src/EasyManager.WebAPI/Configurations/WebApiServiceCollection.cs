@@ -5,8 +5,16 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyManager.WebAPI.Configurations
 {
+    /// <summary>
+    /// Setup API services collection
+    /// </summary>
     public static class WebApiServiceCollection
     {
+        /// <summary>
+        /// Add webapi dependecies
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static IMvcBuilder AddWebApi(this IServiceCollection services)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
@@ -19,6 +27,9 @@ namespace EasyManager.WebAPI.Configurations
             return new MvcBuilder(builder.Services, builder.PartManager);
         }
 
+        /// <summary>
+        /// Add webapi dependecies
+        /// </summary>
         public static IMvcBuilder AddWebApi(this IServiceCollection services, Action<MvcOptions> setupAction)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));

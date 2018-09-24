@@ -7,8 +7,14 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyManager.WebAPI.Configurations
 {
+    /// <summary>
+    /// Class that set up automapper
+    /// </summary>
     public static class AutoMapperSetup
     {
+        /// <summary>
+        /// Adds autoMapper dependecies 
+        /// </summary>
         public static void AddAutoMapperSetup(this IServiceCollection services)
       {
           if (services == null) throw new ArgumentNullException(nameof(services));
@@ -17,7 +23,7 @@ namespace EasyManager.WebAPI.Configurations
           // Automapper Profile classes are in ASP.NET project
           var cfg = new MapperConfigurationExpression();
 
-          /// Aplications mapping profiles
+          // Aplications mapping profiles
           cfg.AddProfiles(typeof(ApplicationAutoMapperConfig).Assembly);
           cfg.AddProfiles(typeof(DomainAutoMapperConfig).Assembly);
 

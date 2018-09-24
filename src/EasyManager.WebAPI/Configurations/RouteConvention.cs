@@ -7,14 +7,25 @@ using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace EasyManager.WebAPI.Configurations
 {
+    /// <summary>
+    /// Sets the rout convertion
+    /// </summary>
     public class RouteConvention : IApplicationModelConvention
     {
         private readonly AttributeRouteModel _centralPrefix;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="routeTemplateProvider"></param>
         public RouteConvention(IRouteTemplateProvider routeTemplateProvider)
         {
             _centralPrefix = new AttributeRouteModel(routeTemplateProvider);
         }
+        
+        /// <summary>
+        /// Applies the configuration
+        /// </summary>
         public void Apply(ApplicationModel application)
         {
             foreach (var controller in application.Controllers)
@@ -51,8 +62,16 @@ namespace EasyManager.WebAPI.Configurations
         }
     }
 
+    /// <summary>
+    /// MVC options extension
+    /// </summary>
     public static class MvcOptionsExtensions
     {
+        /// <summary>
+        /// Uses central route prefix
+        /// </summary>
+        /// <param name="opts"></param>
+        /// <param name="routeAttribute"></param>
         public static void UseCentralRoutePrefix(this MvcOptions opts, IRouteTemplateProvider routeAttribute)
         {
             opts.Conventions.Insert(0, new RouteConvention(routeAttribute));

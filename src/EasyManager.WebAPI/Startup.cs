@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
-
 using EasyManager.Infra.CrossCutting.IoC;
 using EasyManager.WebAPI.Configurations;
 using MediatR;
@@ -15,11 +15,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace EasyManager.WebAPI
 {
+    /// <summary>
+    /// Start up class
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -36,6 +43,9 @@ namespace EasyManager.WebAPI
             Configuration = builder.Build();
         }
 
+        /// <summary>
+        /// Dependency Injection
+        /// </summary>
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -49,6 +59,28 @@ namespace EasyManager.WebAPI
                 options.UseCentralRoutePrefix(new RouteAttribute("api/v{version}"));
             });
 
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info 
+                    { 
+                        Version = "v1",
+                        Title = "EasyManager API",
+                        Description = "All APIs for the EasyManager Software",
+                        License = new License { Name = "Apache License 2.0", Url = "https://github.com/fahelmoreira/EasyManagerERP/blob/master/LICENSE" },
+                        Contact = new Contact
+                        {
+                            Name = "Rafael Moreira",
+                            Email = "fahelmoreira@me.com",
+                        }
+                    }
+                );
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
+
             services.AddMvc();
 
             // Adding MediatR for Domain Events and Notifications
@@ -58,13 +90,30 @@ namespace EasyManager.WebAPI
             services.AddEasyManager();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
+    
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EasyManager API V1");
+                c.RoutePrefix = "docs";
+            });
 
             app.UseCors(c =>
             {

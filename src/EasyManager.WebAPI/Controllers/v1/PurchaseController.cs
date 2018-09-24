@@ -3,7 +3,6 @@ using EasyManager.Application.Interfaces;
 using EasyManager.Application.ViewModels;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Notifications;
-using EasyManager.Domain.Models;
 using EasyManager.WebAPI.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -11,23 +10,23 @@ using Microsoft.AspNetCore.Mvc;
 namespace EasyManager.WebAPI.Controllers.V1
 {
     /// <summary>
-    /// Controlls the version 1 of the product api
+    /// Controlls the version 1 of the purchase api
     /// </summary>
     [Route("[Controller]")]
     [Version(1)]
-    public class ProductController : ApiController<IProductAppService>
+    public class PurchaseController : ApiController<IPurchaseAppService>
     {
         /// <summary>
         /// Default constructor
         /// </summary>
-        public ProductController(IProductAppService appService, 
+        public PurchaseController(IPurchaseAppService appService, 
                                  INotificationHandler<DomainNotification> notifications, 
                                  IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
         }
 
         /// <summary>
-        /// Retrives all the products in a summarized version
+        /// Retrives all the purchases in a summarized version
         /// </summary>
         /// <response code="200">Customer retrived</response>
         [HttpGet]
@@ -38,11 +37,11 @@ namespace EasyManager.WebAPI.Controllers.V1
         }
 
         /// <summary>
-        /// Retives detailed information about a specific product
+        /// Retives detailed information about a specific purchase
         /// </summary>
-        /// <param name="id">Id of the product</param>
-        /// <response code="200">product retrived</response>
-        /// <response code="404">product not found</response>
+        /// <param name="id">Id of the purchase</param>
+        /// <response code="200">purchase retrived</response>
+        /// <response code="404">purchase not found</response>
         [HttpGet("{id:Guid}")]
         [ProducesResponseType(typeof(IActionResult), 200)]
         [ProducesResponseType(typeof(IActionResult), 404)]
@@ -52,55 +51,55 @@ namespace EasyManager.WebAPI.Controllers.V1
         }
         
         /// <summary>
-        /// Creates a new product
+        /// Creates a new purchase
         /// </summary>
-        /// <param name="product">Infomation about the product</param>
-        /// <response code="200">product successfully created</response>
+        /// <param name="purchase">Infomation about the purchase</param>
+        /// <response code="200">purchase successfully created</response>
         /// <response code="400">Invalid request</response>
         [HttpPost]
         [ProducesResponseType(typeof(IActionResult), 200)]
         [ProducesResponseType(typeof(IActionResult), 400)]
-        public IActionResult Post([FromBody] ProductViewModel product)
+        public IActionResult Post([FromBody] PurchaseViewModel purchase)
         {
             if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(product);
+                return Response(purchase);
             }
 
-            _appService.Register(product);
+            _appService.Register(purchase);
 
-            return Response("Product successfully created");
+            return Response("Purchase successfully created");
         }
 
         /// <summary>
-        /// Updates the product information
+        /// Updates the purchase information
         /// </summary>
-        /// <param name="product">Infomation about yhe product</param>
-        /// <response code="200">product successfully updated</response>
+        /// <param name="purchase">Infomation about yhe purchase</param>
+        /// <response code="200">purchase successfully updated</response>
         /// <response code="400">Invalid request</response>
         [HttpPut]
         [ProducesResponseType(typeof(IActionResult), 200)]
         [ProducesResponseType(typeof(IActionResult), 400)]
-        public IActionResult Put([FromBody] ProductViewModel product)
+        public IActionResult Put([FromBody] PurchaseViewModel purchase)
         {
             if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(product);
+                return Response(purchase);
             }
 
-            _appService.Update(product);
+            _appService.Update(purchase);
 
-            return Response("Product successfully updated");
+            return Response("Purchase successfully updated");
 
         }
 
         /// <summary>
-        /// Removes the product from the data base
+        /// Removes the purchase from the data base
         /// </summary>
-        /// <param name="id">Id of the product to be removed</param>
-        /// /// <response code="200">product successfully removed</response>
+        /// <param name="id">Id of the purchase to be removed</param>
+        /// /// <response code="200">purchase successfully removed</response>
         /// <response code="400">Invalid request</response>
         [HttpDelete]
         [ProducesResponseType(typeof(IActionResult), 200)]
@@ -115,8 +114,7 @@ namespace EasyManager.WebAPI.Controllers.V1
 
             _appService.Remove(id);
 
-            return Response("Product successfully removed");
+            return Response("Purchase successfully removed");
         }
-    
     }
 }

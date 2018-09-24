@@ -28,3 +28,5 @@
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/Debug/netcoreapp2.1/UserSecretsAssemblyInfo.cs
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.dll
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/bin/Debug/netcoreapp2.1/EasyManager.WebApi.xml
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.WebAPI/obj/Debug/netcoreapp2.1/EasyManager.WebApi.xml
