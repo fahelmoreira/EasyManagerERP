@@ -13,6 +13,6 @@ namespace EasyManager.Infra.Data.Repository
         {
         }
 
-        public int GetOrderStatus(Guid Id) => (int)DbSet.Where(x => x.Id == Id).AsNoTracking().FirstOrDefault().Status;
+        public int GetOrderStatusById(Guid Id) => (int)DbSet.Where(x => x.Id == Id).AsNoTracking().FirstOrDefault().Status;
     }
 }

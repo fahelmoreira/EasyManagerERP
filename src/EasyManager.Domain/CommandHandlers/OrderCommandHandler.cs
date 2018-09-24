@@ -27,6 +27,9 @@ namespace EasyManager.Domain.CommandHandlers
         private readonly ICustomerRepository _customerRepository;
         private readonly IProductRepository _productRepository;
         private List<ProductOrder> products;
+        private Guid orderID;
+        private OrderStatus OrderStatus;
+
         public OrderCommandHandler(IMapper mapper, 
                                    IOrderRepository repository, 
                                    IDepartamentRepository departamentRepository,
@@ -46,6 +49,9 @@ namespace EasyManager.Domain.CommandHandlers
             Departament departament = null;
             Customer customer = null;
             products = JsonConvert.DeserializeObject<List<ProductOrder>>(order.ProductOrder);
+            orderID = order.Id;
+            OrderStatus = order.Status;
+
             bool isValid = true;
             
             //Validates the departament
@@ -99,37 +105,43 @@ namespace EasyManager.Domain.CommandHandlers
                 return;
             }
 
-            UpdateStock(order.Id, order.Status);
+            UpdateStock();
             order.Customer = customer;
             order.Departament = departament;
             order.ProductOrder = JsonConvert.SerializeObject(products);
             order2 = order;
         }
     
-        private void UpdateStock(Guid orderID, OrderStatus status)
+        /// <summary>
+        /// Updates the product in stock
+        /// </summary>
+        private void UpdateStock()
         {
-            switch (status)
+            switch (OrderStatus)
             {
                 case OrderStatus.Opened:
-                    AddItemToStock(orderID, status);
+                    AddItemToStock();
                     break;
                 case OrderStatus.Confirmed:
-                    RemoveItemFromStock(orderID, status);
+                    RemoveItemFromStock();
                     break;
                 case OrderStatus.Canceled:
-                    AddItemToStock(orderID, status);
+                    AddItemToStock();
                     break;
                 case OrderStatus.Refunded:
-                    AddItemToStock(orderID, status);
+                    AddItemToStock();
                     break;
                 default:
                     break;
             }
         }
 
-        private void AddItemToStock(Guid orderID, OrderStatus status)
+        /// <summary>
+        /// Adds a product to stock
+        /// </summary>
+        private void AddItemToStock()
         {
-            var orderStatus = _repository.GetOrderStatus(orderID);
+            var orderStatus = _repository.GetOrderStatusById(orderID);
 
             if(orderStatus.IsNull())
                 return;
@@ -160,9 +172,12 @@ namespace EasyManager.Domain.CommandHandlers
             }
         }
 
-        private void RemoveItemFromStock(Guid orderID, OrderStatus status)
+        /// <summary>
+        /// Removes a product from stock
+        /// </summary>
+        private void RemoveItemFromStock()
         {
-            var orderStatus = _repository.GetOrderStatus(orderID);
+            var orderStatus = _repository.GetOrderStatusById(orderID);
 
             if(orderStatus.IsNull())
                 return;

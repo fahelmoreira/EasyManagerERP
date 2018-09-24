@@ -5,6 +5,6 @@ namespace EasyManager.Domain.Interfaces
 {
     public interface IOrderRepository : IRepository<Order>
     {
-         int GetOrderStatus(Guid Id);
+         int GetOrderStatusById(Guid Id);
     }
 }

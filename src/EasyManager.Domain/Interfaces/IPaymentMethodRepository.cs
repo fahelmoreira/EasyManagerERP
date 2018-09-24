@@ -4,6 +4,6 @@ namespace EasyManager.Domain.Interfaces
 {
     public interface IPaymentMethodRepository : IRepository<PaymentMethod>
     {
-         
+
     }
 }
