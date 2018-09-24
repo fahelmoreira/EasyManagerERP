@@ -18,3 +18,5 @@
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.Infra.Data.dll
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.Application.pdb
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.Infra.Data.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.CrossCutting.IoC/bin/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.pdb

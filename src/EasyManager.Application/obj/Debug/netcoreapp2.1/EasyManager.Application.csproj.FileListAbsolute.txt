@@ -14,3 +14,5 @@
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/obj/Debug/netcoreapp2.1/EasyManager.Application.csproj.CopyComplete
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/obj/Debug/netcoreapp2.1/EasyManager.Application.dll
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/obj/Debug/netcoreapp2.1/EasyManager.Application.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/bin/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Application/bin/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.pdb

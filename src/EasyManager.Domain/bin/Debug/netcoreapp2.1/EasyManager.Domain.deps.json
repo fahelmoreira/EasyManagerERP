@@ -10,6 +10,7 @@
         "dependencies": {
           "AutoMapper": "7.0.1",
           "EasyManager.Domain.Core": "1.0.0",
+          "EasyManager.SystemHelper.Core": "1.0.0",
           "FluentValidation": "8.0.100",
           "Newtonsoft.Json": "11.0.2",
           "System.ComponentModel": "4.3.0",
@@ -181,6 +182,11 @@
         },
         "runtime": {
           "EasyManager.Domain.Core.dll": {}
+        }
+      },
+      "EasyManager.SystemHelper.Core/1.0.0": {
+        "runtime": {
+          "EasyManager.SystemHelper.Core.dll": {}
         }
       }
     }
@@ -360,6 +366,11 @@
       "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     },
     "EasyManager.Domain.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EasyManager.SystemHelper.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

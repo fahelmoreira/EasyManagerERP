@@ -2,6 +2,9 @@ using System;
 using AutoMapper;
 using EasyManager.Application.ViewModels;
 using EasyManager.Domain.Commands;
+using EasyManager.Domain.Core.Units;
+using EasyManager.Domain.Models;
+using Newtonsoft.Json;
 
 namespace EasyManager.Application.AutoMapper
 {
@@ -75,8 +78,10 @@ namespace EasyManager.Application.AutoMapper
 
             // Product mapping
             CreateMap<ProductViewModel, RegisterNewProductCommand>()
+                .ConstructUsing(cmd => new RegisterNewProductCommand(JsonConvert.SerializeObject(cmd.Bundles)))
                 .ForMember(cmd => cmd.AggregateId, opt => opt.MapFrom(c => c.Id));
-             CreateMap<ProductViewModel, UpdateDepartamentCommand>()
+             CreateMap<ProductViewModel, UpdateProductCommand>()
+                .ConstructUsing(cmd => new UpdateProductCommand(JsonConvert.SerializeObject(cmd.Bundles)))
                 .ForMember(m => m.AggregateId, opt => opt.MapFrom(c => c.Id));
             CreateMap<Guid, RemoveProductCommand>()
                 .ConstructUsing(id => new RemoveProductCommand(id));

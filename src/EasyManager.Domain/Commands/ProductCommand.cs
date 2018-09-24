@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using EasyManager.Domain.Core.Commands;
 using EasyManager.Domain.Models;
 using EasyManager.Domain.Types;
+using MediatR;
+using Newtonsoft.Json;
 
 namespace EasyManager.Domain.Commands
 {
@@ -51,11 +53,26 @@ namespace EasyManager.Domain.Commands
         #endregion
 
         #region Bundle
-        public List<ProductBundle<ProductCommand<T>>> Bundles { get; protected set; }
+        public List<ProductBundle<ProductCommand>> Bundles { get; protected set; }
         #endregion
 
         #region Manufacture
         public Guid Manufacture { get; protected set; }
         #endregion
+
+        protected ProductCommand()
+        {
+        }
+        protected ProductCommand(string bundles)
+        {
+            Bundles = JsonConvert.DeserializeObject<List<ProductBundle<ProductCommand>>>(bundles);
+        }
+    }
+    public class ProductCommand : ProductCommand<Unit>
+    {
+        public override bool IsValid()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

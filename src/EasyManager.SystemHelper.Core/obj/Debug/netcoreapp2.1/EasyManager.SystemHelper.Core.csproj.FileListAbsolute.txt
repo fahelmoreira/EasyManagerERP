@@ -1,0 +1,9 @@
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.SystemHelper.Core/bin/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.deps.json
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.SystemHelper.Core/bin/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.SystemHelper.Core/bin/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.SystemHelper.Core/obj/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.csprojAssemblyReference.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.SystemHelper.Core/obj/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.csproj.CoreCompileInputs.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.SystemHelper.Core/obj/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.AssemblyInfoInputs.cache
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.SystemHelper.Core/obj/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.AssemblyInfo.cs
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.SystemHelper.Core/obj/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.SystemHelper.Core/obj/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.pdb

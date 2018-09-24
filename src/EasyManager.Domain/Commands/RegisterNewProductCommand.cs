@@ -5,6 +5,10 @@ namespace EasyManager.Domain.Commands
 {
     public class RegisterNewProductCommand : ProductCommand<RegisterUnit>
     {
+        public RegisterNewProductCommand(string bundle):base(bundle)
+        {
+        }
+
         public override bool IsValid()
         {
             ValidationResult = new RegisterNewProductCommandValidation().Validate(this);

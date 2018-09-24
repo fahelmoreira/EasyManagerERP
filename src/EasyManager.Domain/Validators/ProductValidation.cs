@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using EasyManager.Domain.Commands;
+using EasyManager.Domain.Types;
 using FluentValidation;
 
 namespace EasyManager.Domain.Validators
@@ -17,6 +19,27 @@ namespace EasyManager.Domain.Validators
         {
             RuleFor(c => c.Id)
                 .NotEqual(Guid.Empty);
+        }
+
+        protected void ValidateType()
+        {
+            RuleFor(p => p)
+                .Custom((product, context) => {
+                    var fail = false;
+                    if(product.ProductType == ProductType.Bundle)
+                        if(!product.Bundles.IsNull())
+                        {
+                            if(!product.Bundles.Any())
+                               fail = true;
+                        }
+                        else
+                        {
+                            fail = true;
+                        }
+
+                        if(fail)
+                            context.AddFailure("The product list cannot be empty in a bundle");
+                });
         }
     }
 }

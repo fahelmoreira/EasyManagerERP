@@ -7,6 +7,7 @@ using EasyManager.Domain.Core.Notifications;
 using EasyManager.Domain.Events;
 using EasyManager.Domain.Interfaces;
 using EasyManager.Domain.Models;
+using EasyManager.Domain.Types;
 using MediatR;
 using Newtonsoft.Json;
 
@@ -25,7 +26,7 @@ namespace EasyManager.Domain.CommandHandlers
         private readonly IDepartamentRepository _departamentRepository;
         private readonly ICustomerRepository _customerRepository;
         private readonly IProductRepository _productRepository;
-
+        private List<ProductOrder> products;
         public OrderCommandHandler(IMapper mapper, 
                                    IOrderRepository repository, 
                                    IDepartamentRepository departamentRepository,
@@ -44,7 +45,7 @@ namespace EasyManager.Domain.CommandHandlers
         {
             Departament departament = null;
             Customer customer = null;
-            List<ProductOrder> products = JsonConvert.DeserializeObject<List<ProductOrder>>(order.ProductOrder);
+            products = JsonConvert.DeserializeObject<List<ProductOrder>>(order.ProductOrder);
             bool isValid = true;
             
             //Validates the departament
@@ -98,10 +99,103 @@ namespace EasyManager.Domain.CommandHandlers
                 return;
             }
 
+            UpdateStock(order.Id, order.Status);
             order.Customer = customer;
             order.Departament = departament;
             order.ProductOrder = JsonConvert.SerializeObject(products);
             order2 = order;
+        }
+    
+        private void UpdateStock(Guid orderID, OrderStatus status)
+        {
+            switch (status)
+            {
+                case OrderStatus.Opened:
+                    AddItemToStock(orderID, status);
+                    break;
+                case OrderStatus.Confirmed:
+                    RemoveItemFromStock(orderID, status);
+                    break;
+                case OrderStatus.Canceled:
+                    AddItemToStock(orderID, status);
+                    break;
+                case OrderStatus.Refunded:
+                    AddItemToStock(orderID, status);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void AddItemToStock(Guid orderID, OrderStatus status)
+        {
+            var orderStatus = _repository.GetOrderStatus(orderID);
+
+            if(orderStatus.IsNull())
+                return;
+
+            if((OrderStatus)orderStatus == OrderStatus.Confirmed)
+                return;
+
+            foreach (var productEntry in products)
+            {
+                var productDB = _productRepository.GetById(productEntry.Id); 
+
+                if(productDB.ProductType == ProductType.Bundle)
+                {
+                    var bundle = _productRepository.GetByIdWithBundle(productEntry.Id); 
+
+                    foreach (var productInfo in bundle.Bundles)
+                    {
+                        var product = _productRepository.GetById(productInfo.Id); 
+                        product.Resale += productInfo.Amount * productEntry.Amount;
+                        UpdateProduct(product);
+                    }
+                }
+                else
+                {
+                    productDB.Resale += productEntry.Amount;
+                    UpdateProduct(productDB);
+                }
+            }
+        }
+
+        private void RemoveItemFromStock(Guid orderID, OrderStatus status)
+        {
+            var orderStatus = _repository.GetOrderStatus(orderID);
+
+            if(orderStatus.IsNull())
+                return;
+
+            if((OrderStatus)orderStatus == OrderStatus.Confirmed)
+                return;
+
+            foreach (var productEntry in products)
+            {
+                var productDB = _productRepository.GetById(productEntry.Id); 
+
+                if(productDB.ProductType == ProductType.Bundle)
+                {
+                    var bundle = _productRepository.GetByIdWithBundle(productEntry.Id); 
+
+                    foreach (var productInfo in bundle.Bundles)
+                    {
+                        var product = _productRepository.GetById(productInfo.Id); 
+                        product.Resale -= productInfo.Amount * productEntry.Amount;
+                        UpdateProduct(product);
+                    }
+                }
+                else
+                {
+                    productDB.Resale -= productEntry.Amount;
+                    UpdateProduct(productDB);
+                }
+            }
+        }
+
+        private void UpdateProduct(Product product)
+        {
+            _productRepository.Update(product);
         }
     }
 }

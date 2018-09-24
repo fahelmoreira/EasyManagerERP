@@ -43,6 +43,7 @@ namespace EasyManager.Domain.AutoMapper
             //Product mapping
             CreateMap<ProductCommand<Unit>, Product>()
                 .ConstructUsing(cmd => new Product(cmd.Category, cmd.Manufacture, cmd.Attributes, cmd.SalesTable));
+                // .ConstructUsing(cmd => new Product(cmd.Category, cmd.Manufacture, cmd.Attributes));
 
             //Order mapping
             CreateMap<OrderCommand<Unit>, Order>()

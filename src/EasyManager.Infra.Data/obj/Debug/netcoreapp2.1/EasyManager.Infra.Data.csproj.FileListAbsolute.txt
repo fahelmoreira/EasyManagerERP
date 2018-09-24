@@ -14,3 +14,5 @@
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.Data/obj/Debug/netcoreapp2.1/EasyManager.Infra.Data.csproj.CopyComplete
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.Data/obj/Debug/netcoreapp2.1/EasyManager.Infra.Data.dll
 /Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.Data/obj/Debug/netcoreapp2.1/EasyManager.Infra.Data.pdb
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.Data/bin/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.dll
+/Users/rafaelmoreira/Documents/EasyManagerERP/EasyManagerERP/src/EasyManager.Infra.Data/bin/Debug/netcoreapp2.1/EasyManager.SystemHelper.Core.pdb

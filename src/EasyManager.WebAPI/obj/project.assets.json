@@ -4498,6 +4498,7 @@
         "dependencies": {
           "AutoMapper": "7.0.1",
           "EasyManager.Domain.Core": "1.0.0",
+          "EasyManager.SystemHelper.Core": "1.0.0",
           "FluentValidation": "8.0.100",
           "Newtonsoft.Json": "11.0.2",
           "System.ComponentModel": "4.3.0",
@@ -4578,6 +4579,16 @@
         },
         "runtime": {
           "bin/placeholder/EasyManager.Infra.Data.dll": {}
+        }
+      },
+      "EasyManager.SystemHelper.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/EasyManager.SystemHelper.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EasyManager.SystemHelper.Core.dll": {}
         }
       }
     }
@@ -12025,6 +12036,11 @@
       "type": "project",
       "path": "../EasyManager.Infra.Data/EasyManager.Infra.Data.csproj",
       "msbuildProject": "../EasyManager.Infra.Data/EasyManager.Infra.Data.csproj"
+    },
+    "EasyManager.SystemHelper.Core/1.0.0": {
+      "type": "project",
+      "path": "../EasyManager.SystemHelper.Core/EasyManager.SystemHelper.Core.csproj",
+      "msbuildProject": "../EasyManager.SystemHelper.Core/EasyManager.SystemHelper.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {

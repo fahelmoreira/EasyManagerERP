@@ -8,6 +8,7 @@ using EasyManager.Domain.Core.Notifications;
 using EasyManager.Domain.Events;
 using EasyManager.Domain.Interfaces;
 using EasyManager.Domain.Models;
+using EasyManager.Domain.Types;
 using MediatR;
 
 namespace EasyManager.Domain.CommandHandlers
@@ -69,17 +70,24 @@ namespace EasyManager.Domain.CommandHandlers
             }
 
             //Validates the products
-            foreach (var p in bundles)
+            if(product.ProductType == ProductType.Bundle)
             {
-                var pd = _repository.GetById(p.Id);
-                if (pd.IsNull())
+                foreach (var p in bundles)
                 {
-                    _bus.RaiseEvent(new DomainNotification("Product invalid", $"The product with ID {p.Id} is not valid"));
-                    isValid = false;
-                    continue;
+                    var pd = _repository.GetById(p.Product.Id);
+                    if (pd.IsNull())
+                    {
+                        _bus.RaiseEvent(new DomainNotification("Product invalid", $"The product with ID {p.Id} is not valid"));
+                        isValid = false;
+                        continue;
+                    }
+                    
+                    p.Id = pd.Id;
+                    p.Product = pd;
                 }
-
-                p.Product = pd;
+                product.Immobilized = 0;
+                product.Consumption = 0;
+                product.Resale = 0;
             }
 
             if(!isValid)

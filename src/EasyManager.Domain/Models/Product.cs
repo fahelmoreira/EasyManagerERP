@@ -150,7 +150,7 @@ namespace EasyManager.Domain.Models
             Bundles = new List<ProductBundle<Product>>();
         }
         
-        public Product(Guid category, Guid manufacture, List<Attribute> attributes, List<SalesTable> salesTables)
+        public Product(Guid category, Guid manufacture, List<Attribute> attributes, List<SalesTable> salesTable)
         {
             SoldSeparately = true;
             Active = true;
@@ -158,7 +158,7 @@ namespace EasyManager.Domain.Models
             Category = new Category {Id = category};
             Manufacture = new Manufacture{Id = manufacture};
             Attributes = JsonConvert.SerializeObject(attributes);
-            SalesTable = JsonConvert.SerializeObject(salesTables);
+            SalesTable = JsonConvert.SerializeObject(salesTable);
         }
     }
 }
