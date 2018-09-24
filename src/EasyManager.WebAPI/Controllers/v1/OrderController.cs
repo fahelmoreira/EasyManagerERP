@@ -3,15 +3,17 @@ using EasyManager.Application.Interfaces;
 using EasyManager.Application.ViewModels;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Notifications;
+using EasyManager.WebAPI.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyManager.WebAPI.Controllers
+namespace EasyManager.WebAPI.Controllers.v1
 {
     [Route("[Controller]")]
-    public class CategoryController : ApiController<ICategoryAppService>
+    [Version(1)]
+    public class OrderController : ApiController<IOrderAppService>
     {
-        public CategoryController(ICategoryAppService appService, 
+        public OrderController(IOrderAppService appService, 
                                   INotificationHandler<DomainNotification> notifications, 
                                   IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
@@ -22,7 +24,7 @@ namespace EasyManager.WebAPI.Controllers
         {
             return Response(_appService.GetAll());
         }
-        
+
         [HttpGet("{id:Guid}")]
         public IActionResult Get(Guid id)
         {
@@ -30,39 +32,46 @@ namespace EasyManager.WebAPI.Controllers
         }
         
         [HttpPost]
-        public IActionResult Post([FromBody] CategoryViewModel category)
+        public IActionResult Post([FromBody] OrderViewModel order)
         {
-             if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(category);
+                return Response(order);
             }
 
-            _appService.Register(category);
+            _appService.Register(order);
 
-            return Response("Category successfully created");
+            return Response("Order successfully created");
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] CategoryViewModel category)
+        public IActionResult Put([FromBody] OrderViewModel order)
         {
-             if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(category);
+                return Response(order);
             }
 
-            _appService.Update(category);
+            _appService.Update(order);
 
-            return Response("Category successfully updated");
+            return Response("Order successfully updated");
+
         }
 
         [HttpDelete]
         public IActionResult Delete([FromBody] Guid id)
         {
+            if(!ModelState.IsValid)
+            {
+                NotifyModelStateErrors();
+                return Response(id);
+            }
+
             _appService.Remove(id);
 
-            return Response("Customer successfully removed from the database");
+            return Response("Order successfully removed");
         }
     }
 }

@@ -3,17 +3,19 @@ using EasyManager.Application.Interfaces;
 using EasyManager.Application.ViewModels;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Notifications;
+using EasyManager.WebAPI.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyManager.WebAPI.Controllers
+namespace EasyManager.WebAPI.Controllers.v1
 {
     [Route("[Controller]")]
-    public class ManufactureController : ApiController<IManufactureAppServices>
+    [Version(1)]
+    public class PaymentMethodController : ApiController<IPaymentMethodAppService>
     {
-        public ManufactureController(IManufactureAppServices appService, 
-                                     INotificationHandler<DomainNotification> notifications, 
-                                     IMediatorHandler mediator) : base(appService, notifications, mediator)
+        public PaymentMethodController(IPaymentMethodAppService appService, 
+                                          INotificationHandler<DomainNotification> notifications, 
+                                          IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
         }
 
@@ -30,31 +32,31 @@ namespace EasyManager.WebAPI.Controllers
         }
         
         [HttpPost]
-        public IActionResult Post([FromBody] ManufactureViewModel manufacture)
+        public IActionResult Post([FromBody] PaymentMethodViewModel paymentMethod)
         {
             if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(manufacture);
+                return Response(paymentMethod);
             }
 
-            _appService.Register(manufacture);
+            _appService.Register(paymentMethod);
 
-            return Response("Manufacture successfully created");
+            return Response("PaymentMethod successfully created");
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] ManufactureViewModel manufacture)
+        public IActionResult Put([FromBody] PaymentMethodViewModel paymentMethod)
         {
             if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(manufacture);
+                return Response(paymentMethod);
             }
 
-            _appService.Update(manufacture);
+            _appService.Update(paymentMethod);
 
-            return Response("Manufacture successfully updated");
+            return Response("PaymentMethod successfully updated");
 
         }
 
@@ -69,7 +71,7 @@ namespace EasyManager.WebAPI.Controllers
 
             _appService.Remove(id);
 
-            return Response("Manufacture successfully removed");
+            return Response("PaymentMethod successfully removed");
         }
     }
 }

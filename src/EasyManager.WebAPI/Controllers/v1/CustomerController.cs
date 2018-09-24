@@ -6,12 +6,14 @@ using EasyManager.Application.Interfaces;
 using EasyManager.Application.ViewModels;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Notifications;
+using EasyManager.WebAPI.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyManager.WebAPI.Controllers
+namespace EasyManager.WebAPI.Controllers.v1
 {
     [Route("[Controller]")]
+    [Version(1)]
     public class CustomerController : ApiController<ICustomerAppService>
     {
         public CustomerController(ICustomerAppService appService,

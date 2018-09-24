@@ -3,17 +3,20 @@ using EasyManager.Application.Interfaces;
 using EasyManager.Application.ViewModels;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Notifications;
+using EasyManager.Domain.Models;
+using EasyManager.WebAPI.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyManager.WebAPI.Controllers
+namespace EasyManager.WebAPI.Controllers.v1
 {
     [Route("[Controller]")]
-    public class OrderController : ApiController<IOrderAppService>
+    [Version(1)]
+    public class ProductController : ApiController<IProductAppService>
     {
-        public OrderController(IOrderAppService appService, 
-                                  INotificationHandler<DomainNotification> notifications, 
-                                  IMediatorHandler mediator) : base(appService, notifications, mediator)
+        public ProductController(IProductAppService appService, 
+                                 INotificationHandler<DomainNotification> notifications, 
+                                 IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
         }
 
@@ -30,31 +33,31 @@ namespace EasyManager.WebAPI.Controllers
         }
         
         [HttpPost]
-        public IActionResult Post([FromBody] OrderViewModel order)
+        public IActionResult Post([FromBody] ProductViewModel product)
         {
             if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(order);
+                return Response(product);
             }
 
-            _appService.Register(order);
+            _appService.Register(product);
 
-            return Response("Order successfully created");
+            return Response("Product successfully created");
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] OrderViewModel order)
+        public IActionResult Put([FromBody] ProductViewModel product)
         {
             if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(order);
+                return Response(product);
             }
 
-            _appService.Update(order);
+            _appService.Update(product);
 
-            return Response("Order successfully updated");
+            return Response("Product successfully updated");
 
         }
 
@@ -69,7 +72,8 @@ namespace EasyManager.WebAPI.Controllers
 
             _appService.Remove(id);
 
-            return Response("Order successfully removed");
+            return Response("Product successfully removed");
         }
+    
     }
 }

@@ -3,16 +3,17 @@ using EasyManager.Application.Interfaces;
 using EasyManager.Application.ViewModels;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Notifications;
-using EasyManager.Domain.Models;
+using EasyManager.WebAPI.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyManager.WebAPI.Controllers
+namespace EasyManager.WebAPI.Controllers.v1
 {
     [Route("[Controller]")]
-    public class ProductController : ApiController<IProductAppService>
+    [Version(1)]
+    public class PurchaseContoller : ApiController<IPurchaseAppService>
     {
-        public ProductController(IProductAppService appService, 
+        public PurchaseContoller(IPurchaseAppService appService, 
                                  INotificationHandler<DomainNotification> notifications, 
                                  IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
@@ -31,31 +32,31 @@ namespace EasyManager.WebAPI.Controllers
         }
         
         [HttpPost]
-        public IActionResult Post([FromBody] ProductViewModel product)
+        public IActionResult Post([FromBody] PurchaseViewModel purchase)
         {
             if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(product);
+                return Response(purchase);
             }
 
-            _appService.Register(product);
+            _appService.Register(purchase);
 
-            return Response("Product successfully created");
+            return Response("Purchase successfully created");
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] ProductViewModel product)
+        public IActionResult Put([FromBody] PurchaseViewModel purchase)
         {
             if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(product);
+                return Response(purchase);
             }
 
-            _appService.Update(product);
+            _appService.Update(purchase);
 
-            return Response("Product successfully updated");
+            return Response("Purchase successfully updated");
 
         }
 
@@ -70,8 +71,7 @@ namespace EasyManager.WebAPI.Controllers
 
             _appService.Remove(id);
 
-            return Response("Product successfully removed");
+            return Response("Purchase successfully removed");
         }
-    
     }
 }

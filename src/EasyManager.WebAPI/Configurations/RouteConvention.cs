@@ -1,4 +1,6 @@
 using System.Linq;
+using EasyManager.WebAPI.Attributes;
+using EasyManager.WebAPI.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -18,12 +20,21 @@ namespace EasyManager.WebAPI.Configurations
             foreach (var controller in application.Controllers)
             {
                 var matchedSelectors = controller.Selectors.Where(x => x.AttributeRouteModel != null).ToList();
+                var versionSelector = controller.Attributes.Where(x=> x.GetType() == typeof(VersionAttribute));
+
                 if (matchedSelectors.Any())
                 {
                     foreach (var selectorModel in matchedSelectors)
                     {
-                        selectorModel.AttributeRouteModel = AttributeRouteModel.CombineAttributeRouteModel(_centralPrefix,
+                        if(versionSelector.Any())
+                        {
+                            var v = (VersionAttribute)versionSelector.First();
+                            _centralPrefix.Template = _centralPrefix.Template.Replace("{version}", v.Version);
+                            selectorModel.AttributeRouteModel = AttributeRouteModel.CombineAttributeRouteModel(_centralPrefix,
                             selectorModel.AttributeRouteModel);
+                        }
+                        else
+                            selectorModel.AttributeRouteModel = null;
                     }
                 }
 

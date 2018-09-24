@@ -3,17 +3,19 @@ using EasyManager.Application.Interfaces;
 using EasyManager.Application.ViewModels;
 using EasyManager.Domain.Core.Bus;
 using EasyManager.Domain.Core.Notifications;
+using EasyManager.WebAPI.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyManager.WebAPI.Controllers
+namespace EasyManager.WebAPI.Controllers.v1
 {
     [Route("[Controller]")]
-    public class PurchaseContoller : ApiController<IPurchaseAppService>
+    [Version(1)]
+    public class ManufactureController : ApiController<IManufactureAppServices>
     {
-        public PurchaseContoller(IPurchaseAppService appService, 
-                                    INotificationHandler<DomainNotification> notifications, 
-                                    IMediatorHandler mediator) : base(appService, notifications, mediator)
+        public ManufactureController(IManufactureAppServices appService, 
+                                     INotificationHandler<DomainNotification> notifications, 
+                                     IMediatorHandler mediator) : base(appService, notifications, mediator)
         {
         }
 
@@ -30,31 +32,31 @@ namespace EasyManager.WebAPI.Controllers
         }
         
         [HttpPost]
-        public IActionResult Post([FromBody] PurchaseViewModel purchase)
+        public IActionResult Post([FromBody] ManufactureViewModel manufacture)
         {
             if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(purchase);
+                return Response(manufacture);
             }
 
-            _appService.Register(purchase);
+            _appService.Register(manufacture);
 
-            return Response("Purchase successfully created");
+            return Response("Manufacture successfully created");
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] PurchaseViewModel purchase)
+        public IActionResult Put([FromBody] ManufactureViewModel manufacture)
         {
             if(!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(purchase);
+                return Response(manufacture);
             }
 
-            _appService.Update(purchase);
+            _appService.Update(manufacture);
 
-            return Response("Purchase successfully updated");
+            return Response("Manufacture successfully updated");
 
         }
 
@@ -69,7 +71,7 @@ namespace EasyManager.WebAPI.Controllers
 
             _appService.Remove(id);
 
-            return Response("Purchase successfully removed");
+            return Response("Manufacture successfully removed");
         }
     }
 }
